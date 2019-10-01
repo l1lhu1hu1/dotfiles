@@ -3,7 +3,7 @@
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "mafredri/zsh-async"
-zplug "plugins/git", from:oh-my-zsh
+# zplug "plugins/git", from:oh-my-zsh
 # zplug "plugins/brew", from:oh-my-zsh
 zplug "plugins/brew-cask", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
@@ -75,7 +75,7 @@ function select-history() {
 zle -N select-history
 bindkey '^r' select-history
 ####################################################alias######################################################
-alias sss='source ~/.zshrc'
-source ~/.aliases
+alias sss='source ~/dotfiles/.zshrc'
+source ~/dotfiles/.aliases
 
 zplug load

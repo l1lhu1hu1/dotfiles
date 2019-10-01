@@ -58,9 +58,9 @@ function gpusoc(){
 }
 
 alias vi=vim
-alias vimrc='cd ~/.config/nvim'
+alias vimrc='vi ~/dotfiles/init.vim'
 alias bashrc='vim ~/.bashrc'
-alias zshrc='vim ~/.zshrc'
+alias zshrc='vim ~/dotfiles/.zshrc'
 alias g=open -a
 
 alias ll='ls -alF'
@@ -103,5 +103,3 @@ alias dok="docker"
 alias cp="cp -i"
 alias mv="mv -i"
 alias cpf="yes | cp"
-alias mvf="yes | mv"
-alias pro="cd $d/projects"
