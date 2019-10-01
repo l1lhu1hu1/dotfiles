@@ -1,0 +1,107 @@
+alias r=reset
+alias chb='chsh -s /bin/bash'
+alias chz='chsh -s /bin/zsh'
+alias class='cd $d/class'
+alias desk='cd $d'
+alias cra='create-react-app'
+d='/Users/kokitsumura/Desktop'
+c='$d/class'
+alias ee=exit
+alias vim=nvim
+
+function makec(){
+  cp -i $d/useful/ccc.c $PWD/$*.c;
+  vim $PWD/$*.c;
+}
+
+function makepmemo(){
+  dir_name=$(basename $PWD)
+  cp -i $IMP/for_papers/paper_memo_template.md $PWD/$dir_name.md;
+  vim $PWD/$dir_name.md;
+}
+
+function makebmemo(){
+  dir_name=$*
+  cp -i $IMP/for_papers/book_memo_template.md $PWD/$dir_name.md;
+  vim $PWD/$dir_name.md;
+}
+
+function makecpp(){
+  cp -i $d/useful/ccc.cpp $PWD/$*.cpp;
+  vim $PWD/$*.cpp;
+}
+
+#function cpc(){
+#  cp -i $d/useful/ccc.c $d/programming/c/$*.c;
+#  cd $d/programming/c;
+#  vim $d/programming/c/$*.c;
+#}
+
+#function cp+(){
+#  cp $d/useful/ccc.cpp $d/programming/c++/$*.cpp;
+#  cd $d/programming/c++;
+#  vim $d/programming/c++/$*.cpp;
+#}
+
+#function cpj(){
+#  cp $d/useful/Jjj.java $d/programming/java/$*.java;
+#  cd $d/programming/java;
+#  vim $d/programming/java/$*.java;
+#}
+
+function gtop(){
+  cd $(git rev-parse --show-toplevel);
+}
+
+function gpusoc(){
+  git push origin $(git symbolic-ref --short HEAD);
+}
+
+alias vi=vim
+alias vimrc='cd ~/.config/nvim'
+alias bashrc='vim ~/.bashrc'
+alias zshrc='vim ~/.zshrc'
+alias g=open -a
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+IMP="$d/important"
+alias imp="cd $IMP"
+#alias python=$PY3
+#alias python2=$PY2
+alias gpp=g++
+alias sl=ls
+alias vimcom="vim ~/.mycommand.vim"
+alias rm=rmtrash
+alias aliases='vim ~/.aliases'
+
+alias ga="gtop; rm Session.vim; git add ."
+alias gcm="git commit -m"
+alias gbr="git branch"
+alias gre="git rebase"
+alias gpul="git pull"
+alias gpus="git push"
+alias gpuso="git push origin"
+alias gpusom="git push origin master"
+alias gstat="git status"
+alias gd="gtop; git diff; cd -"
+alias gch="git checkout"
+alias gchm="git checkout master"
+alias gchb="git checkout -b"
+
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias cod="cd $d/codes/coding_memo"
+alias res="cd $d/research/research_project"
+alias summary="cd $d/research/research_project/summary"
+alias book="cd $d/research/research_project/summary/book"
+alias paper="cd $d/research/research_project/summary/paper"
+alias vimemo="vi $IMP/vimemo.md"
+alias dok="docker"
+alias cp="cp -i"
+alias mv="mv -i"
+alias cpf="yes | cp"
+alias mvf="yes | mv"
+alias pro="cd $d/projects"
