@@ -37,7 +37,25 @@ sh makeVimSymLinks.sh
 ## TODO
 - [ ] brewtap、brewcaskとは?
 - [ ] brewで必要なものを一括でインストールできる方法がないか探す
-- [ ] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
 - [ ] brewで必要なものを追加する
-- [ ] nvimの文字崩れとかを直す(iterm2側)
-- [ ] aliasesでPC名になっているところをwhoamiに置き換える
+- [ ] install.shに必要なものを追加する
+- [x] ricty for powerlineを追加する
+- [x] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
+- [x] aliasesでPC名になっているところをwhoamiに置き換える
+- [x] aliasをlocal依存のものと分割する
+
+## 必要なもの
+### ricty for powerline
+```
+brew tap sanemat/font
+brew install ricty --with-powerline
+cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
+fc-cache -vf
+```
+
+### vimでdeopleteを使うために必要
+```
+pip3 install --user pynvim
+pip3 install --user --upgrade pynvim
+```
+

@@ -52,7 +52,6 @@ if ! zplug check --verbose; then
     echo; zplug install
   fi
 fi
-# Then, source plugins and add commands to $PATH
 ####################################################FZF######################################################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
@@ -74,8 +73,18 @@ function select-history() {
 
 zle -N select-history
 bindkey '^r' select-history
+####################################################補完######################################################
+# word区切り
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+# 補完で大文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
 source ~/dotfiles/.aliases
+
+local_alias=~/dotfiles/.$(scutil --get ComputerName).aliases
+if [ -e $local_alias ]; then
+  source $local_alias
+fi
 
 zplug load

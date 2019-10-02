@@ -305,4 +305,4 @@ endfunction
 nnoremap fH :call TabMove(-1)<CR>
 nnoremap fL :call TabMove(1)<CR>
 
-:source ~/.mycommand.vim
+:source ~/dotfiles/.custom.vim
