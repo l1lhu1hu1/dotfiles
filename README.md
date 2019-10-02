@@ -19,9 +19,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-### 注意
-現状だとsymlinkで対応できていないから注意、一度autoloadとかのdirectoryを生成してからしか現状では使えない
-
 ## 使い方
 1. シンボリックリンクを貼る
 ### zshell
@@ -39,6 +36,7 @@ sh makeVimSymLinks.sh
 - [ ] brewで必要なものを一括でインストールできる方法がないか探す
 - [ ] brewで必要なものを追加する
 - [ ] install.shに必要なものを追加する
+- [ ] それぞれのファイルの役割を書く
 - [x] ricty for powerlineを追加する
 - [x] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
 - [x] aliasesでPC名になっているところをwhoamiに置き換える
