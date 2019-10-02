@@ -1,10 +1,11 @@
 alias r=reset
 alias chb='chsh -s /bin/bash'
 alias chz='chsh -s /bin/zsh'
-alias class='cd $d/class'
+#alias class='cd $d/class'
 alias desk='cd $d'
 alias cra='create-react-app'
-d='/Users/kokitsumura/Desktop'
+#TODO whoamiに直す
+d='/Users/anonymous/Desktop'
 c='$d/class'
 alias ee=exit
 alias vim=nvim
