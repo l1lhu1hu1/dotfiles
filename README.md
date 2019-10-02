@@ -35,7 +35,7 @@ sh makeVimSymLinks.sh
 - [ ] brewtap、brewcaskとは?
 - [ ] brewで必要なものを一括でインストールできる方法がないか探す
 - [ ] brewで必要なものを追加する
-- [ ] install.shに必要なものを追加する
+- [ ] install.shに必要なものを追加する(brew等の)
 - [ ] それぞれのファイルの役割を書く
 - [x] ricty for powerlineを追加する
 - [x] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
