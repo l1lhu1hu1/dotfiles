@@ -1,4 +1,4 @@
-# Dotfiles
+# dotfiles
 ## 構成
 - zsh & zplug
 - neovim & vim-plug
