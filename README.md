@@ -63,7 +63,7 @@ pip3 install --user --upgrade pynvim
 - [ ] install.shに必要なものを追加する(brew等の)
 - [ ] それぞれのファイルの役割をREADMEに書く
 - [ ] zshrcの中の必要のないものを削除して、環境依存のものと共通なものを切り分ける
-- [ ] init.vimの中の必要のないものを削除して、環境依存のものと共通なものを切り分ける
+- [ ] init.vimの中の必要のないものを削除して、ショートカット用のファイル(shortcuts.vimとか)を切り出す
 - [x] ricty for powerlineを追加する
 - [x] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
 - [x] aliasesでPC名になっているところをwhoamiに置き換える
@@ -71,7 +71,3 @@ pip3 install --user --upgrade pynvim
 
 ## Markdown Preview Plus
 `chrome://extensions`にいって、詳細をクリック後にファイルのURLへのアクセスを許可するをクリックする
-
-## Githubアカウント連携(2FAをつけている場合)
-`Developer settings`にいき、`Personal access tokens`でGenerate new tokenをする。その後に、
-
