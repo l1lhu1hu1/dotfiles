@@ -20,6 +20,8 @@ alias aliases='vim ~/dotfiles/.aliases'
 alias dot='cd ~/dotfiles'
 alias rm=rmtrash
 
+alias git=hub
+
 function gtop(){
   cd $(git rev-parse --show-toplevel);
 }
