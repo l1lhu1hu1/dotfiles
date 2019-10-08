@@ -20,7 +20,8 @@ zplug "zsh-users/zsh-completions"
 #zplug "b4b4r07/emoji-cli"
 #zplug "greymd/tmux-xpanes"
 zplug "chrissicool/zsh-256color"
-
+# あいまい検索用
+# zplug "b4b4r07/enhancd", use:init.sh
 ####################################################Path######################################################
 # anyenv
 if [ -d $HOME/.anyenv ]; then
@@ -78,6 +79,8 @@ bindkey '^r' select-history
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 # 補完で大文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# 矢印で選択肢を選べるように
+zstyle ':completion:*:default' menu select=1
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
 source ~/dotfiles/.aliases

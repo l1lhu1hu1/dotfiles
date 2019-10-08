@@ -11,6 +11,7 @@ alias paper="cd $d/research/research_project/summary/paper"
 alias vimemo="vi $IMP/vimemo.md"
 c='$d/class'
 alias class='cd $d/class'
+alias pro='cd $d/projects'
 function makec(){
   cp -i $d/useful/ccc.c $PWD/$*.c;
   vim $PWD/$*.c;
