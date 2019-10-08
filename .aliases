@@ -31,7 +31,7 @@ function gpusoc(){
 }
 alias ga="gtop; rm Session.vim; git add ."
 alias gcm="git commit -m"
-alias gbr="git branch"
+alias gbr="git branch --sort=-committerdate --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gre="git rebase"
 alias gpul="git pull"
 alias gpus="git push"
@@ -42,6 +42,7 @@ alias gd="gtop; git diff; cd -"
 alias gch="git checkout"
 alias gchm="git checkout master"
 alias gchb="git checkout -b"
+alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
 
 alias cd1='cd ..'
 alias cd2='cd ../..'
