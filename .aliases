@@ -29,6 +29,14 @@ function gtop(){
 function gpusoc(){
   git push origin $(git symbolic-ref --short HEAD);
 }
+
+function gd(){
+  current_dir=$PWD
+  gtop
+  git diff
+  cd $current_dir
+}
+
 alias ga="gtop; rm Session.vim; git add ."
 alias gcm="git commit -m"
 alias gbr="git branch --sort=-committerdate --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
@@ -39,10 +47,10 @@ alias gpus="git push"
 alias gpuso="git push origin"
 alias gpusom="git push origin master"
 alias gstat="git status"
-alias gd="gtop; git diff; cd -"
 alias gch="git checkout"
 alias gchm="git checkout master"
 alias gchb="git checkout -b"
+alias gdif="git diff"
 
 alias cd1='cd ..'
 alias cd2='cd ../..'
