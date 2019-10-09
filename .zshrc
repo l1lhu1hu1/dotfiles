@@ -22,6 +22,7 @@ zplug "zsh-users/zsh-history-substring-search"
 # 補完
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
+# TODO cd -を効くようにする gdも直す
 zplug "b4b4r07/enhancd", use:init.sh
 zplug "rupa/z", use:"*.sh"
 
