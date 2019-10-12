@@ -30,17 +30,15 @@ zplug "rupa/z", use:"*.sh"
 # TODO pathの設定を直す&ファイルに切り出す
 # TODO 読み込みの速度を上げる
 # TODO zplug clean/clearをした時に、rmtrashで怒られないようにする(現状だとerror出るたびalias rm=rmで対処している)
-## anyenv
-#if [ -d $HOME/.anyenv ]; then
-#  export PATH="$HOME/.anyenv/bin:$PATH"
-#  eval "$(anyenv init - zsh)"
-#fi
+# anyenv
+if [ -d $HOME/.anyenv ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init - zsh)"
+fi
 #
-## gopath
-#export GOPATH=${HOME}/go
-#export PATH=${PATH}:${GOPATH}/bin
-#
-## export ZSH=/Users/kokitsumura/.oh-my-zsh
+# gopath setting. Downloaded from golang.org
+export PATH=$PATH:/usr/local/go/bin
+
 #export XDG_CONFIG_HOME="$HOME/.config"
 #NODEBREW_HOME=/usr/local/var/nodebrew/current
 #export NODEBREW_HOME
@@ -53,11 +51,11 @@ zplug "rupa/z", use:"*.sh"
 #export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
 #export PATH=$PATH:/usr/local/mysql/bin
 #export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-# TODO 重複パスを登録しない
-# typeset -U path cdpath fpath manpath
-# Install plugins if there are plugins that have not been installed
+# 重複パスを登録しない
+typeset -U path cdpath fpath manpath
 
 ############################################zplug installation####################################################
+# Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
@@ -112,7 +110,7 @@ setopt correct
 setopt no_beep
 # ビープ音の停止(補完時)
 setopt nolistbeep
-
+# ENHANCD_DISABLE_HOME=0
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
 source ~/dotfiles/.aliases

@@ -1,17 +1,8 @@
-"*****************************************************************************
-"" Vim-PLug core
-"*****************************************************************************
+"----------------------------------------------------
+" Vim Plug Core  Setting
+"----------------------------------------------------
 if has('vim_starting')
   set nocompatible " Be iMproved
-endif
-
-" ESCキーを押した時にIMEに無効化させる
-if has('mac')
-  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
-  augroup MyIMEGroup
-    autocmd!
-    autocmd InsertLeave * :call system(g:imeoff)
-  augroup END
 endif
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
@@ -30,9 +21,9 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
-"*****************************************************************************
-"" Plug install packages
-"*****************************************************************************
+"----------------------------------------------------
+" Plug Install Packages Setting
+"----------------------------------------------------
 " Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
@@ -76,7 +67,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'w0rp/ale'
 " Plug cok 検討する
-"TODO $GOPATHの設定について見直さないとGoDocが動かない
 
 let g:make = 'gmake'
 if exists('make')
@@ -91,11 +81,9 @@ endif
 
 call plug#end()
 
-" Required
-
-"*****************************************************************************
-"" Basic Setting
-"*****************************************************************************
+"----------------------------------------------------
+" Basic Setting
+"----------------------------------------------------
 " Visual modeでのpasteを直す
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
@@ -117,9 +105,10 @@ let g:ale_sign_warning = '⚠️'
 " LSPに任せる機能をOFFにする
 " let g:go_def_mapping_enabled = 0
 " let g:go_doc_keywordprg_enabled = 0
-"*****************************************************************************
-"" Search Setting
-"*****************************************************************************
+
+"----------------------------------------------------
+" Search Setting
+"----------------------------------------------------
 set ignorecase
 " 検索の時に大文字が含まれている場合は区別して検索する
 set smartcase
@@ -161,9 +150,9 @@ function! Extract_from_grep(line)
   normal! zz
 endfunction
 
-"*****************************************************************************
-"" Cursor Setting
-"*****************************************************************************
+"----------------------------------------------------
+" Cursor Setting
+"----------------------------------------------------
 set whichwrap=b,s,h,l,<,>,[,],~
 " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
 set number
@@ -183,9 +172,10 @@ if has('mouse')
 endif
 " TODO 調べる
 "set mousemodel=popup
-"*****************************************************************************
-"" Visual Setting
-"*****************************************************************************
+
+"----------------------------------------------------
+" Visual Setting
+"----------------------------------------------------
 syntax on
 colorscheme badwolf
 highlight Normal ctermbg=none
@@ -194,9 +184,10 @@ let g:badwolf_original = 1
 let g:airline_powerline_fonts = 1
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-"*****************************************************************************
-"" Status Line Setting
-"*****************************************************************************
+
+"----------------------------------------------------
+" StatusLine Setting
+"----------------------------------------------------
 set showcmd
 " 入力中のコマンドをステータスに表示する
 set laststatus=2
@@ -215,9 +206,10 @@ let g:airline#extensions#tabline#buffer_idx_mode = 0
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-"*****************************************************************************
+
+"----------------------------------------------------
 " Tab and Indent Setting
-"*****************************************************************************
+"----------------------------------------------------
 set expandtab
 " タブ入力を複数の空白入力に置き換える
 set tabstop=2
@@ -238,21 +230,24 @@ set clipboard=unnamed
 "let g:indent_guides_guide_size = 1 " ガイドの幅
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#010101  ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#0F0F0F  ctermbg=233
-"*****************************************************************************
+
+"----------------------------------------------------
 " Bracket and Tag Setting
-"*****************************************************************************
+"----------------------------------------------------
 set showmatch " 括弧の対応関係を一瞬表示する
 source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
-"*****************************************************************************
-" Font and Encoding Setting
-"*****************************************************************************
+
+"----------------------------------------------------
+" Font and Encode Setting
+"----------------------------------------------------
 set fileencodings=utf-8,iso-2022-jp,sjis,ccp932,euc-jp " 読み込み時の文字コードの自動判別. 左側が優先される
 set encoding=utf-8
 set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
 set ambiwidth=double " □や○文字が崩れる問題を解決
-"*****************************************************************************
+
+"----------------------------------------------------
 " Clipboard Paste Setting
-"*****************************************************************************
+"----------------------------------------------------
 " 挿入モードでクリップボードからペーストする時に自動でインデントさせないようにする
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
@@ -264,17 +259,22 @@ if &term =~ "xterm"
     endfunction
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
+
+"----------------------------------------------------
+" Go Setting
+"----------------------------------------------------
+autocmd FileType go nmap ge <Plug>(go-def-vertical)
+autocmd FileType go nmap gr :GoRun %<CR> 
+
 "----------------------------------------------------
 " Other Setting
 "----------------------------------------------------
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " バッファを切替えてもundoの効力を失わない
 "set hidden
 set nobackup
 set noswapfile
-autocmd FileType go nnoremap <silent><Space>gr :GoRun %<CR> 
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 let g:tex_conceal = ''
-" let g:split_term_default_shell = "zsh"
 inoremap <silent> jj <ESC>:<C-u>w<CR>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
@@ -304,5 +304,14 @@ endfunction
 
 nnoremap fH :call TabMove(-1)<CR>
 nnoremap fL :call TabMove(1)<CR>
+
+" ESCキーを押した時にIMEに無効化させる
+if has('mac')
+  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
+  augroup MyIMEGroup
+    autocmd!
+    autocmd InsertLeave * :call system(g:imeoff)
+  augroup END
+endif
 
 :source ~/dotfiles/.custom.vim
