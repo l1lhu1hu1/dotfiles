@@ -53,14 +53,25 @@ zle -N select-history
 bindkey '^r' select-history
 
 ####################################################suggestion####################################################
-# TODO 部分一致での自動補完が欲しい
 # word区切り
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-# 補完で大文字を区別しない
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# 部分一致、大文字小文字を区別しない
+if [[ "$CASE_SENSITIVE" = true ]]; then
+  zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
+else
+  if [[ "$HYPHEN_INSENSITIVE" = true ]]; then
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
+  else
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+  fi
+fi
+unset CASE_SENSITIVE HYPHEN_INSENSITIVE
+
 # 矢印で選択肢を選べるように
 setopt auto_menu
 zstyle ':completion:*:default' menu select=1
+
 # cd -<tab>で以前移動したディレクトリを表示
 setopt auto_pushd
 setopt complete_in_word
@@ -81,5 +92,6 @@ local_alias=~/dotfiles/.$(scutil --get ComputerName).aliases
 [ -e $local_alias ] && source $local_alias
 
 ####################################################path######################################################
+# TODO anyenvの読み込みが遅いから、lazyload等できるようにする
 local_path=~/dotfiles/.$(scutil --get ComputerName).path
 [ -e $local_path ] && source $local_path
