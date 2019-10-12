@@ -3,13 +3,11 @@
 - zsh & zplug
 - neovim & vim-plug
 
-### 注意
-aliasesの中身を置き換える、必要のないPATHを消す等は必要
-
 ## zplug install
 ```
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 ```
+
 ## vim-plug install
 ```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -37,6 +35,13 @@ sh makeVimSymLinks.sh
 ```
 brew install neovim
 ```
+### Deoplete用の設定
+pyenvを入れると、pipもついてくるので、pipでpynvimとneovimを入れる必要がある
+```
+pip install pynvim
+pip install neovim
+```
+
 ### ricty for powerline(neovimの表示用)
 #### Step 1
 ```
@@ -49,12 +54,6 @@ fc-cache -vf
 #### Step 2 
 iTerm側でfontの設定が必要。これと同じように設定する  
 <img src="./iterm_setting.png" height="600px">
-
-### vimでdeopleteを使うために必要
-```
-pip3 install --user pynvim
-pip3 install --user --upgrade pynvim
-```
 
 ## TODO
 - [ ] brewtap、brewcaskとは?
@@ -71,3 +70,15 @@ pip3 install --user --upgrade pynvim
 
 ## Markdown Preview Plus
 `chrome://extensions`にいって、詳細をクリック後にファイルのURLへのアクセスを許可するをクリックする
+
+## Nodenv and yarn installation
+```
+anyenv install nodenv
+nodenv install -l
+nodenv install (versionは自分で調べてから入れる)
+touch $(nodenv root)/default-packages
+mkdir -p "$(nodenv root)/plugins"
+git clone https://github.com/pine/nodenv-yarn-install.git "$(nodenv root)/plugins/nodenv-yarn-install" //yarn
+nodenv uninstall (最初に選んだversion)
+nodenv install (最初に選んだversion)
+```
