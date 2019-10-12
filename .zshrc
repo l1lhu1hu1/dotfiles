@@ -10,9 +10,8 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search"
 # 補完
 zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
-# TODO cd -を効くようにする
-zplug "b4b4r07/enhancd", use:init.sh
+zplug 'zsh-users/zsh-completions'
+
 zplug "rupa/z", use:"*.sh"
 
 ############################################zplug installation####################################################
@@ -25,34 +24,6 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-####################################################path######################################################
-# TODO pathの設定を直す&ファイルに切り出す & 読み込みの速度を上げる
-# anyenv setting
-if [ -d $HOME/.anyenv ]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
-  eval "$(anyenv init - zsh)"
-fi
-
-# gopath setting. Downloaded from golang.org
-export PATH=$PATH:/usr/local/go/bin
-
-# language setting
-export LANG=ja_JP.UTF-8
-export LC_ALL=ja_JP.UTF-8
-
-# editor and xdg setting
-export EDITOR=nvim
-export XDG_CONFIG_HOME="$HOME/.config"
-
-export PATH=$PATH:/usr/local/mysql/bin
-
-# for c++
-export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
-# export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-
-# 重複パスを登録しない
-typeset -U path cdpath fpath manpath
 
 ####################################################fzf######################################################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -101,11 +72,14 @@ setopt correct
 setopt no_beep
 # ビープ音の停止(補完時)
 setopt nolistbeep
+
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
 source ~/dotfiles/.aliases
 
 local_alias=~/dotfiles/.$(scutil --get ComputerName).aliases
-if [ -e $local_alias ]; then
-  source $local_alias
-fi
+[ -e $local_alias ] && source $local_alias
+
+####################################################path######################################################
+local_path=~/dotfiles/.$(scutil --get ComputerName).path
+[ -e $local_path ] && source $local_path
