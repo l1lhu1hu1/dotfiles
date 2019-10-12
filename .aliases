@@ -37,7 +37,12 @@ function gd(){
   cd $current_dir
 }
 
-alias ga="gtop; rm Session.vim; git add ."
+function gitadd(){
+  gtop
+  [ -e $PWD/Session.vim ] && rm $PWD/Session.vim
+  git add .
+}
+
 alias gcm="git commit -m"
 alias gbr="git branch --sort=-committerdate --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
@@ -50,6 +55,7 @@ alias gstat="git status"
 alias gch="git checkout"
 alias gchm="git checkout master"
 alias gchb="git checkout -b"
+alias ga=gitadd
 alias gdif="git diff"
 
 alias cd1='cd ..'

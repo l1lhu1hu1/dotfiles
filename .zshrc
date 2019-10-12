@@ -4,18 +4,16 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "mafredri/zsh-async"
 zplug 'dracula/zsh', as:theme
 zplug "chrissicool/zsh-256color"
-# 構文のハイライト
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # history
 zplug "zsh-users/zsh-history-substring-search"
 # 補完
 zplug "zsh-users/zsh-autosuggestions"
 zplug 'zsh-users/zsh-completions'
-
+# directory移動を楽に
 zplug "rupa/z", use:"*.sh"
 
 ############################################zplug installation####################################################
-# Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then
@@ -56,7 +54,7 @@ bindkey '^r' select-history
 # word区切り
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-# 部分一致、大文字小文字を区別しない
+# 部分一致も可能な補完
 if [[ "$CASE_SENSITIVE" = true ]]; then
   zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
 else
@@ -68,7 +66,7 @@ else
 fi
 unset CASE_SENSITIVE HYPHEN_INSENSITIVE
 
-# 矢印で選択肢を選べるように
+# 矢印で選択肢を選べる
 setopt auto_menu
 zstyle ':completion:*:default' menu select=1
 
