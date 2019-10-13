@@ -30,8 +30,8 @@ sh makeVimSymLinks.sh
 sh makeVimSymLinks.sh
 ```
 
-## neovim setting
-### neovim install
+## Neovim setting
+### Neovim install
 ```
 brew install neovim
 ```
@@ -42,7 +42,7 @@ pip install pynvim
 pip install neovim
 ```
 
-### ricty for powerline(neovimの表示用)
+### Ricty for powerline(neovimの表示用)
 #### Step 1
 ```
 brew tap sanemat/font
