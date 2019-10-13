@@ -55,19 +55,6 @@ fc-cache -vf
 iTerm側でfontの設定が必要。これと同じように設定する  
 <img src="./iterm_setting.png" height="600px">
 
-## TODO
-- [ ] brewtap、brewcaskとは?
-- [ ] brewで必要なものを一括でインストールできる方法がないか探す
-- [ ] brewで必要なものを追加する
-- [ ] install.shに必要なものを追加する(brew等の)
-- [ ] それぞれのファイルの役割をREADMEに書く
-- [ ] zshrcの中の必要のないものを削除して、環境依存のものと共通なものを切り分ける
-- [ ] init.vimの中の必要のないものを削除して、ショートカット用のファイル(shortcuts.vimとか)を切り出す
-- [x] ricty for powerlineを追加する
-- [x] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
-- [x] aliasesでPC名になっているところをwhoamiに置き換える
-- [x] aliasをlocal依存のものと分割する
-
 ## Markdown Preview Plus
 `chrome://extensions`にいって、詳細をクリック後にファイルのURLへのアクセスを許可するをクリックする
 
@@ -82,3 +69,13 @@ git clone https://github.com/pine/nodenv-yarn-install.git "$(nodenv root)/plugin
 nodenv uninstall (最初に選んだversion)
 nodenv install (最初に選んだversion)
 ```
+
+## TODO
+- [ ] brewtap、brewcask等で必要な物を一括でインストールできるようにする
+- [ ] それぞれのファイルの役割をREADMEに書く
+- [ ] init.vimの中の必要のないものを削除して、ショートカット用のファイル(shortcuts.vimとか)を切り出す
+- [x] zshrcの中の必要のないものを削除して、環境依存のものと共通なものを切り分ける
+- [x] ricty for powerlineを追加する
+- [x] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
+- [x] aliasesでPC名になっているところをwhoamiに置き換える
+- [x] aliasをlocal依存のものと分割する
