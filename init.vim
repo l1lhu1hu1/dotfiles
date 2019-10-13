@@ -2,15 +2,13 @@
 " Vim Plug Core  Setting
 "----------------------------------------------------
 if has('vim_starting')
-  set nocompatible " Be iMproved
+  set nocompatible
 endif
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
 let g:vim_bootstrap_langs = "go,html,javascript,python,ruby"
 let g:vim_bootstrap_editor = "nvim" " nvim or vim
-" let g:python3_host_prog = system('type pyenv &>/dev/null && echo -n "$(pyenv root)/versions/$(cat $(pyenv root)/version | head -n 1)/bin/python" || echo -n $(which python)')
-
 
 if !filereadable(vimplug_exists)
   echo "Installing Vim-Plug..."
@@ -24,14 +22,9 @@ endif
 "----------------------------------------------------
 " Plug Install Packages Setting
 "----------------------------------------------------
-" Required:
 call plug#begin(expand('~/.config/nvim/plugged'))
 
 Plug 'tpope/vim-commentary'
-" gc to comment out a line and gcap to comment out a paragraph
-
-"Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-rhubarb'
 Plug 'rhysd/accelerated-jk'
 Plug 'bfredl/nvim-miniyank'
 
@@ -44,11 +37,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" htmlタグとか""で囲みたい時に便利
-" Plug 'airblade/vim-gitgutter'
 Plug 'cohama/lexima.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" TODO gitgutterいれたい
 Plug 'benekastah/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -66,7 +58,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'w0rp/ale'
-" Plug cok 検討する
 
 let g:make = 'gmake'
 if exists('make')
@@ -74,37 +65,32 @@ if exists('make')
   Plug 'Shougo/vimproc.vim', {'do': g:make}
 endif
 
-"" Include user's extra bundle
 if filereadable(expand("~/.config/nvim/local_bundles.vim"))
   source ~/.config/nvim/local_bundles.vim
 endif
 
 call plug#end()
+let g:deoplete#enable_at_startup = 1
 
 "----------------------------------------------------
-" Basic Setting
+" Go and JS Setting
 "----------------------------------------------------
-" Visual modeでのpasteを直す
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
-filetype plugin indent on
-set rtp+=/usr/local/opt/fzf
-syntax enable
-let g:deoplete#enable_at_startup = 1
 " 保存時に必要なimportを自動的に挿入
 autocmd! BufWritePost * Neomake
 let g:neomake_javascript_enabled_makers = ['eslint']
-let g:go_fmt_command = "goimports"
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:ale_fixers = {
  \ 'javascript': ['eslint']
  \ }
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
-" let g:ale_fix_on_save = 1
-" LSPに任せる機能をOFFにする
-" let g:go_def_mapping_enabled = 0
-" let g:go_doc_keywordprg_enabled = 0
+
+"----------------------------------------------------
+" Go Setting
+"----------------------------------------------------
+let g:go_fmt_command = "goimports"
+autocmd FileType go nmap ge <Plug>(go-def-vertical)
+autocmd FileType go nmap gr :GoRun %<CR> 
 
 "----------------------------------------------------
 " Search Setting
@@ -118,54 +104,17 @@ set wrapscan
 set noincsearch
 " 検索結果文字列のハイライトを有効にする
 set hlsearch
-nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
-" 改行時に前の行の構文をチェックし次の行のインデントを増減する
-let g:fzf_layout = { 'window': '-tabnew' }
-" fzfではTabでいくつかの候補を取っておける
-nnoremap [fzf] <Nop>
-nmap     <Space>f [fzf]
-nnoremap <silent> [fzf]h :<C-u>:History<CR>
-nnoremap <silent> [fzf]r :Rg <C-R><C-W><CR>
-nnoremap <Space>r :<C-u>source ~/.config/nvim/init.vim<CR>
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-" nnoremap <silent> [fzf]f :<C-u>:GFiles?<CR>
-" nnoremap <silent> [fzf]a :<C-u>:GFiles<CR>
-" nnoremap <Space><Space> :<C-u>:Buffers<CR>
-nnoremap <silent> [fzf]s :call fzf#run({'source': 'git grep ' . expand('<cword>'), 'sink': function('Extract_from_grep')})<CR>
-command! -nargs=1 V call fzf#run({'source': 'rg -n "' . expand('<args>') . '"', 'sink': function('Extract_from_grep')})
-function! s:escape(path)
-  return substitute(a:path, ' ', '\\ ', 'g')
-endfunction
-
-function! Extract_from_grep(line)
-  let parts = split(a:line, ':')
-  let [fn, lno] = parts[0 : 1]
-  execute 'e '. s:escape(fn)
-  execute lno
-  normal! zz
-endfunction
+set rtp+=/usr/local/opt/fzf
 
 "----------------------------------------------------
 " Cursor Setting
 "----------------------------------------------------
-set whichwrap=b,s,h,l,<,>,[,],~
 " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
-set number
+set whichwrap=b,s,h,l,<,>,[,],~
 " 行番号を表示
-set cursorline
+set number
 " カーソルラインをハイライト
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
-nnoremap G Gzz
-nnoremap j gjzz
-nnoremap k gkzz
-nnoremap <down> gj
-nnoremap <up> gk
+set cursorline
 set backspace=indent,eol,start " バックスペースキーの有効化
 if has('mouse')
   set mouse=a
@@ -176,7 +125,8 @@ endif
 "----------------------------------------------------
 " Visual Setting
 "----------------------------------------------------
-syntax on
+syntax enable
+" syntax on
 colorscheme badwolf
 highlight Normal ctermbg=none
 autocmd colorscheme badwolf highlight Visual ctermbg=8
@@ -184,10 +134,6 @@ let g:badwolf_original = 1
 let g:airline_powerline_fonts = 1
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-
-"----------------------------------------------------
-" StatusLine Setting
-"----------------------------------------------------
 set showcmd
 " 入力中のコマンドをステータスに表示する
 set laststatus=2
@@ -195,6 +141,10 @@ set laststatus=2
 set showmode
 " 現在のモードを表示
 set ruler
+
+"----------------------------------------------------
+" StatusLine Setting
+"----------------------------------------------------
 " ステータスラインの右側にカーソルの位置を表示する
 set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
 " ステータスラインに表示する情報の指定
@@ -208,22 +158,21 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 "----------------------------------------------------
-" Tab and Indent Setting
+" Indent Setting
 "----------------------------------------------------
-set expandtab
 " タブ入力を複数の空白入力に置き換える
-set tabstop=2
+set expandtab
 " 画面上でタブ文字が占める幅
-set softtabstop=2
+set tabstop=2
 " 連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
-set autoindent
+set softtabstop=2
 " 改行時に前の行のインデントを継続する
-set smartindent
+set autoindent
 " 改行時に前の行の構文をチェックし次の行のインデントを増減する
-set shiftwidth=2
+set smartindent
 "martindentで増減する幅
-set clipboard=unnamed
-" ヤンクをクリップボードへ
+set shiftwidth=2
+filetype plugin indent on
 "let g:indent_guides_enable_on_vim_startup=1 " indent colors
 "let g:indent_guides_start_level = 1 " 1インデント目からガイドする
 "let g:indent_guides_auto_colors = 0 " 自動カラーを無効にして手動で設定する
@@ -246,8 +195,10 @@ set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先�
 set ambiwidth=double " □や○文字が崩れる問題を解決
 
 "----------------------------------------------------
-" Clipboard Paste Setting
+" Clipboard and Paste Setting
 "----------------------------------------------------
+" ヤンクをクリップボードへ
+set clipboard=unnamed
 " 挿入モードでクリップボードからペーストする時に自動でインデントさせないようにする
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
@@ -261,49 +212,18 @@ if &term =~ "xterm"
 endif
 
 "----------------------------------------------------
-" Go Setting
-"----------------------------------------------------
-autocmd FileType go nmap ge <Plug>(go-def-vertical)
-autocmd FileType go nmap gr :GoRun %<CR> 
-
-"----------------------------------------------------
 " Other Setting
 "----------------------------------------------------
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " バッファを切替えてもundoの効力を失わない
 "set hidden
 set nobackup
 set noswapfile
 let g:tex_conceal = ''
-inoremap <silent> jj <ESC>:<C-u>w<CR>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
 augroup MyXML
   autocmd!
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
-
-function! TabMove(direction)
-  let s:current_tab=tabpagenr()
-  let s:total_tabs = tabpagenr("$")
-
-  " Wrap to end
-  if s:current_tab == 1 && a:direction == -1
-    tabmove
-    " Wrap to start
-  elseif s:current_tab == s:total_tabs && a:direction == 1
-    tabmove 0
-    " Normal move
-  else
-    execute (a:direction > 0 ? "+" : "-") . "tabmove"
-  endif
-  echo "Moved to tab " . tabpagenr() . " (previosuly " . s:current_tab . ")"
-endfunction
-
-nnoremap fH :call TabMove(-1)<CR>
-nnoremap fL :call TabMove(1)<CR>
 
 " ESCキーを押した時にIMEに無効化させる
 if has('mac')
