@@ -59,7 +59,7 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 "----------------------------------------------------
-" taba and window key mapping
+" tabs and window key mapping
 "----------------------------------------------------
 function! TabMove(direction)
   let s:current_tab=tabpagenr()
@@ -112,7 +112,7 @@ nnoremap <Leader>q! :q!<CR>
 nnoremap <Leader>qa :qa<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>wq! :wq!<CR>
-inoremap <silent> jj <ESC>:<C-u>w<CR>
+" inoremap <silent> jj <ESC>:<C-u>w<CR>
 
 "----------------------------------------------------
 " search key mapping
@@ -128,6 +128,8 @@ nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "----------------------------------------------------
 " other key mapping
