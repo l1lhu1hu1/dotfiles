@@ -58,6 +58,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'w0rp/ale'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 let g:make = 'gmake'
 if exists('make')
@@ -68,6 +70,9 @@ endif
 if filereadable(expand("~/.config/nvim/local_bundles.vim"))
   source ~/.config/nvim/local_bundles.vim
 endif
+
+let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets/'
+let g:neosnippet#enable_completed_snippet = 1
 
 call plug#end()
 let g:deoplete#enable_at_startup = 1

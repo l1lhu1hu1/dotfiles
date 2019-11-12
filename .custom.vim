@@ -57,7 +57,6 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
 "----------------------------------------------------
 " tabs and window key mapping
 "----------------------------------------------------
@@ -112,7 +111,6 @@ nnoremap <Leader>q! :q!<CR>
 nnoremap <Leader>qa :qa<CR>
 nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>wq! :wq!<CR>
-" inoremap <silent> jj <ESC>:<C-u>w<CR>
 
 "----------------------------------------------------
 " search key mapping
@@ -128,6 +126,15 @@ nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+imap <C-i>     <Plug>(neosnippet_expand_or_jump)
+smap <C-i>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-i>     <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 "----------------------------------------------------
 " other key mapping
 "----------------------------------------------------
