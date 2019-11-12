@@ -14,12 +14,13 @@ zplug 'zsh-users/zsh-completions'
 zplug "rupa/z", use:"*.sh"
 
 ############################################zplug installation####################################################
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  fi
-fi
+# 最初にプラグインいれるときだけコメントアウトする
+# if ! zplug check --verbose; then
+#   printf "Install? [y/N]: "
+#   if read -q; then
+#     echo; zplug install
+#   fi
+# fi
 
 zplug load
 
