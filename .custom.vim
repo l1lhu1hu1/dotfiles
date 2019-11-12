@@ -128,10 +128,6 @@ nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
-" TODO もしかしたらanonymousの方では必要
-" inoremap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <Up> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 "----------------------------------------------------
 " other key mapping
 "----------------------------------------------------
