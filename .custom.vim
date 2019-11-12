@@ -53,10 +53,13 @@ noremap <S-h>   ^
 noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+imap <C-h> <Left>
+imap <C-l> <Right>
+
+inoremap <expr> <C-n> pumvisible() ? "" : "\<C-n>"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-p> pumvisible() ? "" : "\<C-p>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 "----------------------------------------------------
 " tabs and window key mapping
 "----------------------------------------------------
@@ -123,12 +126,13 @@ nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 "----------------------------------------------------
 " completion key mapping
 "----------------------------------------------------
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-imap <C-i>     <Plug>(neosnippet_expand_or_jump)
-smap <C-i>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-i>     <Plug>(neosnippet_expand_target)
+imap <C-i> <Plug>(neosnippet_expand_or_jump)
+smap <C-i> <Plug>(neosnippet_expand_or_jump)
+xmap <C-i> <Plug>(neosnippet_expand_target)
+
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
