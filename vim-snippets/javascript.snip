@@ -1,4 +1,57 @@
-snippet comment 
+snippet comment
+abbr debug variable using console log
   console.log('################################')
   console.log('${1}')
   console.log('################################')
+
+snippet clasc
+abbr class component
+  import React from 'react'
+  import { withStyles } from '@material-ui/core'
+  import * as qs from 'query-string';
+
+  @withStyles(theme => ({
+    container: {
+      marginTop: 45,
+    },
+  }))
+  class ${1} extends React.Component {
+    constructor(props) {
+      super(props)
+    }
+
+    componentDidMount() {
+    }
+
+    render() {
+      const {classes} = this.props
+      const index = qs.parse(this.props.location.search).index
+      return (
+        <div className={classes.container}>
+          {index}
+        </div>
+      )
+    }
+  }
+
+  export default $1
+
+
+snippet funcc
+abbr functional component
+  import React from 'react'
+  import { withStyles } from '@material-ui/core'
+
+  const ${1} = withStyles((theme) => ({
+    container: {
+      marginTop: 45,
+    },
+  }))((props) => {
+    const {classes} = props
+    return (
+      <div className={classes.container}>
+      </div>
+    )
+  })
+
+  export default $1
