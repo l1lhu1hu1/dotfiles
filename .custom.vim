@@ -1,8 +1,9 @@
 "----------------------------------------------------
-" nvim paste key mapping
+" nvim clipboard key mapping
 "----------------------------------------------------
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
+nmap <silent><Space>cp :let @+=expand("%:p")<CR>
 
 "----------------------------------------------------
 " fzf key mapping
