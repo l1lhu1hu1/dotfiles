@@ -1,5 +1,5 @@
-"----------------------------------------------------
-" nvim clipboard key mapping
+jjjjjjjjjjjjj"----------------------------------------------------
+" NVIMuuuuuuuuuuuuuuu clipboard key mapping
 "----------------------------------------------------
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
@@ -10,7 +10,7 @@ nmap <silent><Space>cp :let @+=expand("%:p")<CR>
 "----------------------------------------------------
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 let g:fzf_layout = { 'window': '-tabnew' }
-" fzfã§ã¯Tabã§ã„ãã¤ã‹ã®å€™è£œã‚’å–ã£ã¦ãŠã‘ã‚‹
+" fzf’¤Ç’¤ÏTab’¤Ç’¤¤’¤¯’¤Ä’¤«’¤Î’¸õ’Êä’¤ò’¼è’¤Ã’¤Æ’¤ª’¤±’¤ë
 nnoremap [fzf] <Nop>
 nmap     <Space>f [fzf]
 nnoremap <silent> [fzf]h :<C-u>:History<CR>
@@ -84,7 +84,7 @@ endfunction
 " The prefix key.
 nnoremap [Tag] <Nop>
 nmap t [Tag]
-" Tab jump. t1 ã§1ç•ªå·¦ã®ã‚¿ãƒ–ã€t2 ã§1ç•ªå·¦ã‹ã‚‰2ç•ªç›®ã®ã‚¿ãƒ–ã«ã‚¸ãƒ£ãƒ³ãƒ—
+" Tab jump. t1 ’¤Ç1’ÈÖ’º¸’¤Î’¥¿’¥Ö’¡¢t2 ’¤Ç1’ÈÖ’º¸’¤«’¤é2’ÈÖ’ÌÜ’¤Î’¥¿’¥Ö’¤Ë’¥¸’¥ã’¥ó’¥×
 for n in range(1, 9)
   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
@@ -143,7 +143,7 @@ endif
 "----------------------------------------------------
 " other key mapping
 "----------------------------------------------------
-" xã—ãŸçµæœã‚’ãƒ¬ã‚¸ã‚¹ã‚¿ã«ä¿å­˜ã—ãªã„
+" x’¤·’¤¿’·ë’²Ì’¤ò’¥ì’¥¸’¥¹’¥¿’¤Ë’Êİ’Â¸’¤·’¤Ê’¤¤
 nnoremap x "_x
 
 nnoremap ZZ <nop>
@@ -154,8 +154,8 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 nmap <Leader>e <Plug>(easymotion-overwin-f2)
 " for :term
 tnoremap <Esc><Esc> <C-\><C-n>
-nmap <silent><Space>tt :tabe\|:term<CR>
-nmap <silent><Space>ts :vs\|:term<CR>
+nmap <silent><Space>tt :tabe|:term<CR>
+nmap <silent><Space>ts :vs|:term<CR>
 
 nnoremap ; :
 

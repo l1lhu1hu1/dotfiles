@@ -51,7 +51,6 @@ function select-history() {
 
 zle -N select-history
 bindkey '^r' select-history
-bindkey -v
 ####################################################suggestion####################################################
 # word区切り
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
@@ -83,6 +82,11 @@ setopt correct
 setopt no_beep
 # ビープ音の停止(補完時)
 setopt nolistbeep
+# after cd do ls
+setopt auto_cd
+function chpwd() { ls }
+# zsh cli vim
+bindkey -v
 
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
