@@ -134,7 +134,8 @@ syntax enable
 " syntax on
 colorscheme badwolf
 highlight Normal ctermbg=none
-autocmd colorscheme badwolf highlight Visual ctermbg=8
+" autocmd colorscheme badwolf highlight Visual ctermbg=8
+hi Visual ctermfg=255 ctermbg=39
 let g:badwolf_original = 1
 let g:airline_powerline_fonts = 1
 set list
