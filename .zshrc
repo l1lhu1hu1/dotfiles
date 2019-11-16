@@ -12,6 +12,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug 'zsh-users/zsh-completions'
 # directory移動を楽に
 zplug "rupa/z", use:"*.sh"
+zplug "b4b4r07/zsh-vimode-visual", defer:3
 
 ############################################zplug installation####################################################
 # 最初にプラグインいれるときだけコメントアウトする
@@ -50,7 +51,7 @@ function select-history() {
 
 zle -N select-history
 bindkey '^r' select-history
-
+bindkey -v
 ####################################################suggestion####################################################
 # word区切り
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
