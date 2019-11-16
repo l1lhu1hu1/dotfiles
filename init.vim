@@ -134,7 +134,6 @@ syntax enable
 " syntax on
 colorscheme badwolf
 highlight Normal ctermbg=none
-" autocmd colorscheme badwolf highlight Visual ctermbg=8
 hi Visual ctermfg=255 ctermbg=39
 let g:badwolf_original = 1
 let g:airline_powerline_fonts = 1
@@ -156,7 +155,7 @@ set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%
 " ステータスラインに表示する情報の指定
 highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=white
 " ステータスラインの色
-let g:airline_theme = 'aurora'
+let g:airline_theme = 'luna'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 let g:airline#extensions#tabline#show_buffers = 0
