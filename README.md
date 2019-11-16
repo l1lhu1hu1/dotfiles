@@ -68,12 +68,12 @@ mkdir -p "$(nodenv root)/plugins"
 git clone https://github.com/pine/nodenv-yarn-install.git "$(nodenv root)/plugins/nodenv-yarn-install" //yarn
 nodenv uninstall (最初に選んだversion)
 nodenv install (最初に選んだversion)
+yarn add global tern
 ```
 
 ## TODO
 - [ ] brewtap、brewcask等で必要な物を一括でインストールできるようにする
 - [ ] それぞれのファイルの役割をREADMEに書く
-- [ ] init.vimの中の必要のないものを削除して、ショートカット用のファイル(shortcuts.vimとか)を切り出す
 - [x] zshrcの中の必要のないものを削除して、環境依存のものと共通なものを切り分ける
 - [x] ricty for powerlineを追加する
 - [x] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
