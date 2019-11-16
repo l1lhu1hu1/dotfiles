@@ -60,6 +60,7 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'w0rp/ale'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'alvan/vim-closetag'
 
 let g:make = 'gmake'
 if exists('make')
@@ -89,6 +90,7 @@ let g:ale_fixers = {
  \ }
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
+let g:closetag_filenames = '*.html,*.js,*.jsx'
 
 "----------------------------------------------------
 " Go Setting
