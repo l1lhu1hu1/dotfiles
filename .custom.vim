@@ -111,10 +111,10 @@ nnoremap fL :call TabMove(1)<CR>
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>q! :q!<CR>
+nnoremap <Leader>q1 :q!<CR>
 nnoremap <Leader>qa :qa<CR>
 nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>wq! :wq!<CR>
+nnoremap <Leader>wq1 :wq!<CR>
 
 "----------------------------------------------------
 " search key mapping
