@@ -1,10 +1,14 @@
 snippet dbg
-abbr debug variable using console log
+abbr debv and dbgs combined
   console.log('###############${1}#################')
-  console.log($1)
+  console.log('$1', $1)
   console.log('###############$1#################')
 
-snippet shp
+snippet dbgv
+abbr debug variable using console log
+  console.log('${1}', $1)
+
+snippet dbgs
 abbr insert console.log('################################')
   console.log('################################')
 

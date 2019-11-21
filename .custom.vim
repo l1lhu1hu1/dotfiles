@@ -15,7 +15,7 @@ nnoremap [fzf] <Nop>
 nmap     <Space>f [fzf]
 nnoremap <silent> [fzf]h :<C-u>:History<CR>
 nnoremap <silent> [fzf]r :Rg <C-R><C-W><CR>
-nnoremap <Space>rrr :<C-u>source ~/.config/nvim/init.vim<CR>
+nnoremap <Space>r :<C-u>source ~/.config/nvim/init.vim<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
