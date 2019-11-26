@@ -12,7 +12,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug 'zsh-users/zsh-completions'
 # directory移動を楽に
 zplug "rupa/z", use:"*.sh"
-zplug "b4b4r07/zsh-vimode-visual", defer:3
+# zplug "b4b4r07/zsh-vimode-visual", defer:3
 
 ############################################zplug installation####################################################
 # 最初にプラグインいれるときだけコメントアウトする
@@ -85,8 +85,6 @@ setopt nolistbeep
 # after cd do ls
 setopt auto_cd
 function chpwd() { ls }
-# zsh cli vim
-bindkey -v
 
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
