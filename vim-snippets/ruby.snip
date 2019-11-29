@@ -11,3 +11,16 @@ abbr debug variable using console log
 snippet dbgs
 abbr insert puts '################################'
   puts '###############$1#################'
+
+snippet each
+abbr insert each
+  ${1}.each do |${2}|
+    puts $2
+  end
+
+snippet eachin
+abbr insert each_with_index
+  ${1}.each_with_index do |${2}, i|
+    puts $2
+    puts i
+  end
