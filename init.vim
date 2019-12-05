@@ -61,6 +61,7 @@ Plug 'w0rp/ale'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'alvan/vim-closetag'
+Plug 'kien/ctrlp.vim'
 
 let g:make = 'gmake'
 if exists('make')
@@ -112,6 +113,8 @@ set noincsearch
 " 検索結果文字列のハイライトを有効にする
 set hlsearch
 set rtp+=/usr/local/opt/fzf
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "----------------------------------------------------
 " Cursor Setting
