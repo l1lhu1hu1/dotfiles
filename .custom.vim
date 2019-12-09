@@ -54,8 +54,8 @@ noremap <S-h>   ^
 noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
-imap <C-h> <Left>
-imap <C-l> <Right>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
 inoremap <expr> <C-n> pumvisible() ? "" : "\<C-n>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
