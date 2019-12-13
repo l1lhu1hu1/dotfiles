@@ -71,6 +71,9 @@ nodenv install (最初に選んだversion)
 yarn add global tern
 ```
 
+## karabiner element
+Add ruleからのimport more rules from the internetで日本語入力時のesc(vim)を入れる
+
 ## TODO
 - [ ] brewtap、brewcask等で必要な物を一括でインストールできるようにする
 - [ ] それぞれのファイルの役割をREADMEに書く
