@@ -236,12 +236,12 @@ augroup MyXML
 augroup END
 
 " ESCキーを押した時にIMEに無効化させる
-if has('mac')
-  let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
-  augroup MyIMEGroup
-    autocmd!
-    autocmd InsertLeave * :call system(g:imeoff)
-  augroup END
-endif
+" if has('mac')
+"   let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
+"   augroup MyIMEGroup
+"     autocmd!
+"     autocmd InsertLeave * :call system(g:imeoff)
+"   augroup END
+" endif
 
 :source ~/dotfiles/.custom.vim
