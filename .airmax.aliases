@@ -2,7 +2,8 @@ IMP="$d/important"
 alias imp="cd $IMP"
 #alias python=$PY3
 #alias python2=$PY2
-alias gpp=g++
+# alias gpp=g++
+alias atc="cd $d/codes/at_coder"
 alias cod="cd $d/codes/coding_memo"
 alias res="cd $d/research/research_project"
 alias summary="cd $d/research/research_project/summary"
@@ -15,6 +16,13 @@ alias pro='cd $d/projects'
 function makec(){
   cp -i $d/useful/ccc.c $PWD/$*.c;
   vim $PWD/$*.c;
+}
+
+function gp(){
+  f_name=$*
+  output_file="${f_name}.out"
+  g++ -o $output_file "${f_name}.cpp"
+  ./$output_file
 }
 
 function makepmemo(){
