@@ -10,6 +10,7 @@ alias summary="cd $d/research/research_project/summary"
 alias book="cd $d/research/research_project/summary/book"
 alias paper="cd $d/research/research_project/summary/paper"
 alias vimemo="vi $IMP/vimemo.md"
+alias sim="open -a Simulator"
 c='$d/class'
 alias class='cd $d/class'
 alias pro='cd $d/projects'
