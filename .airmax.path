@@ -8,7 +8,7 @@ fi
 # gopath setting. Downloaded from golang.org
 export GOPATH="$HOME/go"
 PATH="$GOPATH/bin:$PATH"
-export PATH="$PATH:~/flutter/bin"
+export PATH="$PATH:/Users/kokitsumura/flutter/bin"
 # export PATH=$PATH:/usr/local/go/bin
 
 # language setting
