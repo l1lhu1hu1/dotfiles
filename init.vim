@@ -62,6 +62,9 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'kien/ctrlp.vim'
+" flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
 
 let g:make = 'gmake'
 if exists('make')
