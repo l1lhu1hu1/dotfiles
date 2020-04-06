@@ -81,6 +81,7 @@ let g:neosnippet#enable_completed_snippet = 1
 
 call plug#end()
 let g:deoplete#enable_at_startup = 1
+let NERDTreeShowHidden = 1
 
 "----------------------------------------------------
 " Go and JS Setting
