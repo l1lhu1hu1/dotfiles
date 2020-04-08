@@ -62,9 +62,11 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'kien/ctrlp.vim'
+Plug 'mattn/vim-sonictemplate'
 " flutter
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
+
 
 let g:make = 'gmake'
 if exists('make')
@@ -82,6 +84,7 @@ let g:neosnippet#enable_completed_snippet = 1
 call plug#end()
 let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
+let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
 
 "----------------------------------------------------
 " Go and JS Setting
