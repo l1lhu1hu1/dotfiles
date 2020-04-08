@@ -90,6 +90,7 @@ let NERDTreeShowHidden = 1
 autocmd! BufWritePost Neomake "保存時に実行する
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
+let g:go_template_autocreate = 0
 let g:ale_fixers = {
  \ 'javascript': ['eslint']
  \ }
