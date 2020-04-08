@@ -40,6 +40,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'cohama/lexima.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 " TODO gitgutterいれたい
 Plug 'benekastah/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
@@ -54,7 +55,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'sjl/badwolf'
 Plug 'vimlab/split-term.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'preservim/nerdtree'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'w0rp/ale'
@@ -63,6 +64,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'alvan/vim-closetag'
 Plug 'kien/ctrlp.vim'
 Plug 'mattn/vim-sonictemplate'
+Plug 'simeji/winresizer'
 " flutter
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
@@ -85,6 +87,7 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
+let g:winresizer_start_key = '<c-w>'
 
 "----------------------------------------------------
 " Go and JS Setting
