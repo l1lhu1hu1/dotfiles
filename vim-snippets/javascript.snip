@@ -12,17 +12,29 @@ snippet dbs
 abbr insert console.log('################################')
   console.log('###############${1}#################')
 
+snippet arr
+abbr arrow function
+  const ${1} = () => {
+    ${2}
+  }
+
+snippet prom
+  const ${1} = (${2}) => {
+    return new Promise((resolve, reject) => {
+      return resolve()
+    })
+  }
+
 snippet clc
 abbr class component
   import React from 'react'
-  import { withStyles } from '@material-ui/core'
-  import * as qs from 'query-string';
+  import { makeStyles } from '@material-ui/core/styles'
 
-  @withStyles(theme => ({
+  const useStyles = makeStyles({
     container: {
-      marginTop: 45,
     },
-  }))
+  })
+
   class ${1} extends React.Component {
     constructor(props) {
       super(props)
@@ -32,8 +44,7 @@ abbr class component
     }
 
     render() {
-      const {classes} = this.props
-      const index = qs.parse(this.props.location.search).index
+      const {classes} = useStyles()
       return (
         <div className={classes.container}>
           {index}
@@ -48,14 +59,15 @@ abbr class component
 snippet fuc
 abbr functional component
   import React from 'react'
-  import { withStyles } from '@material-ui/core'
+  import { makeStyles } from '@material-ui/core/styles'
 
-  const ${1} = withStyles((theme) => ({
+  const useStyles = makeStyles({
     container: {
-      marginTop: 45,
     },
-  }))((props) => {
-    const {classes} = props
+  })
+
+  const ${1} = (props) => {
+    const {classes} = useStyles()
     return (
       <div className={classes.container}>
       </div>
