@@ -80,7 +80,7 @@ if filereadable(expand("~/.config/nvim/local_bundles.vim"))
   source ~/.config/nvim/local_bundles.vim
 endif
 
-let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets/'
+let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets'
 let g:neosnippet#enable_completed_snippet = 1
 
 call plug#end()
@@ -110,6 +110,7 @@ let g:closetag_filenames = '*.html,*.js,*.jsx'
 let g:go_fmt_command = "goimports"
 autocmd FileType go nmap ge <Plug>(go-def-vertical)
 autocmd FileType go nmap gr :GoRun %<CR> 
+let g:go_snippet_engine = ""
 
 "----------------------------------------------------
 " Search Setting

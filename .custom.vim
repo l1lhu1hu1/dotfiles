@@ -1,6 +1,7 @@
 "----------------------------------------------------
 " nvim clipboard key mapping
 "----------------------------------------------------
+" noremapはユーザーが定義した他のマップの影響を受けない
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 nmap <silent><Space>cp :let @+=expand("%:p")<CR>
@@ -54,6 +55,7 @@ noremap <S-h>   ^
 noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
+nnoremap <C-h> <S-j>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
@@ -102,6 +104,8 @@ nnoremap sL <C-w>L
 nnoremap sr <C-w>r
 nnoremap fl gt
 nnoremap fh gT
+nmap gt <Nop>
+nmap gT <Nop>
 nnoremap fH :call TabMove(-1)<CR>
 nnoremap fL :call TabMove(1)<CR>
 
@@ -111,7 +115,8 @@ nnoremap fL :call TabMove(1)<CR>
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-nnoremap <Leader>qc :tabo<CR>
+nnoremap <Leader>qt :tabo<CR>
+nnoremap <Leader>qw :on<CR>
 nnoremap <Leader>q1 :q!<CR>
 nnoremap <Leader>qa :qa<CR>
 nnoremap <Leader>wq :wq<CR>
@@ -159,6 +164,7 @@ nmap <silent><Space>tt :tabe\|:term<CR>
 nmap <silent><Space>ts :vs\|:term<CR>
 
 nnoremap ; :
+nmap tm :Tem main %<CR>
 
 " function! s:SID_PREFIX()
 "   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')

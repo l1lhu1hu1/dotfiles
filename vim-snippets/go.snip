@@ -1,7 +1,32 @@
-snippet dbg
+snippet fn
 abbr Println
   fmt.Println(${1})
 
-snippet dbv
+snippet ff
 abbr Prntf
   fmt.Printf(${1})
+
+snippet fun
+abbr func
+  func ${1}(${2} ${3}) ${4} {
+    ${5}
+    return
+  }
+
+snippet typ
+abbr type struct
+  type ${1} struct {
+    ${2} ${3}
+  }
+
+snippet ran
+abbr for range(iterator, value)
+	for ${1}, ${2} := range ${3} {
+    ${4}
+	}
+
+snippet for
+abbr for
+	for i := ${1}; i < ${2}; i++ {
+    ${3}
+	}
