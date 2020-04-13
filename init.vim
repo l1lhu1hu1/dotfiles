@@ -69,7 +69,6 @@ Plug 'simeji/winresizer'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 
-
 let g:make = 'gmake'
 if exists('make')
   let g:make = 'make'
@@ -90,13 +89,12 @@ let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
 let g:winresizer_start_key = '<c-w>'
 
 "----------------------------------------------------
-" Go and JS Setting
+" JS Setting
 "----------------------------------------------------
 " 保存時に必要なimportを自動的に挿入
 autocmd! BufWritePost Neomake "保存時に実行する
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-let g:go_template_autocreate = 0
 let g:ale_fixers = {
  \ 'javascript': ['eslint']
  \ }
@@ -107,10 +105,33 @@ let g:closetag_filenames = '*.html,*.js,*.jsx'
 "----------------------------------------------------
 " Go Setting
 "----------------------------------------------------
+let g:go_template_autocreate = 0
 let g:go_fmt_command = "goimports"
 autocmd FileType go nmap ge <Plug>(go-def-vertical)
-autocmd FileType go nmap gr :GoRun %<CR> 
+autocmd FileType go nmap gr :GoRun %:p<CR>
 let g:go_snippet_engine = ""
+
+"----------------------------------------------------
+" Flutter Setting
+"----------------------------------------------------
+let g:hot_reload_on_save = 1
+let g:loaded_syntastic_dart_dartanalyzer_checker = 0
+let g:flutter_show_log_on_run = 0
+
+function RunFlutterTab()
+  :FlutterRun
+  :FlutterTab
+endfunction
+
+function QuitFlutter()
+  :FlutterQuit
+  "TODO __flutter__log以外を保存する処理に変える
+  "TODO or __flutter__logを消す処理に変える
+  :wqa!
+endfunction
+
+autocmd FileType dart nmap fr :exec RunFlutterTab()<CR>
+autocmd FileType dart nmap fq :exec QuitFlutter()<CR>
 
 "----------------------------------------------------
 " Search Setting
@@ -237,7 +258,7 @@ endif
 " Other Setting
 "----------------------------------------------------
 " バッファを切替えてもundoの効力を失わない
-"set hidden
+set hidden
 set nobackup
 set noswapfile
 let g:tex_conceal = ''
