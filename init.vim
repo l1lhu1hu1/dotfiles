@@ -24,6 +24,7 @@ endif
 "----------------------------------------------------
 call plug#begin(expand('~/.config/nvim/plugged'))
 
+" TODO 似ている者同士でまとめる. 現在は全くまとまりがない
 Plug 'tpope/vim-commentary'
 Plug 'rhysd/accelerated-jk'
 Plug 'bfredl/nvim-miniyank'
