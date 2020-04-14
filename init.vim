@@ -30,9 +30,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/badwolf'
 
-" Plug 'editorconfig/editorconfig-vim'
-" 現状使用していない
-
 "----------------------------------------------------
 " utility plugins
 "----------------------------------------------------
@@ -64,14 +61,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "----------------------------------------------------
 " syntax check
 "----------------------------------------------------
-" TODO compare. どれか一つだけでいいはず
 Plug 'dense-analysis/ale'
 " stands for Asynchronous Lint Engine. stntax checking and semantic errors
-Plug 'neomake/neomake'
-Plug 'benjie/neomake-local-eslint.vim'
-" TODO これは必要そうかどうかを確認する(aleかneomakeを使うかによって変わる(?))
-" Plug 'vim-syntastic/syntastic'
-" for syntax checking
 
 "----------------------------------------------------
 " snippet and template plugins
@@ -101,9 +92,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 "----------------------------------------------------
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " go formatter and go command exectuion(GoRun, GoFormat, etc)
-
-" Plug 'thosakwe/vim-flutter'
-" 現状使いづらいから使うのを辞めている
 
 "----------------------------------------------------
 " syntax highlighting plugins
@@ -143,8 +131,6 @@ let g:winresizer_start_key = '<c-w>'
 " js settings
 "----------------------------------------------------
 " 保存時に必要なimportを自動的に挿入
-autocmd! BufWritePost Neomake "保存時に実行する
-let g:neomake_javascript_enabled_makers = ['eslint']
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:ale_fixers = {
  \ 'javascript': ['eslint']
