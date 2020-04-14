@@ -1,5 +1,5 @@
 "----------------------------------------------------
-" nvim clipboard key mapping
+" nvim clipboard key mappings
 "----------------------------------------------------
 " noremapはユーザーが定義した他のマップの影響を受けない
 map p <Plug>(miniyank-autoput)
@@ -7,7 +7,7 @@ map P <Plug>(miniyank-autoPut)
 nmap <silent><Space>cp :let @+=expand("%:p")<CR>
 
 "----------------------------------------------------
-" fzf key mapping
+" fzf key mappings
 "----------------------------------------------------
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 let g:fzf_layout = { 'window': '-tabnew' }
@@ -24,25 +24,8 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-" nnoremap <silent> [fzf]f :<C-u>:GFiles?<CR>
-" nnoremap <silent> [fzf]a :<C-u>:GFiles<CR>
-" nnoremap <Space><Space> :<C-u>:Buffers<CR>
-" nnoremap <silent> [fzf]s :call fzf#run({'source': 'git grep ' . expand('<cword>'), 'sink': function('Extract_from_grep')})<CR>
-" command! -nargs=1 V call fzf#run({'source': 'rg -n "' . expand('<args>') . '"', 'sink': function('Extract_from_grep')})
-" function! s:escape(path)
-"   return substitute(a:path, ' ', '\\ ', 'g')
-" endfunction
-
-" function! Extract_from_grep(line)
-"   let parts = split(a:line, ':')
-"   let [fn, lno] = parts[0 : 1]
-"   execute 'e '. s:escape(fn)
-"   execute lno
-"   normal! zz
-" endfunction
-
 "----------------------------------------------------
-" movement key mapping
+" movement key mappings
 "----------------------------------------------------
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
@@ -64,7 +47,7 @@ inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-p> pumvisible() ? "" : "\<C-p>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 "----------------------------------------------------
-" tabs and window key mapping
+" tabs and window key mappings
 "----------------------------------------------------
 function! TabMove(direction)
   let s:current_tab=tabpagenr()
@@ -110,7 +93,7 @@ nnoremap fH :call TabMove(-1)<CR>
 nnoremap fL :call TabMove(1)<CR>
 
 "----------------------------------------------------
-" save and quit key mapping
+" save and quit key mappings
 "----------------------------------------------------
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
@@ -123,7 +106,7 @@ nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>wq1 :wq!<CR>
 
 "----------------------------------------------------
-" search key mapping
+" search key mappings
 "----------------------------------------------------
 let g:EasyMotion_do_mapping = 0
 nnoremap <C-j> *
@@ -131,7 +114,7 @@ nnoremap <C-k> #
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 
 "----------------------------------------------------
-" completion key mapping
+" completion key mappings
 "----------------------------------------------------
 imap <C-i> <Plug>(neosnippet_expand_or_jump)
 smap <C-i> <Plug>(neosnippet_expand_or_jump)
@@ -147,7 +130,7 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 "----------------------------------------------------
-" other key mapping
+" other key mappings
 "----------------------------------------------------
 " xした結果をレジスタに保存しない
 nnoremap x "_x

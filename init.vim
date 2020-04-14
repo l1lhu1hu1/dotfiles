@@ -1,5 +1,5 @@
 "----------------------------------------------------
-" Vim Plug Core  Setting
+" vim-plug core  setting
 "----------------------------------------------------
 if has('vim_starting')
   set nocompatible
@@ -20,77 +20,127 @@ if !filereadable(vimplug_exists)
 endif
 
 "----------------------------------------------------
-" Plug Install Packages Setting
+" ###################################################
 "----------------------------------------------------
 call plug#begin(expand('~/.config/nvim/plugged'))
-
-" TODO 似ている者同士でまとめる. 現在は全くまとまりがない
-Plug 'tpope/vim-commentary'
-Plug 'rhysd/accelerated-jk'
-Plug 'bfredl/nvim-miniyank'
-
-Plug 'tpope/vim-abolish'
-" use :S to subtitute words or serach for words
-Plug 'vim-syntastic/syntastic'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-Plug 'tpope/vim-surround'
+"----------------------------------------------------
+" theme plugins
+"----------------------------------------------------
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'sjl/badwolf'
+
+" Plug 'editorconfig/editorconfig-vim'
+" 現状使用していない
+
+"----------------------------------------------------
+" utility plugins
+"----------------------------------------------------
+Plug 'tpope/vim-commentary'
+" comment out with gc and gcc
+Plug 'rhysd/accelerated-jk'
+" faster jk movement
+Plug 'bfredl/nvim-miniyank'
+" yank setting for nvim
+Plug 'tpope/vim-abolish'
+" replace and search plugin
+Plug 'vimlab/split-term.vim'
+" open terminal in vim
+Plug 'easymotion/vim-easymotion'
+" make vim moves like vimium
+Plug 'preservim/nerdtree'
+" file or folder search by tree
+Plug 'kien/ctrlp.vim'
+" file or folder search
+Plug 'simeji/winresizer'
+" window resizer
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" fzf
+
+" Plug 'terryma/vim-multiple-cursors'
+" 現状使用していない
+
+"----------------------------------------------------
+" syntax check
+"----------------------------------------------------
+" TODO compare. どれか一つだけでいいはず
+Plug 'dense-analysis/ale'
+" stands for Asynchronous Lint Engine. stntax checking and semantic errors
+Plug 'neomake/neomake'
+Plug 'benjie/neomake-local-eslint.vim'
+" TODO これは必要そうかどうかを確認する(aleかneomakeを使うかによって変わる(?))
+" Plug 'vim-syntastic/syntastic'
+" for syntax checking
+
+"----------------------------------------------------
+" snippet and template plugins
+"----------------------------------------------------
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'mattn/vim-sonictemplate'
+
+"----------------------------------------------------
+" completion and formatter plugins
+"----------------------------------------------------
+Plug 'alvan/vim-closetag'
+" auto close html or jsx tag completion
 Plug 'cohama/lexima.vim'
+" auto close completion for ", ', (, etc
+Plug 'tpope/vim-surround'
+" replace tag name to different tag name. eg) <h1>hello</h1> to <h2>hello</h2>
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-" TODO gitgutterいれたい
-Plug 'benekastah/neomake'
-Plug 'benjie/neomake-local-eslint.vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'moll/vim-node'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" deoplete source for go
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'sjl/badwolf'
-Plug 'vimlab/split-term.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'preservim/nerdtree'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'w0rp/ale'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'alvan/vim-closetag'
-Plug 'kien/ctrlp.vim'
-Plug 'mattn/vim-sonictemplate'
-Plug 'simeji/winresizer'
-" flutter
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
+" deoplete source for javascript
 
+"----------------------------------------------------
+" language dependant plugins
+"----------------------------------------------------
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" go formatter and go command exectuion(GoRun, GoFormat, etc)
+
+" Plug 'thosakwe/vim-flutter'
+" 現状使いづらいから使うのを辞めている
+
+"----------------------------------------------------
+" syntax highlighting plugins
+"----------------------------------------------------
+Plug 'pangloss/vim-javascript'
+" javascript syntax highlighting
+Plug 'leafgarland/typescript-vim'
+" typescript syntax highlighting
+Plug 'dart-lang/dart-vim-plugin'
+" dart syntax highlighting
+Plug 'maxmellon/vim-jsx-pretty'
+" jsx syntax highlighting
+
+"----------------------------------------------------
+" process management plugins
+"----------------------------------------------------
 let g:make = 'gmake'
 if exists('make')
   let g:make = 'make'
   Plug 'Shougo/vimproc.vim', {'do': g:make}
+  " 非同期処理で重たい処理を実行する(saveに時間がかかってしまう時とかに、vimの操作自体をブロックしない)
 endif
 
-if filereadable(expand("~/.config/nvim/local_bundles.vim"))
-  source ~/.config/nvim/local_bundles.vim
-endif
+call plug#end()
+"----------------------------------------------------
+" ###################################################
+"----------------------------------------------------
 
 let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets'
 let g:neosnippet#enable_completed_snippet = 1
-
-call plug#end()
 let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
 let g:winresizer_start_key = '<c-w>'
 
 "----------------------------------------------------
-" JS Setting
+" js settings
 "----------------------------------------------------
 " 保存時に必要なimportを自動的に挿入
 autocmd! BufWritePost Neomake "保存時に実行する
@@ -104,7 +154,7 @@ let g:ale_sign_warning = '⚠️'
 let g:closetag_filenames = '*.html,*.js,*.jsx'
 
 "----------------------------------------------------
-" Go Setting
+" go settings
 "----------------------------------------------------
 let g:go_template_autocreate = 0
 let g:go_fmt_command = "goimports"
@@ -113,29 +163,29 @@ autocmd FileType go nmap gr :GoRun %:p<CR>
 let g:go_snippet_engine = ""
 
 "----------------------------------------------------
-" Flutter Setting
+" flutter settings
 "----------------------------------------------------
-let g:hot_reload_on_save = 1
 let g:loaded_syntastic_dart_dartanalyzer_checker = 0
-let g:flutter_show_log_on_run = 0
+"let g:hot_reload_on_save = 1
+"let g:flutter_show_log_on_run = 0
 
-function RunFlutterTab()
-  :FlutterRun
-  :FlutterTab
-endfunction
+"function RunFlutterTab()
+"  :FlutterRun
+"  :FlutterTab
+"endfunction
 
-function QuitFlutter()
-  :FlutterQuit
-  "TODO __flutter__log以外を保存する処理に変える
-  "TODO or __flutter__logを消す処理に変える
-  :wqa!
-endfunction
+"function QuitFlutter()
+"  :FlutterQuit
+"  "TODO __flutter__log以外を保存する処理に変える
+"  "TODO or __flutter__logを消す処理に変える
+"  :wqa!
+"endfunction
 
-autocmd FileType dart nmap fr :exec RunFlutterTab()<CR>
-autocmd FileType dart nmap fq :exec QuitFlutter()<CR>
+"autocmd FileType dart nmap fr :exec RunFlutterTab()<CR>
+"autocmd FileType dart nmap fq :exec QuitFlutter()<CR>
 
 "----------------------------------------------------
-" Search Setting
+" search settings
 "----------------------------------------------------
 set ignorecase
 " 検索の時に大文字が含まれている場合は区別して検索する
@@ -151,7 +201,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "----------------------------------------------------
-" Cursor Setting
+" cursor settings
 "----------------------------------------------------
 " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
 set whichwrap=b,s,h,l,<,>,[,],~
@@ -163,11 +213,9 @@ set backspace=indent,eol,start " バックスペースキーの有効化
 if has('mouse')
   set mouse=a
 endif
-" TODO 調べる
-"set mousemodel=popup
 
 "----------------------------------------------------
-" Visual Setting
+" visual settings
 "----------------------------------------------------
 syntax enable
 " syntax on
@@ -187,7 +235,7 @@ set showmode
 set ruler
 
 "----------------------------------------------------
-" StatusLine Setting
+" statusLine settings
 "----------------------------------------------------
 " ステータスラインの右側にカーソルの位置を表示する
 set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
@@ -202,7 +250,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 "----------------------------------------------------
-" Indent Setting
+" indent settings
 "----------------------------------------------------
 " タブ入力を複数の空白入力に置き換える
 set expandtab
@@ -217,21 +265,17 @@ set smartindent
 "martindentで増減する幅
 set shiftwidth=2
 filetype plugin indent on
-"let g:indent_guides_enable_on_vim_startup=1 " indent colors
-"let g:indent_guides_start_level = 1 " 1インデント目からガイドする
-"let g:indent_guides_auto_colors = 0 " 自動カラーを無効にして手動で設定する
-"let g:indent_guides_guide_size = 1 " ガイドの幅
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#010101  ctermbg=235
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#0F0F0F  ctermbg=233
 
 "----------------------------------------------------
-" Bracket and Tag Setting
+" bracket and tag settings
 "----------------------------------------------------
 set showmatch " 括弧の対応関係を一瞬表示する
 source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
 
 "----------------------------------------------------
-" Font and Encode Setting
+" font and encoding settings
 "----------------------------------------------------
 set fileencodings=utf-8,iso-2022-jp,sjis,ccp932,euc-jp " 読み込み時の文字コードの自動判別. 左側が優先される
 set encoding=utf-8
@@ -239,11 +283,10 @@ set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先�
 set ambiwidth=double " □や○文字が崩れる問題を解決
 
 "----------------------------------------------------
-" Clipboard and Paste Setting
+" clipboard and paste settings
 "----------------------------------------------------
-" ヤンクをクリップボードへ
 set clipboard=unnamed
-" 挿入モードでクリップボードからペーストする時に自動でインデントさせないようにする
+" ヤンクをクリップボードへ
 if &term =~ "xterm"
     let &t_SI .= "\e[?2004h"
     let &t_EI .= "\e[?2004l"
@@ -254,11 +297,11 @@ if &term =~ "xterm"
     endfunction
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
+" 挿入モードでクリップボードからペーストする時に自動でインデントさせないようにする
 
 "----------------------------------------------------
-" Other Setting
+" other settings
 "----------------------------------------------------
-" バッファを切替えてもundoの効力を失わない
 set hidden
 set nobackup
 set noswapfile
