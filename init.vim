@@ -126,6 +126,8 @@ let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
 let g:winresizer_start_key = '<c-w>'
+autocmd CompleteDone * silent! pclose!
+" completionの候補の詳細がwindowとして出てきた後にescを押したら消える
 
 "----------------------------------------------------
 " js settings
@@ -148,6 +150,7 @@ let g:go_term_mode = "tabe"
 autocmd FileType go nmap ge <Plug>(go-def-tab)
 autocmd FileType go nmap gr :GoRun %:p<CR>
 let g:go_snippet_engine = ""
+" fnとかのスニペットでこれをしないとconflictが起きてしまう
 
 "----------------------------------------------------
 " flutter settings
