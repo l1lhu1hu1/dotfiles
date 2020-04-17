@@ -207,16 +207,17 @@ set ruler
 " statusLine settings
 "----------------------------------------------------
 " ステータスラインの右側にカーソルの位置を表示する
-set statusline=%n\:%y%F\ \|%{(&fenc!=''?&fenc:&enc).'\|'.&ff.'\|'}%m%r%=<%l/%L:%p%%>
 " ステータスラインに表示する情報の指定
-highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=white
-" ステータスラインの色
 let g:airline_theme = 'luna'
+" ステータスラインの色
 let g:airline#extensions#tabline#enabled = 1
+" tablineの表示
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1
+" tabの番号表示
 let g:airline#extensions#tabline#fnamemod = ':t'
+" file名だけを表示するために必要
 
 "----------------------------------------------------
 " indent settings
@@ -256,16 +257,16 @@ set ambiwidth=double " □や○文字が崩れる問題を解決
 "----------------------------------------------------
 set clipboard=unnamed
 " ヤンクをクリップボードへ
-if &term =~ "xterm"
-    let &t_SI .= "\e[?2004h"
-    let &t_EI .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
-    function XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-endif
+" if &term =~ "xterm"
+"     let &t_SI .= "\e[?2004h"
+"     let &t_EI .= "\e[?2004l"
+"     let &pastetoggle = "\e[201~"
+"     function XTermPasteBegin(ret)
+"         set paste
+"         return a:ret
+"     endfunction
+"     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+" endif
 " 挿入モードでクリップボードからペーストする時に自動でインデントさせないようにする
 
 "----------------------------------------------------
