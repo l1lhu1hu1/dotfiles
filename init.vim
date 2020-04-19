@@ -29,6 +29,10 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sjl/badwolf'
+Plug 'nathanaelkane/vim-indent-guides'
+" indent可視化
+Plug 'ntpeters/vim-better-whitespace'
+" trailing space可視化
 
 "----------------------------------------------------
 " utility plugins
@@ -104,6 +108,8 @@ Plug 'dart-lang/dart-vim-plugin'
 " dart syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty'
 " jsx syntax highlighting
+Plug 'luochen1990/rainbow'
+" highlight parenthesis
 
 "----------------------------------------------------
 " process management plugins
@@ -120,8 +126,14 @@ call plug#end()
 " ###################################################
 "----------------------------------------------------
 
+let g:indent_guides_enable_on_vim_startup = 1
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:rainbow_active = 1
+
 let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets'
 let g:neosnippet#enable_completed_snippet = 1
+
 let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
