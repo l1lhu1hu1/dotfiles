@@ -15,10 +15,9 @@ zplug "rupa/z", use:"*.sh"
 # zplug "b4b4r07/zsh-vimode-visual", defer:3
 
 ############################################zplug installation####################################################
-# 最初にプラグインいれるときとプラグインを削除するときだけだけコメントアウトする
-# if ! zplug check; then
-#   zplug install
-# fi
+if ! zplug check; then
+  zplug install
+fi
 
 zplug load
 
