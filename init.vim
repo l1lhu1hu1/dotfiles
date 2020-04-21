@@ -126,8 +126,6 @@ call plug#end()
 let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-let g:rainbow_active = 1
-
 let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets'
 let g:neosnippet#enable_completed_snippet = 1
 
