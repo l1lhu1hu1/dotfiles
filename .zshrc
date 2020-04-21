@@ -1,7 +1,7 @@
 ####################################################Plugins######################################################
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "mafredri/zsh-async"
+zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
 zplug 'dracula/zsh', as:theme
 zplug "chrissicool/zsh-256color"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -15,12 +15,9 @@ zplug "rupa/z", use:"*.sh"
 # zplug "b4b4r07/zsh-vimode-visual", defer:3
 
 ############################################zplug installation####################################################
-# 最初にプラグインいれるときだけコメントアウトする
-# if ! zplug check --verbose; then
-#   printf "Install? [y/N]: "
-#   if read -q; then
-#     echo; zplug install
-#   fi
+# 最初にプラグインいれるときとプラグインを削除するときだけだけコメントアウトする
+# if ! zplug check; then
+#   zplug install
 # fi
 
 zplug load
