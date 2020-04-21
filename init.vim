@@ -108,9 +108,6 @@ Plug 'dart-lang/dart-vim-plugin'
 " dart syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty'
 " jsx syntax highlighting
-Plug 'luochen1990/rainbow'
-" highlight parenthesis
-
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
@@ -168,6 +165,7 @@ let g:go_snippet_engine = ""
 " flutter settings
 "----------------------------------------------------
 let g:loaded_syntastic_dart_dartanalyzer_checker = 0
+autocmd FileType dart nmap ff :!flutter format %:p<CR>
 "----------------------------------------------------
 " search settings
 "----------------------------------------------------
