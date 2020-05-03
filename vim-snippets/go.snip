@@ -8,9 +8,14 @@ abbr Prntf
 
 snippet fun
 abbr func
-  func ${1}(${2} ${3}) ${4} {
+  func ${1}(${2}) ${3} {
+    ${4}
+  }
+
+snippet met
+abbr method
+  func (${1}) ${2} (${3}) ${4} {
     ${5}
-    return
   }
 
 snippet typ
@@ -24,6 +29,12 @@ abbr for range(iterator, value)
 	for ${1}, ${2} := range ${3} {
     ${4}
 	}
+
+snippet err
+abbr if err != nil {panic(err)}
+  if err != nil {
+    panic(err)
+  }
 
 snippet gof
 abbr go func(){}()
