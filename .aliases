@@ -45,6 +45,7 @@ function gitadd(){
   gtop
   [ -e $PWD/Session.vim ] && rm $PWD/Session.vim
   git add .
+  cd -
 }
 
 alias gcm="git commit -m"

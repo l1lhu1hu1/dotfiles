@@ -12,6 +12,14 @@ abbr func
     ${4}
   }
 
+snippet resp
+abbr resp, err := http.Get()
+  resp, err := http.Get(${1})
+  if err != nil {
+    panic(err)
+  }
+  defer resp.Body.Close()
+
 snippet met
 abbr method
   func (${1}) ${2} (${3}) ${4} {
