@@ -44,6 +44,20 @@ abbr if err != nil {panic(err)}
     panic(err)
   }
 
+snippet dbs
+abbr Println("##################################")
+  fmt.Println("##################################")
+
+snippet dbv
+abbr Println(value)
+  fmt.Println("${1}", $1)
+
+snippet dbg
+abbr Println(value)
+  fmt.Println("##################################")
+  fmt.Println("${1}", $1)
+  fmt.Println("##################################")
+
 snippet gof
 abbr go func(){}()
   go func() {
