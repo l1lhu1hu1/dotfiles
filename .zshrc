@@ -90,6 +90,8 @@ local_alias=~/dotfiles/.$(scutil --get ComputerName).aliases
 [ -e $local_alias ] && source $local_alias
 
 ####################################################path######################################################
-# TODO anyenvの読み込みが遅いから、lazyload等できるようにする
 local_path=~/dotfiles/.$(scutil --get ComputerName).path
 [ -e $local_path ] && source $local_path
+##############################################export secrets######################################################
+local_secret=~/.secret.zshrc
+[ -e $local_secret ] && source $local_secret
