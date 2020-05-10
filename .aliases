@@ -21,7 +21,13 @@ alias dot='cd ~/dotfiles'
 alias rm=rmtrash
 
 alias git=hub
-alias px='pi pixel increment -u guanghuihui -g activity'
+alias pixi='pi pixel increment -u guanghuihui -g activity'
+
+function pix() {
+  current_date=$(date +%Y%m%d)
+  echo $current_date
+  pi pixel post -u guanghuihui -g activity -d $current_date -q $*
+}
 
 function gtop(){
   cd $(git rev-parse --show-toplevel);
