@@ -82,6 +82,11 @@ setopt nolistbeep
 setopt auto_cd
 function chpwd() { ls }
 
+function unset_all() {
+  unalias -a
+  unset -f -m '*'
+}
+
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
 source ~/dotfiles/.aliases

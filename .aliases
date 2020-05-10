@@ -30,15 +30,15 @@ function pix() {
 }
 
 function gtop(){
-  cd $(git rev-parse --show-toplevel);
+  cd $(git rev-parse --show-toplevel)
 }
 
 function gpusoc(){
-  git push origin $(git symbolic-ref --short HEAD);
+  git push origin $(git symbolic-ref --short HEAD)
 }
 
 function gpusocf(){
-  git push -f origin $(git symbolic-ref --short HEAD);
+  git push -f origin $(git symbolic-ref --short HEAD)
 }
 
 function gd(){
