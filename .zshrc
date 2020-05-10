@@ -78,9 +78,10 @@ setopt correct
 setopt no_beep
 # ビープ音の停止(補完時)
 setopt nolistbeep
-# after cd do ls
+alias ls=exa
+# after cd do exa
 setopt auto_cd
-function chpwd() { ls }
+function chpwd() { exa }
 
 function unset_all() {
   unalias -a
