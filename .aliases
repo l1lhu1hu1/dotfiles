@@ -12,6 +12,7 @@ alias bashrc='vim ~/.bashrc'
 alias zshrc='vim ~/dotfiles/.zshrc'
 alias g=open -a
 alias ps=procs
+alias cat=bat
 alias ll='ls -alF'
 alias la='ls -a'
 alias l='ls -F'
