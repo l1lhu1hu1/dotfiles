@@ -205,6 +205,7 @@ set background=light
 
 colorscheme gruvbox
 
+" highlight Cursor guifg=white guibg=white
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 set showcmd
