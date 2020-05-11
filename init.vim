@@ -123,7 +123,7 @@ call plug#end()
 " ###################################################
 "----------------------------------------------------
 
-" let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets'
@@ -199,15 +199,11 @@ endif
 "----------------------------------------------------
 syntax enable
 " syntax on
-colorscheme gruvbox
-" hi Visual ctermfg=255 ctermbg=39
-
-"itermと同じ色にするために透過させている
-highlight Normal ctermbg=none
-
-let g:gruvbox_original = 1
 let g:gruvbox_contrast_light = "hard"
-let g:airline_powerline_fonts = 1
+
+set background=light
+
+colorscheme gruvbox
 
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
@@ -225,6 +221,7 @@ set ruler
 " ステータスラインの右側にカーソルの位置を表示する
 " ステータスラインに表示する情報の指定
 let g:airline_theme = 'luna'
+let g:airline_powerline_fonts = 1
 " ステータスラインの色
 let g:airline#extensions#tabline#enabled = 1
 " tablineの表示
@@ -248,11 +245,9 @@ set softtabstop=2
 set autoindent
 " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 set smartindent
-"martindentで増減する幅
+"smartindentで増減する幅
 set shiftwidth=2
 filetype plugin indent on
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#010101  ctermbg=235
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#0F0F0F  ctermbg=233
 
 "----------------------------------------------------
 " bracket and tag settings
