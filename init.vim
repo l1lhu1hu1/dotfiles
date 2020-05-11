@@ -28,7 +28,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "----------------------------------------------------
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'sjl/badwolf'
+Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
 " indent可視化
 Plug 'ntpeters/vim-better-whitespace'
@@ -123,7 +123,7 @@ call plug#end()
 " ###################################################
 "----------------------------------------------------
 
-let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets'
@@ -199,11 +199,16 @@ endif
 "----------------------------------------------------
 syntax enable
 " syntax on
-colorscheme badwolf
+colorscheme gruvbox
+" hi Visual ctermfg=255 ctermbg=39
+
+"itermと同じ色にするために透過させている
 highlight Normal ctermbg=none
-hi Visual ctermfg=255 ctermbg=39
-let g:badwolf_original = 1
+
+let g:gruvbox_original = 1
+let g:gruvbox_contrast_light = "hard"
 let g:airline_powerline_fonts = 1
+
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 set showcmd
@@ -246,8 +251,8 @@ set smartindent
 "martindentで増減する幅
 set shiftwidth=2
 filetype plugin indent on
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#010101  ctermbg=235
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#0F0F0F  ctermbg=233
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#010101  ctermbg=235
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#0F0F0F  ctermbg=233
 
 "----------------------------------------------------
 " bracket and tag settings
