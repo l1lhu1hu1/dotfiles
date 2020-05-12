@@ -22,14 +22,26 @@ alias aliases='vim ~/dotfiles/.aliases'
 alias dot='cd ~/dotfiles'
 alias rm=rmtrash
 
-alias git=hub
-alias pixi='pi pixel increment -u guanghuihui -g activity'
-
-function pix() {
-  current_date=$(date +%Y%m%d)
-  echo $current_date
-  pi pixel post -u guanghuihui -g activity -d $current_date -q $*
+function input_pixela_date() {
+  retval=$1
+  return "$retval"
 }
+
+function input_pixela_count() {
+  retval=$1
+  return "$retval"
+}
+
+function register_to_pixela() {
+  echo $1
+  echo $2
+  pi pixel post -u guanghuihui -g activity -d $1 -q $2
+}
+
+alias pixi='pi pixel increment -u guanghuihui -g activity'
+alias pix="register_to_pixela $(date +%Y%m%d) $(input_pixela_count)"
+alias pixy="register_to_pixela $(date -v '-1d' +%Y%m%d) $(input_pixela_count)"
+alias pixinput="register_to_pixela $(input_pixela_date) $(input_pixela_count)"
 
 function gtop(){
   cd $(git rev-parse --show-toplevel)
@@ -57,6 +69,7 @@ function gitadd(){
   cd -
 }
 
+alias git=hub
 alias gcm="git commit -m"
 alias gbr="git branch --sort=-committerdate --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"

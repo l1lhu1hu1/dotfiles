@@ -1,7 +1,5 @@
 IMP="$d/important"
 alias imp="cd $IMP"
-#alias python=$PY3
-#alias python2=$PY2
 alias gpp=g++
 alias atc="cd $d/codes/at_coder"
 alias cod="cd $d/codes/coding_memo"
@@ -11,9 +9,9 @@ alias book="cd $d/research/research_project/summary/book"
 alias paper="cd $d/research/research_project/summary/paper"
 alias vimemo="vi $IMP/vimemo.md"
 alias sim="open -a Simulator"
-c='$d/class'
 alias class='cd $d/class'
 alias pro='cd $d/projects'
+
 function makec(){
   cp -i $d/useful/ccc.c $PWD/$*.c;
   vim $PWD/$*.c;
@@ -42,20 +40,3 @@ function makecpp(){
   cp -i $d/useful/ccc.cpp $PWD/$*.cpp;
   vim $PWD/$*.cpp;
 }
-
-#function cpc(){
-#  cp -i $d/useful/ccc.c $d/programming/c/$*.c;
-#  cd $d/programming/c;
-#  vim $d/programming/c/$*.c;
-#}
-
-#function cp+(){
-#  cp $d/useful/ccc.cpp $d/programming/c++/$*.cpp;
-#  cd $d/programming/c++;
-#  vim $d/programming/c++/$*.cpp;
-#}
-
-#function cpj(){
-#  cp $d/useful/Jjj.java $d/programming/java/$*.java;
-#  cd $d/programming/java;
-#  vim $d/programming/java/$*.java;

@@ -90,14 +90,14 @@ function unset_all() {
 
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
-source ~/dotfiles/.aliases
+source ~/dotfiles/.aliases.zsh
 
-local_alias=~/dotfiles/.$(scutil --get ComputerName).aliases
+local_alias=~/dotfiles/.$(scutil --get ComputerName)_aliases.zsh
 [ -e $local_alias ] && source $local_alias
 
 ####################################################path######################################################
-local_path=~/dotfiles/.$(scutil --get ComputerName).path
+local_path=~/dotfiles/.$(scutil --get ComputerName)_path.zsh
 [ -e $local_path ] && source $local_path
 ##############################################export secrets######################################################
-local_secret=~/.secret.zshrc
+local_secret=~/.secret.zsh
 [ -e $local_secret ] && source $local_secret
