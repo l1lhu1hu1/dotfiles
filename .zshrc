@@ -92,6 +92,8 @@ function unset_all() {
 alias sss='source ~/dotfiles/.zshrc'
 source ~/dotfiles/.aliases.zsh
 
+eval "$(direnv hook zsh)"
+
 local_alias=~/dotfiles/.$(scutil --get ComputerName)_aliases.zsh
 [ -e $local_alias ] && source $local_alias
 
