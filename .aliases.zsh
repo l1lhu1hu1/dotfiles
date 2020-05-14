@@ -24,6 +24,7 @@ alias rm=rmtrash
 
 fucntion mkfile() {
   mkdir -p -- "$1" && touch -- "$1"/"$2"
+  vim $1/$2
 }
 
 function input_pixela_date() {

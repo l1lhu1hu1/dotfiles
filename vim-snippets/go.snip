@@ -22,12 +22,24 @@ abbr resp, err := http.Get()
 
 snippet met
 abbr method
-  func (${1}) ${2}(${3}) ${4} {
+  func (${1}) ${2}(${3})${4} {
     ${5}
   }
 
 snippet typ
-abbr type struct
+abbr type *
+  type ${1} $2 {
+    ${3} ${4}
+  }
+
+snippet intf
+abbr interface
+  type ${1} interface {
+    ${2} ${3}
+  }
+
+snippet str
+abbr struct
   type ${1} struct {
     ${2} ${3}
   }
