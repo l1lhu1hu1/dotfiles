@@ -22,6 +22,10 @@ alias aliases='vim ~/dotfiles/.aliases'
 alias dot='cd ~/dotfiles'
 alias rm=rmtrash
 
+fucntion mkfile() {
+  mkdir -p -- "$1" && touch -- "$1"/"$2"
+}
+
 function input_pixela_date() {
   retval=$1
   return "$retval"
