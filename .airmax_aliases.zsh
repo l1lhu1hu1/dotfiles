@@ -1,15 +1,10 @@
 IMP="$d/important"
-alias imp="cd $IMP"
 alias gpp=g++
-alias atc="cd $d/codes/at_coder"
-alias cod="cd $d/codes/coding_memo"
 alias res="cd $d/research/research_project"
 alias summary="cd $d/research/research_project/summary"
 alias book="cd $d/research/research_project/summary/book"
 alias paper="cd $d/research/research_project/summary/paper"
-alias vimemo="vi $IMP/vimemo.md"
 alias sim="open -a Simulator"
-alias class='cd $d/class'
 alias pro='cd $d/projects'
 
 function makec(){
@@ -36,7 +31,7 @@ function makebmemo(){
   vim $PWD/$dir_name.md;
 }
 
-function makecpp(){
-  cp -i $d/useful/ccc.cpp $PWD/$*.cpp;
+function mkc(){
+  cp -i ~/dotfiles/vim-templates/cpp/base-main.cpp $PWD/$*.cpp;
   vim $PWD/$*.cpp;
 }

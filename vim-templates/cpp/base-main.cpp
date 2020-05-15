@@ -16,11 +16,11 @@ typedef vector<string> vs;
 int main(){
   int n;
   cin>>n;
-  //最初の入力がn kのように与えられている場合のみコメントアウトする
-  //int k;
-  //cin >> k;
-  //結果の出力用
-  //int res;
+  // 最初の入力がn kのように与えられている場合のみコメントアウトする
+  // int k;
+  // cin >> k;
+  // res: 結果の出力用
+  // int res;
   int count=0;
   int tmp;
   vi a;

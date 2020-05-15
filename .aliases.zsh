@@ -1,4 +1,5 @@
 d="/Users/$(whoami)/Desktop/"
+alias rg='rg --hidden'
 alias r=reset
 alias chb='chsh -s /bin/bash'
 alias chz='chsh -s /bin/zsh'
@@ -7,9 +8,12 @@ alias desk='cd $d'
 alias ee=exit
 alias vim=nvim
 alias vi=nvim
-alias vimrc='vi ~/dotfiles/init.vim'
 alias bashrc='vim ~/.bashrc'
+alias vimrc='vi ~/dotfiles/init.vim'
 alias zshrc='vim ~/dotfiles/.zshrc'
+alias vimcom='vim ~/dotfiles/.mycommand.vim'
+alias aliases='vim ~/dotfiles/.aliases'
+alias dot='cd ~/dotfiles'
 alias g=open -a
 alias ps=procs
 alias cat=bat
@@ -17,9 +21,6 @@ alias ll='ls -alF'
 alias la='ls -a'
 alias l='ls -F'
 alias sl=ls
-alias vimcom='vim ~/dotfiles/.mycommand.vim'
-alias aliases='vim ~/dotfiles/.aliases'
-alias dot='cd ~/dotfiles'
 alias rm=rmtrash
 
 fucntion mkfile() {
