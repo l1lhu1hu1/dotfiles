@@ -88,6 +88,8 @@ function unset_all() {
   unset -f -m '*'
 }
 
+autocmd FileType c,cpp,cs,java set commentstring=//\ %s
+
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zshrc'
 source ~/dotfiles/.aliases.zsh
