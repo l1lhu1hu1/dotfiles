@@ -90,6 +90,8 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 " deoplete source for go
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " deoplete source for javascript
+" Plug 'google/vim-codefmt'
+Plug 'rhysd/vim-clang-format'
 
 "----------------------------------------------------
 " language dependant plugins
@@ -122,6 +124,13 @@ call plug#end()
 "----------------------------------------------------
 " ###################################################
 "----------------------------------------------------
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
+let g:clang_format#code_style = 'google'
+autocmd FileType cpp ClangFormatAutoEnable
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
