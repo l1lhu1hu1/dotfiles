@@ -29,32 +29,32 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
-Plug 'nathanaelkane/vim-indent-guides'
 " indent可視化
-Plug 'ntpeters/vim-better-whitespace'
+Plug 'nathanaelkane/vim-indent-guides'
 " trailing space可視化
+Plug 'ntpeters/vim-better-whitespace'
 
 "----------------------------------------------------
 " utility plugins
 "----------------------------------------------------
-Plug 'tpope/vim-commentary'
 " comment out with gc and gcc
-Plug 'rhysd/accelerated-jk'
+Plug 'tpope/vim-commentary'
 " faster jk movement
-Plug 'bfredl/nvim-miniyank'
+Plug 'rhysd/accelerated-jk'
 " yank setting for nvim
-Plug 'tpope/vim-abolish'
+Plug 'bfredl/nvim-miniyank'
 " replace and search plugin
-Plug 'vimlab/split-term.vim'
+Plug 'tpope/vim-abolish'
 " open terminal in vim
-Plug 'easymotion/vim-easymotion'
+Plug 'vimlab/split-term.vim'
 " make vim moves like vimium
-Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
 " file or folder search by tree
-Plug 'kien/ctrlp.vim'
+Plug 'preservim/nerdtree'
 " file or folder search
-Plug 'simeji/winresizer'
+Plug 'kien/ctrlp.vim'
 " window resizer
+Plug 'simeji/winresizer'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " fzf
@@ -78,20 +78,20 @@ Plug 'mattn/vim-sonictemplate'
 "----------------------------------------------------
 " completion and formatter plugins
 "----------------------------------------------------
-Plug 'alvan/vim-closetag'
 " auto close html or jsx tag completion
-Plug 'cohama/lexima.vim'
+Plug 'alvan/vim-closetag'
 " auto close completion for ", ', (, etc
-Plug 'tpope/vim-surround'
+Plug 'cohama/lexima.vim'
 " replace tag name to different tag name. eg) <h1>hello</h1> to <h2>hello</h2>
+Plug 'tpope/vim-surround'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 " deoplete source for go
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 " deoplete source for javascript
-" Plug 'google/vim-codefmt'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'rhysd/vim-clang-format'
+" Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 "----------------------------------------------------
 " language dependant plugins
@@ -102,22 +102,22 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "----------------------------------------------------
 " syntax highlighting plugins
 "----------------------------------------------------
-Plug 'pangloss/vim-javascript'
 " javascript syntax highlighting
-Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
 " typescript syntax highlighting
-Plug 'dart-lang/dart-vim-plugin'
+Plug 'leafgarland/typescript-vim'
 " dart syntax highlighting
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'dart-lang/dart-vim-plugin'
 " jsx syntax highlighting
+Plug 'maxmellon/vim-jsx-pretty'
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
 let g:make = 'gmake'
 if exists('make')
   let g:make = 'make'
-  Plug 'Shougo/vimproc.vim', {'do': g:make}
   " 非同期処理で重たい処理を実行する(saveに時間がかかってしまう時とかに、vimの操作自体をブロックしない)
+  Plug 'Shougo/vimproc.vim', {'do': g:make}
 endif
 
 call plug#end()
@@ -131,6 +131,7 @@ let g:clang_format#style_options = {
             \ "Standard" : "C++11"}
 let g:clang_format#code_style = 'google'
 autocmd FileType cpp ClangFormatAutoEnable
+" autocmd FileType py YAPF
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
@@ -143,8 +144,8 @@ let NERDTreeShowHidden = 1
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
 let g:winresizer_start_key = '<c-w>'
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-autocmd CompleteDone * silent! pclose!
 " completionの候補の詳細がwindowとして出てきた後にescを押したら消える
+autocmd CompleteDone * silent! pclose!
 
 "----------------------------------------------------
 " js settings
@@ -166,8 +167,8 @@ let g:go_fmt_command = "goimports"
 let g:go_term_mode = "tabe"
 autocmd FileType go nmap ge <Plug>(go-def-tab)
 autocmd FileType go nmap gr :GoRun %:p<CR>
-let g:go_snippet_engine = ""
 " fnとかのスニペットでこれをしないとconflictが起きてしまう
+let g:go_snippet_engine = ""
 
 "----------------------------------------------------
 " flutter settings
@@ -177,14 +178,14 @@ autocmd FileType dart nmap ff :!flutter format %:p<CR>
 "----------------------------------------------------
 " search settings
 "----------------------------------------------------
-set ignorecase
 " 検索の時に大文字が含まれている場合は区別して検索する
-set smartcase
+set ignorecase
 " 最後まで検索したら先頭に戻る
-set wrapscan
+set smartcase
 " インクリメンタルサーチを使わない
-set noincsearch
+set wrapscan
 " 検索結果文字列のハイライトを有効にする
+set noincsearch
 set hlsearch
 set rtp+=/usr/local/opt/fzf
 let g:ctrlp_working_path_mode = 'ra'
@@ -218,12 +219,12 @@ colorscheme gruvbox
 " highlight Cursor guifg=white guibg=white
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
-set showcmd
 " 入力中のコマンドをステータスに表示する
-set laststatus=2
+set showcmd
 " ステータスラインを常に表示
-set showmode
+set laststatus=2
 " 現在のモードを表示
+set showmode
 set ruler
 
 "----------------------------------------------------
@@ -232,16 +233,16 @@ set ruler
 " ステータスラインの右側にカーソルの位置を表示する
 " ステータスラインに表示する情報の指定
 let g:airline_theme = 'luna'
-let g:airline_powerline_fonts = 1
 " ステータスラインの色
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 " tablineの表示
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_nr_type = 1
 " tabの番号表示
-let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#tab_nr_type = 1
 " file名だけを表示するために必要
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 "----------------------------------------------------
 " indent settings
