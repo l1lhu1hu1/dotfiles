@@ -128,6 +128,10 @@ let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "AlignConsecutiveDeclarations" : "true",
+            \ "AlignConsecutiveMacros" : "true",
+            \ "AllowShortFunctionsOnASingleLine" : "false",
+            \ "AllowShortLoopsOnASingleLine" : "false",
             \ "Standard" : "C++11"}
 let g:clang_format#code_style = 'google'
 autocmd FileType cpp ClangFormatAutoEnable
