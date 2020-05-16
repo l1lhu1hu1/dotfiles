@@ -1,6 +1,18 @@
 snippet co
 abbr cout
+alias dbv
   cout<<${1}<<endl;
+
+snippet dbg
+abbr cout with ####
+  cout<<"###############"<<endl;
+  cout<<${1}<<endl;
+  cout<<"###############"<<endl;
+
+snippet dbs
+abbr cout ###
+  cout<<"###############"<<endl;
+  cout<<"###############"<<endl;
 
 snippet ci
 abbr cin
