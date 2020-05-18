@@ -18,7 +18,7 @@ typedef vector<string> vs;
 int main() {
   /*入力を受け取るための処理 start*/
   int n;
-  int count = 0;
+  int c = 0;
   vi  a;
   cin >> n;
 
@@ -30,11 +30,11 @@ int main() {
   // int res;
   /*extra end*/
 
-  while (count < n) {
+  while (c < n) {
     int tmp;
     cin >> tmp;
     a.pb(tmp);
-    count++;
+    c++;
   }
   /*入力を受け取るための処理 end*/
 
