@@ -15,11 +15,15 @@ typedef vector<string> vs;
 #define minus(a)     fill(a, -1)
 #define dbg(x)       cout << #x "=" << x << endl
 
-int charToInt(char a) {
+int charToInt(char c) {
   string tmp;
-  tmp += a;
+  tmp += c;
   int b = atoi(tmp.c_str());
   return b;
+}
+
+int stringToInt(string s) {
+  return atoi(s.c_str());
 }
 
 int main() {

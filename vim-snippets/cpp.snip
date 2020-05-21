@@ -12,7 +12,10 @@ abbr cout with ####
 snippet dbs
 abbr cout ###
   cout << "###############" << endl;
-  cout << "###############" << endl;
+
+snippet dbss
+abbr cout char
+  cout << "${1}$1$1$1$1$1$1$1$1$1$1$1$1$1$1$1$1" << endl;
 
 snippet ci
 abbr cin
@@ -42,4 +45,10 @@ snippet if
 abbr if
   if(${1}) {
     ${2}
+  }
+
+snippet whiin
+abbr while until ctrl+d or enter
+  while (cin >> op) {
+    ${1}
   }
