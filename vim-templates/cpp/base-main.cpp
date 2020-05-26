@@ -62,6 +62,7 @@ int main() {
      a1 a2 a3 a4 a5 a6..., an
   */
 
+  ios::sync_with_stdio(false);
   int n;
   int c = 0;
   vi  vc_a;
