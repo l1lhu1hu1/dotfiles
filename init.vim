@@ -90,14 +90,17 @@ Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 " deoplete source for javascript
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'rhysd/vim-clang-format'
-" Plug 'google/yapf', { 'rtp': 'plugins/vim', 'for': 'python' }
 
 "----------------------------------------------------
 " language dependant plugins
 "----------------------------------------------------
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " go formatter and go command exectuion(GoRun, GoFormat, etc)
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" c++ formatter
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 
 "----------------------------------------------------
 " syntax highlighting plugins
@@ -124,18 +127,6 @@ call plug#end()
 "----------------------------------------------------
 " ###################################################
 "----------------------------------------------------
-let g:clang_format#style_options = {
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "true",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "AlignConsecutiveDeclarations" : "true",
-            \ "AlignConsecutiveMacros" : "true",
-            \ "AllowShortFunctionsOnASingleLine" : "false",
-            \ "AllowShortLoopsOnASingleLine" : "false",
-            \ "Standard" : "C++11"}
-let g:clang_format#code_style = 'google'
-autocmd FileType cpp ClangFormatAutoEnable
-" autocmd FileType py YAPF
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
@@ -179,6 +170,15 @@ let g:go_snippet_engine = ""
 "----------------------------------------------------
 let g:loaded_syntastic_dart_dartanalyzer_checker = 0
 autocmd FileType dart nmap ff :!flutter format %:p<CR>
+"----------------------------------------------------
+" c++, c, python, rust and etc settings
+"----------------------------------------------------
+augroup autoformat_settings
+  autocmd FileType c,cpp AutoFormatBuffer clang-format
+  autocmd FileType python AutoFormatBuffer yapf
+  autocmd FileType rust AutoFormatBuffer rustfm
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+augroup END
 "----------------------------------------------------
 " search settings
 "----------------------------------------------------
@@ -303,6 +303,7 @@ set clipboard=unnamed
 set nobackup
 set noswapfile
 let g:tex_conceal = ''
+
 augroup MyXML
   autocmd!
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
