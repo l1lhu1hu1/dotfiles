@@ -55,10 +55,10 @@ Plug 'preservim/nerdtree'
 Plug 'kien/ctrlp.vim'
 " window resizer
 Plug 'simeji/winresizer'
+" fzf
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" fzf
-
+Plug 'pseewald/vim-anyfold'
 " Plug 'terryma/vim-multiple-cursors'
 " 現状使用していない
 
@@ -127,7 +127,6 @@ call plug#end()
 "----------------------------------------------------
 " ###################################################
 "----------------------------------------------------
-
 let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
@@ -138,6 +137,11 @@ let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
 let g:winresizer_start_key = '<c-w>'
+
+autocmd Filetype * AnyFoldActivate
+" open all folds
+set foldlevel=99
+
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 " completionの候補の詳細がwindowとして出てきた後にescを押したら消える
 autocmd CompleteDone * silent! pclose!
