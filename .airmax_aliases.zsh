@@ -1,5 +1,5 @@
 IMP="$d/important"
-alias gpp=g++
+alias gpp="g++ -std=c++11"
 alias res="cd $d/research/research_project"
 alias summary="cd $d/research/research_project/summary"
 alias book="cd $d/research/research_project/summary/book"
@@ -19,7 +19,7 @@ function gp(){
   if [ ! -d $out ]; then
     mkdir out
   fi
-  g++ -o $PWD/out/$output_file "${f_name}.cpp"
+  gpp -o $PWD/out/$output_file "${f_name}.cpp"
   ./out/$output_file
 }
 
