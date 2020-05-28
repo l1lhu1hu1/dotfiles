@@ -31,7 +31,20 @@ function makebmemo(){
   vim $PWD/$dir_name.md;
 }
 
+# TODO clang-formatだけコピってくる関数を作る
+
+function cpcp(){
+  cp ~/dotfiles/.clang-format $PWD
+}
+
 function mkc(){
+  cur=$PWD/.clang-format
+  par="$(dirname "$PWD")/.clang-format"
+  if [ ! -f $cur ]; then
+    if [ ! -f $par ]; then
+      $(cpcp)
+    fi
+  fi
   cp -i ~/dotfiles/vim-templates/cpp/base-main.cpp $PWD/$*.cpp;
   vim $PWD/$*.cpp;
 }
