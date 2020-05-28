@@ -15,8 +15,12 @@ function makec(){
 function gp(){
   f_name=$*
   output_file="${f_name}.out"
-  g++ -o $output_file "${f_name}.cpp"
-  ./$output_file
+  out="$PWD/out"
+  if [ ! -d $out ]; then
+    mkdir out
+  fi
+  g++ -o $PWD/out/$output_file "${f_name}.cpp"
+  ./out/$output_file
 }
 
 function makepmemo(){
@@ -30,8 +34,6 @@ function makebmemo(){
   cp -i $IMP/for_papers/book_memo_template.md $PWD/$dir_name.md;
   vim $PWD/$dir_name.md;
 }
-
-# TODO clang-formatだけコピってくる関数を作る
 
 function cpcp(){
   cp ~/dotfiles/.clang-format $PWD
