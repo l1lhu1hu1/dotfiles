@@ -21,29 +21,28 @@ typedef vector<string> vs;
 // queue starts with "qu". for example qu_a
 // vector starts with "vc". for example vc_a
 
-int charToInt(char c) {
-  string tmp;
-  tmp += c;
-  int b = atoi(tmp.c_str());
-  return b;
-}
+// int charToInt(char c) {
+//   string tmp;
+//   tmp += c;
+//   int b = atoi(tmp.c_str());
+//   return b;
+// }
 
-int stringToInt(string s) {
-  return atoi(s.c_str());
-}
+// int stringToInt(string s) {
+//   return atoi(s.c_str());
+// }
 
 // deletes vec_t[from_index] through vec_t[to_index]
 // for example if from_index is 1 and to_index is 3, deletes vec_t[1], vec_t[2]
+
 // void delIndexBetween(vi vec_t, int from_index, int to_index) {
 //   vec_t.erase(vec_t.begin() + from_index, vec_t.begin() + to_index);
 // }
 
-// deletes vec_t[index]
 // void delIndex(vi vec_t, int index) {
 //   vec_t.erase(vec_t.begin() + index);
 // }
 
-// deletes first num, which was given as first arg, found in vec_a
 // void del(vi vec_t, int num) {
 //   int id = -1;
 //   rep(i, vec_a.size()) {
