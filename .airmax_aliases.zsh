@@ -14,12 +14,13 @@ function makec(){
 
 function gp(){
   f_name=$*
-  output_file="${f_name}.out"
+  # cpp拡張子を取り除いている
+  output_file="${f_name%.*}.out"
   out="$PWD/out"
   if [ ! -d $out ]; then
     mkdir out
   fi
-  gpp -o $PWD/out/$output_file "${f_name}.cpp"
+  gpp -o $PWD/out/$output_file "${f_name}"
   ./out/$output_file
 }
 
