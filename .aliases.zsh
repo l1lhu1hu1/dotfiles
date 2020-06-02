@@ -1,5 +1,5 @@
 d="/Users/$(whoami)/Desktop/"
-alias rg='rg --hidden'
+alias rgr='rg --hidden'
 alias r=reset
 alias chb='chsh -s /bin/bash'
 alias chz='chsh -s /bin/zsh'
