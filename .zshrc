@@ -61,6 +61,7 @@ else
     zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
   fi
 fi
+
 unset CASE_SENSITIVE HYPHEN_INSENSITIVE
 
 # 矢印で選択肢を選べる
