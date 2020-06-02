@@ -6,13 +6,18 @@ zplug "chrissicool/zsh-256color"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # history
 zplug "zsh-users/zsh-history-substring-search"
+
 # 補完
 zplug "zsh-users/zsh-autosuggestions"
 zplug 'zsh-users/zsh-completions'
+
 # directory移動を楽に
 zplug "rupa/z", use:"*.sh"
+
 # zplug "b4b4r07/zsh-vimode-visual", defer:3
-# zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
+
+# git repositoryとかが変更されたかどうかとかを見るために必要(☓とか出すのに必要)
+zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
 
 ############################################zplug installation####################################################
 if ! zplug check; then
