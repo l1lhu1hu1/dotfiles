@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long      ll;
-typedef vector<int>    vi;
+typedef long long ll;
+typedef vector<int> vi;
 typedef vector<string> vs;
 
 #define FOR(i, a, b) for (int i = (a); i < (b); i++)
@@ -62,16 +62,16 @@ int main() {
   */
 
   ios::sync_with_stdio(false);
-  int n;
   int c = 0;
-  vi  vc_a;
-  cin >> n;
+  vi vc_a;
 
   // comment out below when input is given in the format n k
   /* n k */
-
   // int k;
-  // cin >> k;
+  // cin >> n >> k
+
+  int n;
+  cin >> n;
 
   // receiving input
   while (c < n) {
