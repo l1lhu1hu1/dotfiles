@@ -16,10 +16,10 @@ typedef vector<string> vs;
 #define dbg(x)       cout << #x "=" << x << endl
 
 // naming rules
-// array starts with "ar". for example ar_a
-// stack starts with "st". for example st_a
-// queue starts with "qu". for example qu_a
-// vector starts with "vc". for example vc_a
+// array starts with "ar". for example arA
+// stack starts with "st". for example stA
+// queue starts with "qu". for example quA
+// vector starts with capital letter. for example A
 
 /* string related
 int charToInt(char c) {
@@ -34,21 +34,18 @@ int stringToInt(string s) {
 */
 
 /* vector related
-// deletes vec_t[from_index] through vec_t[to_index]
-// for example if from_index is 1 and to_index is 3, deletes vec_t[1], vec_t[2]
-
-void delIndexBetween(vi vec_t, int from_index, int to_index) {
-  vec_t.erase(vec_t.begin() + from_index, vec_t.begin() + to_index);
+// deletes T[from_index] through T[to_index]
+// for example if from_index is 1 and to_index is 3, deletes T[1], T[2]
+void delIndexBetween(vi T, int from_index, int to_index) {
+  T.erase(T.begin() + from_index, T.begin() + to_index);
 }
-
-void delIndex(vi vec_t, int index) {
-  vec_t.erase(vec_t.begin() + index);
+void delIndex(vi T, int index) {
+  T.erase(T.begin() + index);
 }
-
-void del(vi vec_t, int num) {
+void del(vi T, int num) {
   int id = -1;
-  rep(i, vec_t.size()) {
-    if (num == vec_t[i]) {
+  rep(i, T.size()) {
+    if (num == T[i]) {
       id = i;
       break;
     }
@@ -58,15 +55,9 @@ void del(vi vec_t, int num) {
 */
 
 int main() {
-  // expects input to be like
-  /*
-     n
-     a1 a2 a3 a4 a5 a6..., an
-  */
-
   ios::sync_with_stdio(false);
   int c = 0;
-  vi vc_a;
+  vi A;
 
   // comment out below when input is given in the format n k
   /* n k */
@@ -80,12 +71,8 @@ int main() {
   while (c < n) {
     int tmp;
     cin >> tmp;
-    vc_a.pb(tmp);
+    A.pb(tmp);
     c++;
-  }
-
-  rep(i, n) {
-    cout << vc_a[i] << endl;
   }
 
   // for result output like below
@@ -96,7 +83,7 @@ int main() {
   */
 
   // rep(i, n) {
-  //   cout << vi_a[i].name << " " << vi_a[i].ms << endl;
+  //   cout << C[i].name << " " << C[i].ms << endl;
   // }
 
   return 0;
