@@ -140,7 +140,9 @@ let g:winresizer_start_key = '<c-w>'
 
 autocmd Filetype * AnyFoldActivate
 " open all folds
-set foldlevel=99
+" set foldlevel=99
+let g:anyfold_identify_comments = 2
+let g:anyfold_fold_comments=1
 
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 " completionの候補の詳細がwindowとして出てきた後にescを押したら消える

@@ -21,38 +21,41 @@ typedef vector<string> vs;
 // queue starts with "qu". for example qu_a
 // vector starts with "vc". for example vc_a
 
-// int charToInt(char c) {
-//   string tmp;
-//   tmp += c;
-//   int b = atoi(tmp.c_str());
-//   return b;
-// }
+/* string related
+int charToInt(char c) {
+  string tmp;
+  tmp += c;
+  int b = atoi(tmp.c_str());
+  return b;
+}
+int stringToInt(string s) {
+  return atoi(s.c_str());
+}
+*/
 
-// int stringToInt(string s) {
-//   return atoi(s.c_str());
-// }
-
+/* vector related
 // deletes vec_t[from_index] through vec_t[to_index]
 // for example if from_index is 1 and to_index is 3, deletes vec_t[1], vec_t[2]
 
-// void delIndexBetween(vi vec_t, int from_index, int to_index) {
-//   vec_t.erase(vec_t.begin() + from_index, vec_t.begin() + to_index);
-// }
+void delIndexBetween(vi vec_t, int from_index, int to_index) {
+  vec_t.erase(vec_t.begin() + from_index, vec_t.begin() + to_index);
+}
 
-// void delIndex(vi vec_t, int index) {
-//   vec_t.erase(vec_t.begin() + index);
-// }
+void delIndex(vi vec_t, int index) {
+  vec_t.erase(vec_t.begin() + index);
+}
 
-// void del(vi vec_t, int num) {
-//   int id = -1;
-//   rep(i, vec_a.size()) {
-//     if (num == vec_a[i]) {
-//       id = i;
-//       break;
-//     }
-//   }
-//   if (id != -1) delIndex(id);
-// }
+void del(vi vec_t, int num) {
+  int id = -1;
+  rep(i, vec_t.size()) {
+    if (num == vec_t[i]) {
+      id = i;
+      break;
+    }
+  }
+  if (id != -1) delIndex(id);
+}
+*/
 
 int main() {
   // expects input to be like
