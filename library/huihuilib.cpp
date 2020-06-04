@@ -18,10 +18,10 @@ typedef vector<string> vs;
 //#################################################
 // naming rules
 // bugをなるべく生み出さないために以下に従うこと
-// queue starts with "Q". for example QA
-// array starts with "A". for example AA
-// stack starts with "S". for example SA
-// vector starts with V. for example VA
+// queue starts with "Q". for example QUA
+// array starts with "A". for example ARA
+// stack starts with "S". for example STA
+// vector starts with "V". for example VCA
 // global variable starts with "gl". for example glA
 // counter variable starts with "cnt". for example cntC
 
