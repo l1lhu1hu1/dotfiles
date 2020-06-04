@@ -18,7 +18,7 @@ typedef vector<string> vs;
 int main() {
   ios::sync_with_stdio(false);
   int cntC = 0;
-  vi VA;
+  vi VCA;
 
   int n;
   cin >> n;
@@ -26,7 +26,7 @@ int main() {
   while (cntC < n) {
     int tmp;
     cin >> tmp;
-    VA.pb(tmp);
+    VCA.pb(tmp);
     cntC++;
   }
 
