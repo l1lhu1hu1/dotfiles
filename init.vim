@@ -211,9 +211,8 @@ set number
 " カーソルラインをハイライト
 set cursorline
 set backspace=indent,eol,start " バックスペースキーの有効化
-if has('mouse')
-  set mouse=a
-endif
+" mouseを無効化
+set mouse=
 
 "----------------------------------------------------
 " visual settings
