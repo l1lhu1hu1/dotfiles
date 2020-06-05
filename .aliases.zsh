@@ -75,8 +75,14 @@ function gitadd(){
   cd -
 }
 
+function gcm() {
+  mes=$*
+  # echo "$*"
+  git commit -m "$mes"
+}
+
 alias git=hub
-alias gcm="git commit -m"
+# alias gcm="git commit -m"
 alias gbr="git branch --sort=-committerdate --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
 alias gre="git rebase"

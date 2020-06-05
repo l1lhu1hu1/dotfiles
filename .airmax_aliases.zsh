@@ -7,11 +7,13 @@ alias paper="cd $d/research/research_project/summary/paper"
 alias sim="open -a Simulator"
 alias pro='cd $d/projects'
 
+# TODO $1に変えたら?
 function makec(){
   cp -i $d/useful/ccc.c $PWD/$*.c;
   vim $PWD/$*.c;
 }
 
+#1TODO $1に変えたら?
 function gp(){
   f_name=$*
   # cpp拡張子を取り除いている
