@@ -44,8 +44,15 @@ function register_to_pixela() {
   pi pixel post -u guanghuihui -g activity -d $1 -q $2
 }
 
+function delete_pixel() {
+  echo $1
+  echo $2
+  pi pixel delete -u guanghuihui -g activity -d $1
+}
+
 alias pixi='pi pixel increment -u guanghuihui -g activity'
 alias pix="register_to_pixela $(date +%Y%m%d) $(input_pixela_count)"
+alias pixd="delete_pixel $(date +%Y%m%d)"
 alias pixy="register_to_pixela $(date -v '-1d' +%Y%m%d) $(input_pixela_count)"
 alias pixinput="register_to_pixela $(input_pixela_date) $(input_pixela_count)"
 
