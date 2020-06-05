@@ -76,8 +76,9 @@ function gitadd(){
 }
 
 function gcm() {
+  # TODO 一度mesに入れてからじゃないと上手く行かないのなぜ?
   mes=$*
-  # echo "$*"
+  # echo "$mes"
   git commit -m "$mes"
 }
 
