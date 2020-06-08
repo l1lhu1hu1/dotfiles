@@ -72,9 +72,9 @@ Plug 'dense-analysis/ale'
 "----------------------------------------------------
 " git manipulater
 "----------------------------------------------------
-" TODO https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
-" を読んで使い方を理解する
 Plug 'tpope/vim-fugitive'
+" for Gbrowse
+Plug 'tpope/vim-rhubarb'
 "----------------------------------------------------
 " snippet and template plugins
 "----------------------------------------------------
