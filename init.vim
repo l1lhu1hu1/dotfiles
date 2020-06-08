@@ -28,6 +28,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "----------------------------------------------------
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" colorscheme
 Plug 'morhetz/gruvbox'
 " indent可視化
 Plug 'nathanaelkane/vim-indent-guides'
@@ -44,6 +45,7 @@ Plug 'rhysd/accelerated-jk'
 " yank setting for nvim
 Plug 'bfredl/nvim-miniyank'
 " replace and search plugin
+" TODO 使い方(現状使えてない)
 Plug 'tpope/vim-abolish'
 " open terminal in vim
 Plug 'vimlab/split-term.vim'
@@ -67,7 +69,12 @@ Plug 'pseewald/vim-anyfold'
 "----------------------------------------------------
 Plug 'dense-analysis/ale'
 " stands for Asynchronous Lint Engine. stntax checking and semantic errors
-
+"----------------------------------------------------
+" git manipulater
+"----------------------------------------------------
+" TODO https://github.com/tpope/vim-fugitive/blob/master/doc/fugitive.txt
+" を読んで使い方を理解する
+Plug 'tpope/vim-fugitive'
 "----------------------------------------------------
 " snippet and template plugins
 "----------------------------------------------------
@@ -83,6 +90,7 @@ Plug 'alvan/vim-closetag'
 " auto close completion for ", ', (, etc
 Plug 'cohama/lexima.vim'
 " replace tag name to different tag name. eg) <h1>hello</h1> to <h2>hello</h2>
+" TODO 使い方(現状使えてない)
 Plug 'tpope/vim-surround'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
@@ -113,6 +121,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'dart-lang/dart-vim-plugin'
 " jsx syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty'
+" md syntax highlighting
+Plug 'tpope/vim-markdown'
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
@@ -160,6 +170,13 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:closetag_filenames = '*.html,*.js,*.jsx'
 
+
+"----------------------------------------------------
+" md settings
+"----------------------------------------------------
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:markdown_fenced_languages = ['javascript', 'ruby', 'go', 'cpp']
+let g:markdown_syntax_conceal = 0
 "----------------------------------------------------
 " go settings
 "----------------------------------------------------
