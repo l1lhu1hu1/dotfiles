@@ -4,40 +4,48 @@
 - neovim & vim-plug
 
 ## zplug install
-```
+
+```sh
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 ```
 
 ## vim-plug install
-```
+
+```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ## シンボリックリンクの作成
 ### zshell
-```
+
+```sh
 cd symlink_settings && sh make_zsh_symlinks
 ```
 
 ### neovim
-```
+
+```sh
 cd symlink_settings && sh make_vim_symlinks
 ```
 
 ### 両方
-```
+
+```sh
 cd symlink_settings && sh make_all_symlinks
 ```
 
 ## Neovim setting
 ### Neovim install
-```
+
+```sh
 brew install neovim
 ```
+
 ### Deoplete用の設定
 pyenvを入れると、pipもついてくるので、pipでpynvimとneovimを入れる必要がある
-```
+
+```sh
 pip install pynvim
 pip install neovim
 ```
@@ -59,7 +67,8 @@ iTerm側でfontの設定が必要。これと同じように設定する
 `chrome://extensions`にいって、詳細をクリック後にファイルのURLへのアクセスを許可するをクリックする
 
 ## Nodenv and yarn installation
-```
+
+```sh
 anyenv install nodenv
 nodenv install -l
 nodenv install (versionは自分で調べてから入れる)
