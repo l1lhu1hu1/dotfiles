@@ -39,7 +39,7 @@ function makebmemo(){
 }
 
 function cpcp(){
-  cp ~/dotfiles/.clang-format $PWD
+  cp ~/dotfiles/library/.clang-format $PWD
 }
 
 function mkc(){
@@ -50,6 +50,6 @@ function mkc(){
       $(cpcp)
     fi
   fi
-  cp -i ~/dotfiles/vim-templates/cpp/base-main.cpp $PWD/$*.cpp;
+  cp -i ~/dotfiles/.vim/vim-templates/cpp/base-main.cpp $PWD/$*.cpp;
   vim $PWD/$*.cpp;
 }

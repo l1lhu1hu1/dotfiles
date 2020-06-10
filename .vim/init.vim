@@ -140,7 +140,7 @@ call plug#end()
 let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-let g:neosnippet#snippets_directory='~/dotfiles/vim-snippets'
+let g:neosnippet#snippets_directory='~/dotfiles/.vim/vim-snippets'
 let g:neosnippet#enable_completed_snippet = 1
 
 let g:deoplete#enable_at_startup = 1
@@ -341,4 +341,4 @@ augroup END
 "   augroup END
 " endif
 
-:source ~/dotfiles/.custom.vim
+:source ~/dotfiles/.vim/.custom.vim

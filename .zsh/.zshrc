@@ -95,16 +95,16 @@ function unset_all() {
 }
 
 ####################################################alias######################################################
-alias sss='source ~/dotfiles/.zshrc'
-source ~/dotfiles/.aliases.zsh
+alias sss='source ~/dotfiles/.zsh/.zshrc'
+source ~/dotfiles/.zsh/.aliases.zsh
 
 eval "$(direnv hook zsh)"
 
-local_alias=~/dotfiles/.$(scutil --get ComputerName)_aliases.zsh
+local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
 [ -e $local_alias ] && source $local_alias
 
 ####################################################path######################################################
-local_path=~/dotfiles/.$(scutil --get ComputerName)_path.zsh
+local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
 [ -e $local_path ] && source $local_path
 ##############################################export secrets######################################################
 local_secret=~/.secret.zsh

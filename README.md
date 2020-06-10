@@ -17,17 +17,17 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ## シンボリックリンクの作成
 ### zshell
 ```
-sh makeZshSymLinks.sh
+cd symlink_settings && sh make_zsh_symlinks
 ```
 
 ### neovim
 ```
-sh makeVimSymLinks.sh
+cd symlink_settings && sh make_vim_symlinks
 ```
 
 ### 両方
 ```
-sh makeVimSymLinks.sh
+cd symlink_settings && sh make_all_symlinks
 ```
 
 ## Neovim setting
@@ -51,9 +51,9 @@ cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
 ```
 
-#### Step 2 
-iTerm側でfontの設定が必要。これと同じように設定する  
-<img src="./iterm_setting.png" height="600px">
+#### Step 2
+iTerm側でfontの設定が必要。これと同じように設定する
+<img src="./images/iterm_setting.png" height="600px">
 
 ## Markdown Preview Plus
 `chrome://extensions`にいって、詳細をクリック後にファイルのURLへのアクセスを許可するをクリックする
@@ -73,12 +73,3 @@ yarn add global tern
 
 ## karabiner element
 Add ruleからのimport more rules from the internetで日本語入力時のesc(vim)を入れる
-
-## TODO
-- [ ] brewtap、brewcask等で必要な物を一括でインストールできるようにする
-- [ ] それぞれのファイルの役割をREADMEに書く
-- [x] zshrcの中の必要のないものを削除して、環境依存のものと共通なものを切り分ける
-- [x] ricty for powerlineを追加する
-- [x] symlinkを貼るだけでnvimが動くようにする(makeVimSymLinks.shの改善)
-- [x] aliasesでPC名になっているところをwhoamiに置き換える
-- [x] aliasをlocal依存のものと分割する

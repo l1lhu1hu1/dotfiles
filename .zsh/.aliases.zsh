@@ -9,10 +9,10 @@ alias ee=exit
 alias vim=nvim
 alias vi=nvim
 alias bashrc='vim ~/.bashrc'
-alias vimrc='vi ~/dotfiles/init.vim'
-alias zshrc='vim ~/dotfiles/.zshrc'
+alias vimrc='vi ~/dotfiles/.vim/init.vim'
+alias zshrc='vim ~/dotfiles/.zsh/.zshrc'
 alias vimcom='vim ~/dotfiles/.mycommand.vim'
-alias aliases='vim ~/dotfiles/.aliases'
+alias aliases='vim ~/dotfiles/.zsh/.aliases.zsh'
 alias dot='cd ~/dotfiles'
 alias g=open -a
 alias ps=procs
@@ -83,10 +83,11 @@ function gitadd(){
 }
 
 function gcm() {
-  # TODO 一度mesに入れてからじゃないと上手く行かないのなぜ?
-  mes=$*
-  # echo "$mes"
-  git commit -m "$mes"
+  git commit -m "$*"
+}
+
+function gcma() {
+  git commit -amend -m "$*"
 }
 
 alias git=hub
@@ -97,6 +98,7 @@ alias gre="git rebase"
 alias gpul="git pull"
 alias gpus="git push"
 alias gpuso="git push origin"
+alias gpusof="git push -f origin"
 alias gpusom="git push origin master"
 alias gstat="tig status"
 alias gstas="git stash --all"
