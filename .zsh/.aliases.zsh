@@ -11,7 +11,6 @@ alias vi=nvim
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vi ~/dotfiles/.vim/init.vim'
 alias zshrc='vim ~/dotfiles/.zsh/.zshrc'
-alias vimcom='vim ~/dotfiles/.mycommand.vim'
 alias aliases='vim ~/dotfiles/.zsh/.aliases.zsh'
 alias dot='cd ~/dotfiles'
 alias g=open -a
