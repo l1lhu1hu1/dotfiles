@@ -52,7 +52,8 @@ pip install neovim
 
 ### Ricty for powerline(neovimの表示用)
 #### Step 1
-```
+
+```sh
 brew tap sanemat/font
 brew install ricty --with-powerline
 cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
