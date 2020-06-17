@@ -86,7 +86,7 @@ function gcm() {
 }
 
 function gcma() {
-  git commit -amend -m "$*"
+  git commit --amend -m "$*"
 }
 
 alias git=hub
