@@ -94,6 +94,22 @@ function unset_all() {
   unset -f -m '*'
 }
 
+# TODO 存在する場合は、createしないようにする
+function create_alias_files() {
+  local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
+  touch $local_alias
+  local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
+  touch $local_path
+}
+
+# TODO 存在する場合は、createしないようにする
+function create_secret_files() {
+  local_secret=~/.secret.zsh
+  touch $local_secret
+}
+
+eval "$(anyenv init -)"
+
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zsh/.zshrc'
 source ~/dotfiles/.zsh/.aliases.zsh
@@ -103,9 +119,9 @@ eval "$(direnv hook zsh)"
 local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
 [ -e $local_alias ] && source $local_alias
 
-####################################################path######################################################
+#####################################################path######################################################
 local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
 [ -e $local_path ] && source $local_path
-##############################################export secrets######################################################
+###############################################export secrets######################################################
 local_secret=~/.secret.zsh
 [ -e $local_secret ] && source $local_secret
