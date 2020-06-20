@@ -1,0 +1,1 @@
+alias pro="cd ~/projects"
