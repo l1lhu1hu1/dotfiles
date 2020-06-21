@@ -94,16 +94,25 @@ function unset_all() {
   unset -f -m '*'
 }
 
-function create_alias_files() {
+function create_alias_file() {
   local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
   touch $local_alias
+}
+
+function create_path_file() {
   local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
   touch $local_path
 }
 
-function create_secret_files() {
+function create_secret_file() {
   local_secret=~/.secret.zsh
   touch $local_secret
+}
+
+function create_necessary_files() {
+  $(create_secret_files)
+  $(create_alias_file)
+  $(create_path_file)
 }
 
 eval "$(anyenv init -)"
@@ -121,6 +130,7 @@ local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
 # 重複パスを登録しない
 source ~/dotfiles/.zsh/.paths.zsh
 typeset -U path cdpath fpath manpath
+
 # PC名と同じ名前ののaliasとかpath fileがない場合怒られる
 local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
 [ -e $local_path ] && source $local_path
