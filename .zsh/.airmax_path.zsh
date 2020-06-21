@@ -1,15 +1,14 @@
-# TODO pathの設定を直す&ファイルに切り出す & 読み込みの速度を上げる
+# TODO pathの設定を直す & ファイルに切り出す & 読み込みの速度を上げる
 # anyenv setting
 if [ -d $HOME/.anyenv ]; then
-  export PATH="$HOME/.anyenv/bin:$PATH"
+  PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init - --no-rehash)"
 fi
 
 # gopath setting. Downloaded from golang.org
 export GOPATH="$HOME/go"
 PATH="$GOPATH/bin:$PATH"
-export PATH="$PATH:/Users/kokitsumura/flutter/bin"
-# export PATH=$PATH:/usr/local/go/bin
+PATH="$PATH:/Users/kokitsumura/flutter/bin"
 
 # language setting
 export LANG=ja_JP.UTF-8
