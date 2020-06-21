@@ -59,24 +59,6 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                      "description": "ctrl+fで削除",
-                      "manipulators": [
-                        {
-                          "type": "basic",
-                          "from": {
-                            "key_code": "f",
-                            "modifiers": {
-                              "mandatory": ["control"],
-                              "optional": [ "any" ]
-                            }
-                          },
-                          "to": {
-                            "key_code": "delete_or_backspace"
-                          }
-                        }
-                      ]
                     }
                 ]
             },
