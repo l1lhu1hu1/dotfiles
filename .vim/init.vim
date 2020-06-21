@@ -304,19 +304,8 @@ set ambiwidth=double " □や○文字が崩れる問題を解決
 "----------------------------------------------------
 " clipboard and paste settings
 "----------------------------------------------------
-set clipboard=unnamed
 " ヤンクをクリップボードへ
-" if &term =~ "xterm"
-"     let &t_SI .= "\e[?2004h"
-"     let &t_EI .= "\e[?2004l"
-"     let &pastetoggle = "\e[201~"
-"     function XTermPasteBegin(ret)
-"         set paste
-"         return a:ret
-"     endfunction
-"     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-" endif
-" 挿入モードでクリップボードからペーストする時に自動でインデントさせないようにする
+set clipboard=unnamed
 
 "----------------------------------------------------
 " other settings
@@ -331,15 +320,6 @@ augroup MyXML
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
 augroup END
-
-" ESCキーを押した時にIMEに無効化させる
-" if has('mac')
-"   let g:imeoff = 'osascript -e "tell application \"System Events\" to key code 102"'
-"   augroup MyIMEGroup
-"     autocmd!
-"     autocmd InsertLeave * :call system(g:imeoff)
-"   augroup END
-" endif
 
 "----------------------------------------------------
 " nvim clipboard key mappings
@@ -381,14 +361,12 @@ noremap <S-h>   ^
 noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
-nnoremap <C-h> <S-j>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
 
 inoremap <expr> <C-n> pumvisible() ? "" : "\<C-n>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-p> pumvisible() ? "" : "\<C-p>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
 "----------------------------------------------------
 " tabs and window key mappings
 "----------------------------------------------------
@@ -472,6 +450,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
 "----------------------------------------------------
 " other key mappings
 "----------------------------------------------------
@@ -491,7 +470,3 @@ nmap <silent><Space>ts :vs\|:term<CR>
 
 nnoremap ; :
 nmap tm :Tem main %<CR>
-
-" function! s:SID_PREFIX()
-"   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
-" endfunction

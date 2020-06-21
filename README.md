@@ -3,6 +3,32 @@
 - zsh & zplug
 - neovim & vim-plug
 
+## brew install
+Install Brew from [here](https://brew.sh/)
+
+### 疑問点
+.configで配下にnvim directoryは作る必要ある?
+
+## dotfilesを置く場所
+`~`配下
+
+```sh
+brew install argon/mas/mas
+brew install rcmdnk/file/brew-file
+brew file init
+cp ~/dotfiles/app_settings/Brewfile ~/.config/brewfile/Brewfile
+```
+
+### 疑問点(TODO)
+- BrewfileはSymlinksにした方が良いんじゃない?
+- 初期状態から.config dirとかbrewfile dirはなさそう
+- 3行目でbrewfile dirまでできるんじゃない?
+- 4個目のコマンドが通るか調べること
+- 1行目と2行目は本当にいる?
+
+### 参考サイト
+- [Macで自動環境構築＆バックアップ（App Storeも）](https://qiita.com/takeo-asai/items/29724f94e2992fdc7246#homebrew)
+
 ## zplug install
 
 ```sh
@@ -36,22 +62,24 @@ cd symlink_settings && sh make_all_symlinks
 ```
 
 ## Neovim setting
-### Neovim install
 
 ```sh
 brew install neovim
 ```
 
-### Deoplete用の設定
 pyenvを入れると、pipもついてくるので、pipでpynvimとneovimを入れる必要がある
 
 ```sh
-pip install pynvim
-pip install neovim
+chmod 755 /usr/local/share/zsh/site-functions
+chmod 755 /usr/local/share/zsh
+pip3 install --user pynvim
+pip3 install --user neovim
 ```
 
-### Ricty for powerline(neovimの表示用)
-#### Step 1
+### 疑問点
+- [macでzshでzsh compinit: insecure directoriesの警告が出る問題](https://qiita.com/ayihis@github/items/88f627b2566d6341a741)
+
+## Ricty for powerline(neovimの表示用)
 
 ```sh
 brew tap sanemat/font
@@ -60,7 +88,13 @@ cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
 ```
 
-#### Step 2
+### 疑問点(TODO)
+- BrewfileはSymlinksにした方が良いんじゃない?
+- 初期状態から.config dirとかbrewfile dirはなさそう
+- 3行目でbrewfile dirまでできるんじゃない?
+- 4個目のコマンドが通るか調べること
+- 1行目と2行目は本当にいる?
+
 iTerm側でfontの設定が必要。これと同じように設定する
 <img src="./images/iterm_setting.png" height="600px">
 
@@ -81,5 +115,14 @@ nodenv install (最初に選んだversion)
 yarn add global tern
 ```
 
+```sh
+pyenv install -l
+pyenv install バージョン番号
+```
+
 ## karabiner element
 Add ruleからのimport more rules from the internetで日本語入力時のesc(vim)を入れる
+
+## etc
+- Slackを入れる
+- Spotifyを入れる
