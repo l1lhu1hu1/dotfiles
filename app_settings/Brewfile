@@ -1,0 +1,68 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew anyenv
+brew bat
+brew cairo
+brew direnv
+brew exa
+brew fontconfig
+brew fontforge
+brew freetype
+brew fribidi
+brew fzf
+brew gdbm
+brew gettext
+brew gh
+brew giflib
+brew glib
+brew graphite2
+brew harfbuzz
+brew hub
+brew icu4c
+brew jpeg
+brew jq
+brew libffi
+brew libpng
+brew libspiro
+brew libtermkey
+brew libtiff
+brew libtool
+brew libuninameslist
+brew libuv
+brew libvterm
+brew luajit
+brew lzo
+brew mas
+brew msgpack
+brew neovim
+brew oniguruma
+brew openssl@1.1
+brew pango
+brew pcre
+brew pcre2
+brew pixman
+brew python
+brew python@3.8
+brew readline
+brew ripgrep
+brew rmtrash
+brew sqlite
+brew unibilium
+brew xz
+
+tap homebrew/cask
+
+tap a-know/tap
+brew pi
+
+tap argon/mas
+
+tap github/gh
+
+tap rcmdnk/file
+brew brew-file
+
+tap sanemat/font
+brew ricty --with-powerline
