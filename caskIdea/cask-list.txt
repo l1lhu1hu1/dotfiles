@@ -1,0 +1,6 @@
+alfred: Alfred 4.app
+bettertouchtool: BetterTouchTool.app
+google-chrome: Google Chrome.app
+iterm2: iTerm.app
+slack: Slack.app
+spotify: Spotify.app
