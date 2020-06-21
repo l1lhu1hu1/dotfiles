@@ -94,7 +94,6 @@ function unset_all() {
   unset -f -m '*'
 }
 
-# TODO 存在する場合は、createしないようにする
 function create_alias_files() {
   local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
   touch $local_alias
@@ -102,7 +101,6 @@ function create_alias_files() {
   touch $local_path
 }
 
-# TODO 存在する場合は、createしないようにする
 function create_secret_files() {
   local_secret=~/.secret.zsh
   touch $local_secret
@@ -120,8 +118,8 @@ local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
 [ -e $local_alias ] && source $local_alias
 
 #####################################################path######################################################
+# 重複パスを登録しない
+source ~/dotfiles/.zsh/.paths.zsh
+typeset -U path cdpath fpath manpath
 local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
 [ -e $local_path ] && source $local_path
-###############################################export secrets######################################################
-local_secret=~/.secret.zsh
-[ -e $local_secret ] && source $local_secret
