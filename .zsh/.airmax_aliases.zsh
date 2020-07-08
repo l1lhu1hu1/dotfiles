@@ -7,6 +7,7 @@ alias paper="cd $d/research/research_project/summary/paper"
 alias sim="open -a Simulator"
 alias pro='cd $d/projects'
 
+# TODO CPP用の設定ファイルに切り出したら?
 # TODO $1に変えたら?
 function makec(){
   cp -i $d/useful/ccc.c $PWD/$*.c;

@@ -99,6 +99,9 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 " deoplete source for javascript
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+
+
 "----------------------------------------------------
 " language dependant plugins
 "----------------------------------------------------
@@ -123,6 +126,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'maxmellon/vim-jsx-pretty'
 " md syntax highlighting
 Plug 'tpope/vim-markdown'
+" Plug 'scrooloose/syntastic'
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
@@ -164,7 +168,7 @@ autocmd CompleteDone * silent! pclose!
 " 保存時に必要なimportを自動的に挿入
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:ale_fixers = {
- \ 'javascript': ['eslint']
+      \ 'javascript': ['eslint']
  \ }
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
@@ -181,12 +185,17 @@ let g:markdown_syntax_conceal = 0
 " go settings
 "----------------------------------------------------
 let g:go_template_autocreate = 0
-let g:go_fmt_command = "goimports"
-let g:go_term_mode = "tabe"
 autocmd FileType go nmap ge <Plug>(go-def-tab)
 autocmd FileType go nmap gr :GoRun %:p<CR>
 " fnとかのスニペットでこれをしないとconflictが起きてしまう
 let g:go_snippet_engine = ""
+let g:go_fmt_fail_silently = 1
+let g:ale_linters = {
+\   'go': ['gobuild'],
+\}
+" let g:go_fmt_command = "goimports"
+" let g:go_term_mode = "tabe"
+" let g:go_metalinter_autosave = 1
 
 "----------------------------------------------------
 " flutter settings
