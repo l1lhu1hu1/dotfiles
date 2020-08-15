@@ -245,7 +245,6 @@ set mouse=
 "----------------------------------------------------
 syntax enable
 " syntax on
-let g:gruvbox_contrast_light = "hard"
 
 set background=light
 
