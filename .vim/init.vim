@@ -101,6 +101,9 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
+" for disabling json conceal function
+Plug 'elzr/vim-json'
+
 
 "----------------------------------------------------
 " language dependant plugins
@@ -197,6 +200,7 @@ let g:go_fmt_command = "goimports"
 " let g:go_term_mode = "tabe"
 " let g:go_metalinter_autosave = 1
 
+let g:vim_json_syntax_conceal = 0
 "----------------------------------------------------
 " flutter settings
 "----------------------------------------------------
@@ -209,7 +213,6 @@ augroup autoformat_settings
   autocmd FileType c,cpp AutoFormatBuffer clang-format
   autocmd FileType python AutoFormatBuffer yapf
   autocmd FileType rust AutoFormatBuffer rustfm
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
 augroup END
 "----------------------------------------------------
 " search settings
