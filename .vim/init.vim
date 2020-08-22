@@ -99,7 +99,7 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 " deoplete source for javascript
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+" Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 " for disabling json conceal function
 Plug 'elzr/vim-json'
@@ -189,7 +189,7 @@ let g:markdown_syntax_conceal = 0
 "----------------------------------------------------
 let g:go_template_autocreate = 0
 autocmd FileType go nmap ge <Plug>(go-def-tab)
-autocmd FileType go nmap gr :GoRun %:p<CR>
+autocmd FileType go nmap gr <Plug>(go-run-vertical)
 " fnとかのスニペットでこれをしないとconflictが起きてしまう
 let g:go_snippet_engine = ""
 let g:go_fmt_fail_silently = 1
