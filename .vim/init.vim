@@ -189,7 +189,7 @@ let g:markdown_syntax_conceal = 0
 "----------------------------------------------------
 let g:go_template_autocreate = 0
 autocmd FileType go nmap ge <Plug>(go-def-tab)
-autocmd FileType go nmap gr <Plug>(go-run-vertical)
+" autocmd FileType go nmap gr <Plug>(go-run-vertical)
 " fnとかのスニペットでこれをしないとconflictが起きてしまう
 let g:go_snippet_engine = ""
 let g:go_fmt_fail_silently = 1
