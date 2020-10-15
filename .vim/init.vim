@@ -128,7 +128,8 @@ Plug 'dart-lang/dart-vim-plugin'
 " jsx syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty'
 " md syntax highlighting
-Plug 'tpope/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 " Plug 'scrooloose/syntastic'
 "----------------------------------------------------
 " process management plugins
