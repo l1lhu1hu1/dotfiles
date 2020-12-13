@@ -1,10 +1,10 @@
 snippet fn
 abbr Println
-  fmt.Println(${1})
+  log.Println(${1})
 
 snippet ff
 abbr Prntf
-  fmt.Printf(${1})
+  log.Printf(${1})
 
 snippet fun
 abbr func
@@ -52,17 +52,17 @@ abbr if err != nil {...}
 
 snippet dbs
 abbr Println("##################################")
-  fmt.Println("##################################")
+  log.Println("##################################")
 
 snippet dbv
 abbr Println(value)
-  fmt.Println("${1}", $1)
+  log.Println("${1}", $1)
 
 snippet dbg
 abbr Println(value)
-  fmt.Println("##################################")
-  fmt.Println("${1}", $1)
-  fmt.Println("##################################")
+  log.Println("##################################")
+  log.Println("${1}", $1)
+  log.Println("##################################")
 
 snippet gof
 abbr go func(){}()
