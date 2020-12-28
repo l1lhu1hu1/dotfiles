@@ -184,7 +184,9 @@ let g:ale_fix_on_save = 1
 "----------------------------------------------------
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:markdown_fenced_languages = ['javascript', 'ruby', 'go', 'cpp']
-let g:markdown_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
 "----------------------------------------------------
 " go settings
 "----------------------------------------------------
