@@ -29,7 +29,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " colorscheme
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 " indent可視化
 Plug 'nathanaelkane/vim-indent-guides'
 " trailing space可視化
@@ -252,11 +252,10 @@ set mouse=
 syntax enable
 " syntax on
 
-set background=light
 
-colorscheme gruvbox
+colorscheme dracula
 
-" highlight Cursor guifg=white guibg=white
+hi Visual guifg=#000000 guibg=#FFFFFF gui=none
 set list
 set listchars=tab:»-,trail:-,nbsp:%,eol:↲
 " 入力中のコマンドをステータスに表示する
