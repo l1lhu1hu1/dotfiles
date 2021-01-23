@@ -176,7 +176,7 @@ let g:ale_fixers = {
  \ }
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
-let g:closetag_filenames = '*.html,*.js,*.jsx'
+let g:closetag_filenames = '*.html,*.js,*.jsx,*.php'
 let g:ale_fix_on_save = 1
 
 "----------------------------------------------------
@@ -216,6 +216,7 @@ augroup autoformat_settings
   autocmd FileType c,cpp AutoFormatBuffer clang-format
   autocmd FileType python AutoFormatBuffer yapf
   autocmd FileType rust AutoFormatBuffer rustfm
+  autocmd filetype php set filetype=html
 augroup END
 "----------------------------------------------------
 " search settings
