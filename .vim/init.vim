@@ -165,19 +165,30 @@ set foldlevel=99
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 " completionの候補の詳細がwindowとして出てきた後にescを押したら消える
 autocmd CompleteDone * silent! pclose!
-
+"----------------------------------------------------
+" c++, c, python, rust and etc settings
+"----------------------------------------------------
+augroup autoformat_settings
+  autocmd FileType c,cpp AutoFormatBuffer clang-format
+  autocmd FileType python AutoFormatBuffer yapf
+  autocmd FileType rust AutoFormatBuffer rustfm
+  autocmd Filetype php set filetype=html
+augroup END
 "----------------------------------------------------
 " js settings
 "----------------------------------------------------
 " 保存時に必要なimportを自動的に挿入
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:ale_fixers = {
-      \ 'javascript': ['eslint']
+      \ 'javascript': ['eslint'],
+      \ 'css': ['prettier'],
+      \ 'html': ['prettier']
  \ }
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.php'
 let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
 
 "----------------------------------------------------
 " md settings
@@ -209,15 +220,6 @@ let g:vim_json_syntax_conceal = 0
 "----------------------------------------------------
 let g:loaded_syntastic_dart_dartanalyzer_checker = 0
 autocmd FileType dart nmap ff :!flutter format %:p<CR>
-"----------------------------------------------------
-" c++, c, python, rust and etc settings
-"----------------------------------------------------
-augroup autoformat_settings
-  autocmd FileType c,cpp AutoFormatBuffer clang-format
-  autocmd FileType python AutoFormatBuffer yapf
-  autocmd FileType rust AutoFormatBuffer rustfm
-  autocmd filetype php set filetype=html
-augroup END
 "----------------------------------------------------
 " search settings
 "----------------------------------------------------
