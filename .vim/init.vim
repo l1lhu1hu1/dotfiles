@@ -150,6 +150,7 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:neosnippet#snippets_directory='~/dotfiles/.vim/vim-snippets'
 let g:neosnippet#enable_completed_snippet = 1
+let g:dracula_italic=0
 
 let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
