@@ -154,6 +154,7 @@ let g:dracula_italic=0
 
 let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen=1
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
 let g:winresizer_start_key = '<c-w>'
 
