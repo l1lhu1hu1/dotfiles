@@ -20,7 +20,13 @@ alias ll='ls -alF'
 alias la='ls -a'
 alias l='ls -F'
 alias sl=ls
-alias rm=rmtrash
+alias rg='rg --hidden'
+alias rm='echo "This is not the command you are looking for."; false'
+alias trash-rm='echo "This is not the command you are looking for."; false'
+alias tra-p='trash-put'
+alias tra-ls='trash-list'
+alias tra-res='trash-restore'
+alias tra-emp='trash-empty'
 
 fucntion mkfile() {
   mkdir -p -- "$1" && touch -- "$1"/"$2"
