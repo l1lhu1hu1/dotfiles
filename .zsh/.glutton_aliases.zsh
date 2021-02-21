@@ -36,3 +36,9 @@ function mkc(){
   cp -i ~/dotfiles/.vim/vim-templates/cpp/base-main.cpp $PWD/$*.cpp;
   vim $PWD/$*.cpp;
 }
+
+function makepmemo(){
+  dir_name=$(basename $PWD)
+  cp -i ~/dotfiles/utils/paper_memo_template.md $PWD/$dir_name.md;
+  vim $PWD/$dir_name.md;
+}
