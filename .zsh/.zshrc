@@ -14,7 +14,7 @@ zplug 'zsh-users/zsh-completions'
 # zplug "b4b4r07/zsh-vimode-visual", defer:3
 
 # git repositoryとかが変更されたかどうかとかを見るために必要(☓とか出すのに必要)
-zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
+zplug "mafredri/zsh-async", from:"github"
 
 ############################################zplug installation####################################################
 if ! zplug check; then
