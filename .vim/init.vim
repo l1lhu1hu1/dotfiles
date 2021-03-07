@@ -176,6 +176,8 @@ augroup autoformat_settings
   autocmd FileType rust AutoFormatBuffer rustfm
   autocmd Filetype php set filetype=html
 augroup END
+autocmd FileType python set shiftwidth=2 tabstop=2 expandtab
+
 "----------------------------------------------------
 " js settings
 "----------------------------------------------------
