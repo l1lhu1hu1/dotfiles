@@ -191,7 +191,7 @@ let g:ale_fixers = {
 \ }
 " let g:ale_rust_rls_executable = '~/.cargo/bin/rls'
 let g:ale_linters = {
-    \ 'rust': [ 'rls' ],
+    \ 'rust': ['rls'],
     \ 'go': ['gobuild'],
 \ }
 let g:ale_rust_rls_toolchain = 'stable'
