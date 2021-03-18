@@ -131,6 +131,8 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 " Plug 'scrooloose/syntastic'
+" rust file detection, syntax highlighting, formatting and more
+Plug 'rust-lang/rust.vim'
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
@@ -168,26 +170,31 @@ autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 " completionの候補の詳細がwindowとして出てきた後にescを押したら消える
 autocmd CompleteDone * silent! pclose!
 "----------------------------------------------------
-" c++, c, python, rust and etc settings
+" c++, c, python and etc settings
 "----------------------------------------------------
 augroup autoformat_settings
   autocmd FileType c,cpp AutoFormatBuffer clang-format
   autocmd FileType python AutoFormatBuffer yapf
-  autocmd FileType rust AutoFormatBuffer rustfm
   autocmd Filetype php set filetype=html
 augroup END
 autocmd FileType python set shiftwidth=2 tabstop=2 expandtab
 
 "----------------------------------------------------
-" js settings
+" js, rust settings
 "----------------------------------------------------
-" 保存時に必要なimportを自動的に挿入
-let g:vim_jsx_pretty_colorful_config = 1 " default 0
+let g:vim_jsx_pretty_colorful_config = 1
 let g:ale_fixers = {
-      \ 'javascript': ['eslint'],
-      \ 'css': ['prettier'],
-      \ 'html': ['prettier']
- \ }
+    \ 'javascript': ['eslint'],
+    \ 'css': ['prettier'],
+    \ 'html': ['prettier'],
+    \ 'rust': ['rustfmt'],
+\ }
+" let g:ale_rust_rls_executable = '~/.cargo/bin/rls'
+let g:ale_linters = {
+    \ 'rust': [ 'rls' ],
+    \ 'go': ['gobuild'],
+\ }
+let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.php'
@@ -211,9 +218,6 @@ autocmd FileType go nmap ge <Plug>(go-def-tab)
 " fnとかのスニペットでこれをしないとconflictが起きてしまう
 let g:go_snippet_engine = ""
 let g:go_fmt_fail_silently = 1
-let g:ale_linters = {
-\   'go': ['gobuild'],
-\}
 let g:go_fmt_command = "goimports"
 " let g:go_term_mode = "tabe"
 " let g:go_metalinter_autosave = 1
