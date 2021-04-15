@@ -7,9 +7,6 @@ endif
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
-let g:vim_bootstrap_langs = "go,html,javascript,python,ruby"
-let g:vim_bootstrap_editor = "nvim" " nvim or vim
-
 if !filereadable(vimplug_exists)
   echo "Installing Vim-Plug..."
   echo ""
@@ -123,10 +120,10 @@ Plug 'google/vim-glaive'
 Plug 'pangloss/vim-javascript'
 " typescript syntax highlighting
 Plug 'leafgarland/typescript-vim'
-" dart syntax highlighting
-Plug 'dart-lang/dart-vim-plugin'
 " jsx syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty'
+" dart syntax highlighting
+Plug 'dart-lang/dart-vim-plugin'
 " md syntax highlighting
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -144,6 +141,7 @@ if exists('make')
 endif
 
 call plug#end()
+call deoplete#custom#option('num_processes', 4)
 "----------------------------------------------------
 " ###################################################
 "----------------------------------------------------
@@ -179,7 +177,8 @@ autocmd FileType python set shiftwidth=2 tabstop=2 expandtab
 "----------------------------------------------------
 " js, rust settings
 "----------------------------------------------------
-let g:vim_jsx_pretty_colorful_config = 1
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+" let g:vim_jsx_pretty_colorful_config = 1
 let g:ale_fixers = {
     \ 'javascript': ['eslint'],
     \ 'css': ['prettier'],
@@ -188,15 +187,16 @@ let g:ale_fixers = {
 \ }
 " let g:ale_rust_rls_executable = '~/.cargo/bin/rls'
 let g:ale_linters = {
+    \ 'javascript': ['eslint'],
     \ 'rust': ['rls'],
     \ 'go': ['gobuild'],
 \ }
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
-let g:closetag_filenames = '*.html,*.js,*.jsx,*.php'
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
+let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx,*.php'
 
 "----------------------------------------------------
 " md settings
@@ -265,7 +265,7 @@ colorscheme dracula
 
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
 set list
-set listchars=tab:»-,trail:-,nbsp:%,eol:↲
+set listchars=tab:»-,trail:-,nbsp:%,eol:↩
 " 入力中のコマンドをステータスに表示する
 set showcmd
 " ステータスラインを常に表示

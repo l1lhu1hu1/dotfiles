@@ -15,7 +15,6 @@ zplug 'zsh-users/zsh-completions'
 
 # git repositoryとかが変更されたかどうかとかを見るために必要(☓とか出すのに必要)
 zplug "mafredri/zsh-async", from:"github"
-
 ############################################zplug installation####################################################
 if ! zplug check; then
   zplug install
@@ -140,3 +139,5 @@ typeset -U path cdpath fpath manpath
 # PC名と同じ名前ののaliasとかpath fileがない場合怒られる
 local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
 [ -e $local_path ] && source $local_path
+
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
