@@ -1,6 +1,7 @@
 alias pro="cd ~/projects"
 
 alias gpp="g++ -std=c++11"
+alias minc="g /Applications/Minecraft.app/Contents/MacOS/launcher"
 
 # TODO $1に変えたら?
 function makec(){

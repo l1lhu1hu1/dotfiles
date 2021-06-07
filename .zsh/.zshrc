@@ -139,5 +139,8 @@ typeset -U path cdpath fpath manpath
 # PC名と同じ名前ののaliasとかpath fileがない場合怒られる
 local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
 [ -e $local_path ] && source $local_path
-
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/glutton/research-313905-f5da9ba86600.json"
+#####################################################gcloud######################################################
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
