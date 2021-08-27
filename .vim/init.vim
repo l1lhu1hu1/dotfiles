@@ -490,4 +490,5 @@ nmap <silent><Space>tt :tabe\|:term<CR>
 nmap <silent><Space>ts :vs\|:term<CR>
 
 nnoremap ; :
+nnoremap <C-z> <nop>
 nmap tm :Tem main %<CR>
