@@ -82,6 +82,7 @@ Plug 'mattn/vim-sonictemplate'
 "----------------------------------------------------
 " completion and formatter plugins
 "----------------------------------------------------
+Plug 'editorconfig/editorconfig-vim'
 " auto close html or jsx tag completion
 Plug 'alvan/vim-closetag'
 " auto close completion for ", ', (, etc
