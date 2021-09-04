@@ -179,16 +179,17 @@ autocmd FileType python set shiftwidth=2 tabstop=2 expandtab
 " js, rust settings
 "----------------------------------------------------
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript
-" let g:vim_jsx_pretty_colorful_config = 1
 let g:ale_fixers = {
     \ 'javascript': ['eslint'],
     \ 'css': ['prettier'],
     \ 'html': ['prettier'],
     \ 'rust': ['rustfmt'],
+    \ 'go': ['gobuild'],
 \ }
-" let g:ale_rust_rls_executable = '~/.cargo/bin/rls'
 let g:ale_linters = {
     \ 'javascript': ['eslint'],
+    \ 'css': ['prettier'],
+    \ 'html': ['prettier'],
     \ 'rust': ['rls'],
     \ 'go': ['gobuild'],
 \ }
@@ -197,6 +198,7 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
+
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx,*.php'
 
 "----------------------------------------------------

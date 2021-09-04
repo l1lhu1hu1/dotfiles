@@ -1,39 +1,24 @@
 {
   "env": {
-    "webextensions": true,
     "browser": true,
     "es6": true
   },
   "extends": [
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
-    "ecmaVersion": 8
+    "sourceType": "module",
+    "ecmaVersion": 6
   },
   "rules": {
-    "semi": "error",
-    "arrow-spacing": ["error", { "before": true, "after": true }],
-    "no-extra-semi": "warn",
     "no-const-assign": "error",
     "no-var": "error",
-    "no-constant-condition": "warn",
-    "quotes": ["warn", "double"],
-    "space-before-blocks": "error",
     "no-undef": "error",
-    "no-use-before-define": ["error"],
-    "no-unused-vars": "error",
     "no-useless-rename": ["error"],
-    "prefer-const": ["error"],
-    "prefer-arrow-callback": ["error"],
-    "comma-dangle": ["error", "always-multiline"],
+    "prefer-const": ["warn"],
     "consistent-return": ["warn"],
-    "no-multiple-empty-lines": ["warn"],
-    "no-trailing-spaces": ["warn"],
-    "block-spacing": "warn",
-    "no-redeclare": "error",
-    "keyword-spacing": ["error", { "before": true, "after": true }],
-    "key-spacing": ["error", { "mode": "strict"}],
-    "space-infix-ops": "error",
-    "eqeqeq": "error"
+    "no-use-before-define": ["error"],
+    "no-redeclare": "error"
   }
 }
