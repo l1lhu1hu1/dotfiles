@@ -28,38 +28,15 @@ alias tra-ls='trash-list'
 alias tra-res='trash-restore'
 alias tra-emp='trash-empty'
 
-fucntion mkfile() {
+function mkfile() {
   mkdir -p -- "$1" && touch -- "$1"/"$2"
   vim $1/$2
 }
 
-function input_pixela_date() {
-  retval=$1
-  return "$retval"
+function cgn() {
+  cargo new "$1" && touch -- "$1"/".gitignore"
+  echo "/target" >> $1/.gitignore
 }
-
-function input_pixela_count() {
-  retval=$1
-  return "$retval"
-}
-
-function register_to_pixela() {
-  echo $1
-  echo $2
-  pi pixel post -u guanghuihui -g activity -d $1 -q $2
-}
-
-function delete_pixel() {
-  echo $1
-  echo $2
-  pi pixel delete -u guanghuihui -g activity -d $1
-}
-
-alias pixi='pi pixel increment -u guanghuihui -g activity'
-alias pix="register_to_pixela $(date +%Y%m%d) $(input_pixela_count)"
-alias pixd="delete_pixel $(date +%Y%m%d)"
-alias pixy="register_to_pixela $(date -v '-1d' +%Y%m%d) $(input_pixela_count)"
-alias pixinput="register_to_pixela $(input_pixela_date) $(input_pixela_count)"
 
 function gtop(){
   cd $(git rev-parse --show-toplevel)
@@ -80,13 +57,6 @@ function gd(){
   cd $current_dir
 }
 
-function gitadd(){
-  gtop
-  [ -e $PWD/Session.vim ] && rm $PWD/Session.vim
-  git add .
-  cd -
-}
-
 function gcm() {
   git commit -m "$*"
 }
@@ -95,23 +65,24 @@ function gcma() {
   git commit --amend -m "$*"
 }
 
+function gitadd() {
+  gtop
+  [ -e $PWD/Session.vim ] && echo "This is not the command you are looking for."
+  false $PWD/Session.vim
+  git add .
+  cd -
+}
+
 alias git=hub
-# alias gcm="git commit -m"
 alias gbr="git branch --sort=-committerdate --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
-alias gre="git rebase"
 alias gpul="git pull"
-alias gpus="git push"
 alias gpuso="git push origin"
-alias gpusof="git push -f origin"
-alias gpusom="git push origin master"
-alias gstat="tig status"
-alias gstas="git stash --all"
+alias gs="tig status"
 alias gch="git checkout"
 alias gchm="git checkout master"
 alias gchb="git checkout -b"
 alias ga=gitadd
-alias gdif="git diff"
 
 alias cd1='cd ..'
 alias cd2='cd ../..'
