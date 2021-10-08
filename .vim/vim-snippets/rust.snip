@@ -8,9 +8,36 @@ snippet pr
 abbr println!
   println!("${1}")
 
-snippet str
+snippet stc
 abbr struct
   struct ${1} {
     ${2}: ${3},
     ${4}: ${5},
+  }
+
+snippet en
+abbr enum
+  enum ${1} {
+    ${2},
+    ${3},
+    ${4},
+  }
+
+snippet mn
+abbr main
+  fn main() {
+    ${1}
+  }
+
+snippet typeof
+abbr typeof
+  fn type_of<T>(_: T) -> String {
+      let a = std::any::type_name::<T>();
+      return a.to_string();
+  }
+
+snippet mcr
+abbr mcr
+  macro_rules! ${1} {
+      (${2}: ${3}) => {${4}};
   }
