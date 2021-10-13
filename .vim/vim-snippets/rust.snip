@@ -6,11 +6,11 @@ abbr fn
 
 snippet pr
 abbr println!
-  println!("${1}"${2});
+  println!("${1}"${2})${3}
 
 snippet prs
 abbr print # for debug
-  println!("##################################");
+  println!("##################################")${3}
 
 snippet stc
 abbr struct
@@ -51,4 +51,12 @@ snippet mcr
 abbr mcr
   macro_rules! ${1} {
       (${2}: ${3}) => {${4}};
+  }
+
+snippet drop
+abbr drop
+  impl Drop for ${1} {
+      fn drop(&mut self) {
+          ${2};
+      }
   }
