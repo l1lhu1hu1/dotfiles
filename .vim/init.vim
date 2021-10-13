@@ -194,12 +194,17 @@ let g:ale_linters = {
     \ 'go': ['gobuild'],
 \ }
 let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '__'
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
-
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx,*.php'
+let g:ale_lint_on_text_changed = 'never'
+
+" errorとwarningがリアルタイムで縦長のwindowとして見れるようにしている
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 1
+let g:ale_list_vertical = 1
 
 "----------------------------------------------------
 " md settings
@@ -323,7 +328,7 @@ source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
 set fileencodings=utf-8,iso-2022-jp,sjis,ccp932,euc-jp " 読み込み時の文字コードの自動判別. 左側が優先される
 set encoding=utf-8
 set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
-set ambiwidth=double " □や○文字が崩れる問題を解決
+set ambiwidth=double " □や○文字が崩れる問題を解決(解決できていない)
 
 "----------------------------------------------------
 " clipboard and paste settings
