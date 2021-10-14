@@ -196,16 +196,32 @@ let g:ale_linters = {
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '__'
-let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx,*.php'
-let g:ale_lint_on_text_changed = 'never'
 
-" errorとwarningがリアルタイムで縦長のwindowとして見れるようにしている
-let g:ale_open_list = 1
-let g:ale_keep_list_window_open = 1
-let g:ale_list_vertical = 1
+function! ToggleLoclist(cmd)
+  " TODO この条件を置き換える
+  " 引数(cmd)なしで、すでにloclistが開いているときは閉じて、
+  " loclistがないときは、開くように変える
+  if a:cmd == 'open'
+    set splitright
+    vert lopen 30
+    set splitright!
+  else
+    lclose
+  endif
+endfunction
 
+" errorとwarningをリアルタイムで見ると重くなるのでこのようにしている
+nmap <silent><Space>lg :call ToggleLoclist('open')<CR>
+nmap <silent><Space>lc :call ToggleLoclist('close')<CR>
+nmap <silent><Space>df <Plug>(ale_go_to_definition_in_tab)
+
+" ファイルが閉じられたら、一緒にloclistのタブも閉じる
+augroup CloseLoclistWindowGroup
+  autocmd!
+  autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 "----------------------------------------------------
 " md settings
 "----------------------------------------------------
@@ -218,6 +234,7 @@ let g:vim_markdown_new_list_item_indent = 0
 " go settings
 "----------------------------------------------------
 let g:go_template_autocreate = 0
+" TODO aleからできるかチェックする
 autocmd FileType go nmap ge <Plug>(go-def-tab)
 " autocmd FileType go nmap gr <Plug>(go-run-vertical)
 " fnとかのスニペットでこれをしないとconflictが起きてしまう
@@ -260,15 +277,13 @@ set number
 set cursorline
 set backspace=indent,eol,start " バックスペースキーの有効化
 " mouseを無効化
-set mouse=
+" set mouse=
 
 "----------------------------------------------------
 " visual settings
 "----------------------------------------------------
 syntax enable
 " syntax on
-
-
 colorscheme dracula
 
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
