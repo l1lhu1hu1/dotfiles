@@ -27,14 +27,16 @@ alias tra-p='trash-put'
 alias tra-ls='trash-list'
 alias tra-res='trash-restore'
 alias tra-emp='trash-empty'
+alias Crun="Cargo run"
+alias Cnew="Cargo new"
 
 function mkfile() {
   mkdir -p -- "$1" && touch -- "$1"/"$2"
   vim $1/$2
 }
 
-function cgn() {
-  cargo new "$1" && touch -- "$1"/".gitignore"
+function Cgn() {
+  Cnew "$1" && touch -- "$1"/".gitignore"
   echo "/target" >> $1/.gitignore
 }
 
