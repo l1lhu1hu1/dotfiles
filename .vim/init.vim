@@ -102,7 +102,6 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " for disabling json conceal function
 Plug 'elzr/vim-json'
 
-
 "----------------------------------------------------
 " language dependant plugins
 "----------------------------------------------------
@@ -161,6 +160,7 @@ let g:winresizer_start_key = '<c-w>'
 
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_conceal_code_blocks = 0
+set splitright
 
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 " completionの候補の詳細がwindowとして出てきた後にescを押したら消える
@@ -193,7 +193,12 @@ let g:ale_linters = {
     \ 'rust': ['rls'],
     \ 'go': ['gobuild'],
 \ }
+
 let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_rust_cargo_use_clippy = 1
+let g:cargo_shell_command_runner = 'noautocmd vnew | terminal'
+
+
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '__'
 let g:ale_linters_explicit = 1
@@ -204,9 +209,7 @@ function! ToggleLoclist(cmd)
   " 引数(cmd)なしで、すでにloclistが開いているときは閉じて、
   " loclistがないときは、開くように変える
   if a:cmd == 'open'
-    set splitright
     vert lopen 30
-    set splitright!
   else
     lclose
   endif
@@ -241,7 +244,7 @@ autocmd FileType go nmap ge <Plug>(go-def-tab)
 let g:go_snippet_engine = ""
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
-" let g:go_term_mode = "tabe"
+" let g:go_term_mode = 'tabe'
 " let g:go_metalinter_autosave = 1
 
 let g:vim_json_syntax_conceal = 0
