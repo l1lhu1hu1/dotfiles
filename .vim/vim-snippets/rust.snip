@@ -1,8 +1,6 @@
 snippet fn
 abbr fn
-  fn ${1}(${2}) -> ${3} {
-    ${4}
-  }
+  fn ${1}(${2}) -> ${3} {${4}}
 
 snippet pr
 abbr println!
@@ -12,7 +10,7 @@ snippet prs
 abbr print # for debug
   println!("##################################")${3}
 
-snippet stc
+snippet st
 abbr struct
   struct ${1} {
     ${2}: ${3},
@@ -26,13 +24,13 @@ abbr enum
     ${3},
   }
 
-snippet mn
+snippet ma
 abbr main
   fn main() {
     ${1}
   }
 
-snippet typeof
+snippet ty
 abbr typeof
   fn type_of<T>(_: T) -> String {
       let a = std::any::type_name::<T>();

@@ -186,6 +186,7 @@ let g:ale_fixers = {
     \ 'rust': ['rustfmt'],
     \ 'go': ['gobuild'],
 \ }
+
 let g:ale_linters = {
     \ 'javascript': ['eslint'],
     \ 'css': ['prettier'],
@@ -195,14 +196,18 @@ let g:ale_linters = {
 \ }
 
 let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_rust_cargo_use_clippy = 1
-let g:cargo_shell_command_runner = 'noautocmd vnew | terminal'
-
+let g:ale_rust_rls_config = {
+      \   'rust': {
+      \     'clippy_preference': 'on'
+      \   }
+      \ }
 
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '__'
 let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx,*.php'
+let g:cargo_shell_command_runner = 'noautocmd vnew | terminal'
 
 function! ToggleLoclist(cmd)
   " TODO この条件を置き換える
@@ -215,7 +220,7 @@ function! ToggleLoclist(cmd)
   endif
 endfunction
 
-" errorとwarningをリアルタイムで見ると重くなるのでこのようにしている
+" errorとwarningをリアルタイムで出すと重くなるのでこのようにしている
 nmap <silent><Space>lg :call ToggleLoclist('open')<CR>
 nmap <silent><Space>lc :call ToggleLoclist('close')<CR>
 nmap <silent><Space>df <Plug>(ale_go_to_definition_in_tab)
