@@ -1,47 +1,47 @@
 snippet dbg
 abbr debv and dbgs combined
-  console.log('###############${1}#################')
-  console.log('$1', $1)
-  console.log('###############$1#################')
+  console.log("###############${1}#################");
+  console.log("$1", $1);
+  console.log("###############$1#################");${2}
 
 snippet dbv
 abbr debug variable using console log
-  console.log('${1}', $1)
+  console.log("${1}", $1);${2}
 
 snippet dbs
 abbr insert console.log('################################')
-  console.log('###############${1}#################')
+  console.log("###############${1}#################");${2}
 
 snippet arr
 abbr arrow function
   const ${1} = () => {
     ${2}
-  }
+  };${3}
 
 snippet prom
   const ${1} = (${2}) => {
     return new Promise((resolve, reject) => {
-      return resolve()
-    })
-  }
+      return resolve();
+    });
+  };${3}
 
 snippet clc
 abbr class component
-  import React from 'react'
-  import { makeStyles } from '@material-ui/core/styles'
+  import React from 'react';
+  import { makeStyles } from '@material-ui/core/styles';
 
   const useStyles = makeStyles({
     container: {
     },
-  })
+  });
 
   class ${1} extends React.Component {
     constructor(props) {
       super(props)
-    }
+    };
 
     componentDidMount() {
-    }
+    };
 
     render() {
       const {classes} = useStyles()
@@ -51,27 +51,27 @@ abbr class component
         </div>
       )
     }
-  }
+  };
 
-  export default $1
+  export default $1;${2}
 
 
 snippet fuc
 abbr functional component
-  import React from 'react'
-  import { makeStyles } from '@material-ui/core/styles'
+  import React from 'react';
+  import { makeStyles } from '@material-ui/core/styles';
 
   const useStyles = makeStyles({
     container: {
     },
-  })
+  }):
 
   const ${1} = (props) => {
-    const {classes} = useStyles()
+    const {classes} = useStyles();
     return (
       <div className={classes.container}>
       </div>
-    )
-  })
+    );
+  });
 
-  export default $1
+  export default $1;${2}
