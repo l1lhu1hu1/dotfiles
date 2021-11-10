@@ -29,6 +29,7 @@ alias tra-res='trash-restore'
 alias tra-emp='trash-empty'
 alias Crun="cargo run"
 alias Cnew="cargo new"
+alias py="python3"
 
 function mkfile() {
   mkdir -p -- "$1" && touch -- "$1"/"$2"
