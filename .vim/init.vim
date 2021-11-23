@@ -170,7 +170,6 @@ autocmd CompleteDone * silent! pclose!
 "----------------------------------------------------
 augroup autoformat_settings
   autocmd FileType c,cpp AutoFormatBuffer clang-format
-  autocmd FileType python AutoFormatBuffer yapf
   autocmd Filetype php set filetype=html
 augroup END
 autocmd FileType python set shiftwidth=4 tabstop=4 expandtab
@@ -181,6 +180,7 @@ autocmd FileType python set shiftwidth=4 tabstop=4 expandtab
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript
 let g:ale_fixers = {
     \ 'javascript': ['eslint'],
+    \ 'python': ['autopep8'],
     \ 'css': ['prettier'],
     \ 'html': ['prettier'],
     \ 'rust': ['rustfmt'],
@@ -189,6 +189,7 @@ let g:ale_fixers = {
 
 let g:ale_linters = {
     \ 'javascript': ['eslint'],
+    \ 'python': ['flake8'],
     \ 'css': ['prettier'],
     \ 'html': ['prettier'],
     \ 'rust': ['rls'],
