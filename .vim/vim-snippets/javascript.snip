@@ -12,9 +12,19 @@ snippet dbs
 abbr insert console.log('################################')
   console.log("###############${1}#################");${2}
 
-snippet arr
+snippet con
+abbr insert console.log()
+  console.log("${1}");${2}
+
+snippet fn
 abbr arrow function
   const ${1} = (${2}) => {
+    ${3};
+  };${4}
+
+snippet fun
+abbr function
+  function(${2}) {
     ${3};
   };${4}
 

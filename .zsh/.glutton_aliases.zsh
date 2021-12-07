@@ -43,3 +43,5 @@ function makepmemo(){
   cp -i ~/dotfiles/utils/paper_memo_template.md $PWD/$dir_name.md;
   vim $PWD/$dir_name.md;
 }
+
+alias pdf=dvipdfmx
