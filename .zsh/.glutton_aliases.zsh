@@ -1,4 +1,5 @@
 alias pro="cd ~/projects"
+alias res="cd ~/projects/research-project"
 
 alias gpp="g++ -std=c++11"
 alias minc="g /Applications/Minecraft.app/Contents/MacOS/launcher"
@@ -42,6 +43,13 @@ function makepmemo(){
   dir_name=$(basename $PWD)
   cp -i ~/dotfiles/utils/paper_memo_template.md $PWD/$dir_name.md;
   vim $PWD/$dir_name.md;
+}
+
+function makepdf() {
+  f_name=$1
+  uplatex "${f_name}"
+  dvi_file="${f_name%.*}.dvi"
+  dvipdfmx "${dvi_file}"
 }
 
 alias pdf=dvipdfmx
