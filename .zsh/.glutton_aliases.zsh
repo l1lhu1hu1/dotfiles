@@ -46,9 +46,8 @@ function makepmemo(){
 }
 
 function makepdf() {
-  f_name=$1
-  uplatex "${f_name}"
-  dvi_file="${f_name%.*}.dvi"
+  uplatex $1
+  dvi_file="${1%.*}.dvi"
   dvipdfmx "${dvi_file}"
 }
 
