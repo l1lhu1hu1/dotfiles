@@ -130,6 +130,8 @@ Plug 'plasticboy/vim-markdown'
 " Plug 'scrooloose/syntastic'
 " rust file detection, syntax highlighting, formatting and more
 Plug 'rust-lang/rust.vim'
+
+Plug 'lervag/vimtex'
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
