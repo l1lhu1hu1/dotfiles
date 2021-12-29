@@ -239,13 +239,15 @@ augroup CloseLoclistWindowGroup
   autocmd QuitPre * if empty(&buftype) | lclose | endif
 augroup END
 "----------------------------------------------------
-" md settings
+" md tex settings
 "----------------------------------------------------
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:markdown_fenced_languages = ['javascript', 'ruby', 'go', 'cpp']
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
+let g:vimtex_syntax_conceal_disable = 1
+
 "----------------------------------------------------
 " go settings
 "----------------------------------------------------
@@ -531,3 +533,4 @@ nmap <silent><Space>ts :vs\|:term<CR>
 nnoremap ; :
 nnoremap <C-z> <nop>
 nmap tm :Tem main %<CR>
+
