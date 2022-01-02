@@ -4,11 +4,15 @@ abbr fn
 
 snippet pr
 abbr println!
-  println!("${1}"${2})${3}
+  println!("${1}"${2});
+
+snippet prv
+abbr println! value
+  println!("${1}: {}", $1);${2}
 
 snippet prs
 abbr print # for debug
-  println!("##################################")${3}
+  println!("##################################");
 
 snippet st
 abbr struct
