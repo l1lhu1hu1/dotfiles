@@ -19,13 +19,6 @@ brew file init
 cp ~/dotfiles/app_settings/Brewfile ~/.config/brewfile/Brewfile
 ```
 
-### 疑問点(TODO)
-- BrewfileはSymlinksにした方が良いんじゃない?
-- 初期状態から.config dirとかbrewfile dirはなさそう
-- 3行目でbrewfile dirまでできるんじゃない?
-- 4個目のコマンドが通るか調べること
-- 1行目と2行目は本当にいる?
-
 ### 参考サイト
 - [Macで自動環境構築＆バックアップ（App Storeも）](https://qiita.com/takeo-asai/items/29724f94e2992fdc7246#homebrew)
 
@@ -88,13 +81,6 @@ cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
 ```
 
-### 疑問点(TODO)
-- BrewfileはSymlinksにした方が良いんじゃない?
-- 初期状態から.config dirとかbrewfile dirはなさそう
-- 3行目でbrewfile dirまでできるんじゃない?
-- 4個目のコマンドが通るか調べること
-- 1行目と2行目は本当にいる?
-
 iTerm側でfontの設定が必要。これと同じように設定する
 <img src="./images/iterm_setting.png" height="600px">
 
@@ -122,7 +108,3 @@ pyenv install バージョン番号
 
 ## karabiner element
 Add ruleからのimport more rules from the internetで日本語入力時のesc(vim)を入れる
-
-## etc
-- Slackを入れる
-- Spotifyを入れる

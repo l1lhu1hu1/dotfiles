@@ -90,27 +90,6 @@ function unset_all() {
   unset -f -m '*'
 }
 
-function create_alias_file() {
-  local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
-  touch $local_alias
-}
-
-function create_path_file() {
-  local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
-  touch $local_path
-}
-
-function create_secret_file() {
-  local_secret=~/.secret.zsh
-  touch $local_secret
-}
-
-function create_necessary_files() {
-  $(create_secret_files)
-  $(create_alias_file)
-  $(create_path_file)
-}
-
 function cdf() {
   target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
   if [ "$target" != "" ]; then
@@ -141,5 +120,3 @@ local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
 [ -e $local_path ] && source $local_path
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #####################################################gcloud######################################################
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
