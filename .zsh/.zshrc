@@ -1,7 +1,7 @@
 ####################################################Plugins######################################################
 source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug 'dracula/zsh', as:theme
+zplug "sindresorhus/pure", use:"pure.zsh", from:"github", as:theme
 zplug "chrissicool/zsh-256color"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # history
@@ -68,6 +68,9 @@ unset CASE_SENSITIVE HYPHEN_INSENSITIVE
 # 矢印で選択肢を選べる
 setopt auto_menu
 zstyle ':completion:*:default' menu select=1
+
+zstyle :prompt:pure:path color blue
+zstyle :prompt:pure:git:branch color red
 
 # cd -<tab>で以前移動したディレクトリを表示
 setopt auto_pushd
