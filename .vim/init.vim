@@ -23,6 +23,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "----------------------------------------------------
 " theme plugins
 "----------------------------------------------------
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " colorscheme
@@ -43,17 +44,20 @@ Plug 'rhysd/accelerated-jk'
 Plug 'bfredl/nvim-miniyank'
 " replace and search plugin
 " TODO 使い方(現状使えてない)
-Plug 'tpope/vim-abolish'
+" Plug 'tpope/vim-abolish'
 " open terminal in vim
 Plug 'vimlab/split-term.vim'
 " make vim moves like vimium
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
+Plug 'phaazon/hop.nvim'
 " file or folder search by tree
 Plug 'preservim/nerdtree'
 " file or folder search
 Plug 'kien/ctrlp.vim'
 " window resizer
 Plug 'simeji/winresizer'
+" emmet
+Plug 'mattn/emmet-vim'
 " fzf
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -71,12 +75,12 @@ Plug 'dense-analysis/ale'
 "----------------------------------------------------
 Plug 'tpope/vim-fugitive'
 " for Gbrowse
-Plug 'tpope/vim-rhubarb'
+" Plug 'tpope/vim-rhubarb'
 "----------------------------------------------------
 " snippet and template plugins
 "----------------------------------------------------
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
 Plug 'mattn/vim-sonictemplate'
 
 "----------------------------------------------------
@@ -90,28 +94,11 @@ Plug 'cohama/lexima.vim'
 " replace tag name to different tag name. eg) <h1>hello</h1> to <h2>hello</h2>
 " TODO 使い方(現状使えてない)
 Plug 'tpope/vim-surround'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-" deoplete source for go
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-" deoplete source for javascript
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 
 " for disabling json conceal function
 Plug 'elzr/vim-json'
-
-"----------------------------------------------------
-" language dependant plugins
-"----------------------------------------------------
-" go formatter and go command exectuion(GoRun, GoFormat, etc)
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" c++ formatter
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
-Plug 'google/vim-glaive'
 
 "----------------------------------------------------
 " syntax highlighting plugins
@@ -143,18 +130,19 @@ if exists('make')
 endif
 
 call plug#end()
-call deoplete#custom#option('num_processes', 4)
+"----------------------------------------------------
+" hop設定
+"----------------------------------------------------
+lua require'hop'.setup()
+nmap <Space>e :HopLine<CR>
 "----------------------------------------------------
 " ###################################################
 "----------------------------------------------------
 let g:indent_guides_enable_on_vim_startup = 1
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-let g:neosnippet#snippets_directory='~/dotfiles/.vim/vim-snippets'
-let g:neosnippet#enable_completed_snippet = 1
 let g:dracula_italic=0
 
-let g:deoplete#enable_at_startup = 1
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen=1
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
@@ -183,7 +171,8 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescript
 let g:ale_fixers = {
     \ 'javascript': ['eslint'],
     \ 'python': ['autopep8'],
-    \ 'css': ['prettier'],
+    \ 'css': ['stylelin'],
+    \ 'scss': ['stylelint'],
     \ 'html': ['prettier'],
     \ 'rust': ['rustfmt'],
     \ 'go': ['gobuild'],
@@ -192,7 +181,8 @@ let g:ale_fixers = {
 let g:ale_linters = {
     \ 'javascript': ['eslint'],
     \ 'python': ['flake8'],
-    \ 'css': ['prettier'],
+    \ 'css': ['stylelin'],
+    \ 'scss': ['stylelint'],
     \ 'html': ['prettier'],
     \ 'rust': ['rls'],
     \ 'go': ['gobuild'],
@@ -231,7 +221,6 @@ endfunction
 " errorとwarningをリアルタイムで出すと重くなるのでこのようにしている
 nmap <silent><Space>lg :call ToggleLoclist('open')<CR>
 nmap <silent><Space>lc :call ToggleLoclist('close')<CR>
-nmap <silent><Space>df <Plug>(ale_go_to_definition_in_tab)
 
 " ファイルが閉じられたら、一緒にloclistのタブも閉じる
 augroup CloseLoclistWindowGroup
@@ -246,7 +235,6 @@ let g:markdown_fenced_languages = ['javascript', 'ruby', 'go', 'cpp']
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
-let g:vimtex_syntax_conceal_disable = 1
 
 "----------------------------------------------------
 " go settings
@@ -320,7 +308,7 @@ set ruler
 "----------------------------------------------------
 " ステータスラインの右側にカーソルの位置を表示する
 " ステータスラインに表示する情報の指定
-let g:airline_theme = 'luna'
+let g:airline_theme = 'laederon'
 " ステータスラインの色
 let g:airline_powerline_fonts = 1
 " tablineの表示
@@ -331,6 +319,10 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1
 " file名だけを表示するために必要
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_section_x = ''
+let g:airline_section_y = ''
+let g:airline_section_z = ''
+let g:airline_skip_empty_sections = 1
 
 "----------------------------------------------------
 " indent settings
@@ -361,7 +353,6 @@ source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
 set fileencodings=utf-8,iso-2022-jp,sjis,ccp932,euc-jp " 読み込み時の文字コードの自動判別. 左側が優先される
 set encoding=utf-8
 set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先される
-set ambiwidth=double " □や○文字が崩れる問題を解決(解決できていない)
 
 "----------------------------------------------------
 " clipboard and paste settings
@@ -369,6 +360,10 @@ set ambiwidth=double " □や○文字が崩れる問題を解決(解決でき�
 " ヤンクをクリップボードへ
 set clipboard=unnamed
 
+"----------------------------------------------------
+" git
+"----------------------------------------------------
+nnoremap <space>gd :Gvdiffsplit<CR>
 "----------------------------------------------------
 " other settings
 "----------------------------------------------------
@@ -401,14 +396,12 @@ nnoremap [fzf] <Nop>
 nmap     <Space>f [fzf]
 nnoremap <silent> [fzf]h :<C-u>:History<CR>
 nnoremap <silent> [fzf]r :Rg <C-R><C-W><CR>
-nnoremap <Space>r :<C-u>source ~/.config/nvim/init.vim<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
-
 "----------------------------------------------------
 " movement key mappings
 "----------------------------------------------------
@@ -428,6 +421,51 @@ inoremap <expr> <C-n> pumvisible() ? "" : "\<C-n>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-p> pumvisible() ? "" : "\<C-p>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+"----------------------------------------------------
+" coc settings
+"----------------------------------------------------
+highlight CocErrorSign ctermfg=15 ctermbg=196
+highlight CocWarningSign ctermfg=0 ctermbg=172
+set updatetime=300
+set signcolumn=yes
+nmap <silent> <space><space> :<C-u>CocList<cr>
+nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
+nmap <silent> <space>df :call CocAction('jumpDefinition', 'tabe')<cr>
+nmap <silent> <space>rn <Plug>(coc-rename)
+inoremap <silent><expr> <Down> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <silent><expr> <Up> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+inoremap <silent><expr> <C-l> coc#refresh()
+imap <C-s> <Plug>(coc-snippets-expand)
+
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ CheckBackspace() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col-1] =~# '\s'
+endfunction
+
+nmap <silent><Space>jj <Plug>(coc-diagnostic-prev)
+nmap <silent><Space>kk <Plug>(coc-diagnostic-next)
+nmap <silent><Space>ll :<C-u>CocDiagnostics<cr>
 
 "----------------------------------------------------
 " tabs and window key mappings
@@ -491,27 +529,9 @@ nnoremap <Leader>wq1 :wq!<CR>
 "----------------------------------------------------
 " search key mappings
 "----------------------------------------------------
-let g:EasyMotion_do_mapping = 0
 nnoremap <C-j> *
 nnoremap <C-k> #
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
-
-"----------------------------------------------------
-" completion key mappings
-"----------------------------------------------------
-imap <C-i> <Plug>(neosnippet_expand_or_jump)
-smap <C-i> <Plug>(neosnippet_expand_or_jump)
-xmap <C-i> <Plug>(neosnippet_expand_target)
-
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
 
 "----------------------------------------------------
 " other key mappings
@@ -524,7 +544,6 @@ nnoremap ZQ <nop>
 nnoremap Q <nop>
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-nmap <Leader>e <Plug>(easymotion-overwin-f2)
 " for :term
 tnoremap <Esc><Esc> <C-\><C-n>
 nmap <silent><Space>tt :tabe\|:term<CR>
@@ -533,4 +552,4 @@ nmap <silent><Space>ts :vs\|:term<CR>
 nnoremap ; :
 nnoremap <C-z> <nop>
 nmap tm :Tem main %<CR>
-
+set wildignore+=*/dist/*,*/node_modules/*
