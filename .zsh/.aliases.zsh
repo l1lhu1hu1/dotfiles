@@ -14,19 +14,12 @@ alias zshrc='vim ~/dotfiles/.zsh/.zshrc'
 alias aliases='vim ~/dotfiles/.zsh/.aliases.zsh'
 alias dot='cd ~/dotfiles'
 alias g=open -a
-alias ps=procs
-alias cat=bat
 alias ll='ls -alF'
 alias la='ls -a'
 alias l='ls -F'
 alias sl=ls
 alias rg='rg --hidden'
 alias rm='echo "This is not the command you are looking for."; false'
-alias trash-rm='echo "This is not the command you are looking for."; false'
-alias tra-p='trash-put'
-alias tra-ls='trash-list'
-alias tra-res='trash-restore'
-alias tra-emp='trash-empty'
 alias Crun="cargo run"
 alias Cnew="cargo new"
 alias py="python3"
@@ -76,7 +69,6 @@ function gitadd() {
   cd -
 }
 
-alias git=hub
 alias gbr="git branch --sort=-committerdate --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gl="git log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'"
 alias gpul="git pull"

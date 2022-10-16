@@ -24,7 +24,7 @@ zplug load
 
 ####################################################fzf######################################################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!.git/*" -g "!node_modules" -g "!dist"'
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
 # メモリに保存される履歴の件数
