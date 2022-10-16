@@ -6,9 +6,6 @@
 ## brew install
 Install Brew from [here](https://brew.sh/)
 
-### 疑問点
-.configで配下にnvim directoryは作る必要ある?
-
 ## dotfilesを置く場所
 `~`配下
 
@@ -69,23 +66,14 @@ pip3 install --user pynvim
 pip3 install --user neovim
 ```
 
-### 疑問点
-- [macでzshでzsh compinit: insecure directoriesの警告が出る問題](https://qiita.com/ayihis@github/items/88f627b2566d6341a741)
+### coc設定
+1. `CocInstall coc-json coc-tsserver` を実行する
+2. `:CocCofig` を入力し、 `~/.config/nvim/coc-settings.json` を編集(dotfiles内のファイルをコピペ)する
+3. `:CocInstall coc-snippets` を実行する
+4. `ts` ファイルを開いた状態で `:CocCommand snippets.editSnippet` を入力し、 `~/.config/coc/ultisnips/typescript.snippets` を編集(dotfiles内のファイルをコピペ)する
 
-## Ricty for powerline(neovimの表示用)
-
-```sh
-brew tap sanemat/font
-brew install ricty --with-powerline
-cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-fc-cache -vf
-```
-
-iTerm側でfontの設定が必要。これと同じように設定する
-<img src="./images/iterm_setting.png" height="600px">
-
-## Markdown Preview Plus
-`chrome://extensions`にいって、詳細をクリック後にファイルのURLへのアクセスを許可するをクリックする
+## iTerm Font
+monacoを使用すること
 
 ## Nodenv and yarn installation
 
