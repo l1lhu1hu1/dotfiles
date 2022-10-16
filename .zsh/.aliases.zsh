@@ -1,6 +1,7 @@
 d="/Users/$(whoami)/Desktop/"
 alias rgr='rg --hidden'
 alias r=reset
+alias c=clear
 alias chb='chsh -s /bin/bash'
 alias chz='chsh -s /bin/zsh'
 alias cra='create-react-app'
