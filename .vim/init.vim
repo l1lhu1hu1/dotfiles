@@ -92,7 +92,6 @@ Plug 'alvan/vim-closetag'
 " auto close completion for ", ', (, etc
 Plug 'cohama/lexima.vim'
 " replace tag name to different tag name. eg) <h1>hello</h1> to <h2>hello</h2>
-" TODO 使い方(現状使えてない)
 Plug 'tpope/vim-surround'
 
 " Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
@@ -134,7 +133,7 @@ call plug#end()
 " hop設定
 "----------------------------------------------------
 lua require'hop'.setup()
-nmap <Space>e :HopLine<CR>
+nnoremap <Space>e :HopLine<CR>
 "----------------------------------------------------
 " ###################################################
 "----------------------------------------------------
@@ -167,9 +166,9 @@ autocmd FileType python set shiftwidth=4 tabstop=4 expandtab
 "----------------------------------------------------
 " js, rust settings
 "----------------------------------------------------
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript
 let g:ale_fixers = {
     \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint'],
     \ 'python': ['autopep8'],
     \ 'css': ['stylelin'],
     \ 'scss': ['stylelint'],
@@ -180,6 +179,7 @@ let g:ale_fixers = {
 
 let g:ale_linters = {
     \ 'javascript': ['eslint'],
+    \ 'typescript': ['eslint'],
     \ 'python': ['flake8'],
     \ 'css': ['stylelin'],
     \ 'scss': ['stylelint'],
@@ -219,8 +219,8 @@ function! ToggleLoclist(cmd)
 endfunction
 
 " errorとwarningをリアルタイムで出すと重くなるのでこのようにしている
-nmap <silent><Space>lg :call ToggleLoclist('open')<CR>
-nmap <silent><Space>lc :call ToggleLoclist('close')<CR>
+nnoremap <silent><Space>lg :call ToggleLoclist('open')<CR>
+nnoremap <silent><Space>lc :call ToggleLoclist('close')<CR>
 
 " ファイルが閉じられたら、一緒にloclistのタブも閉じる
 augroup CloseLoclistWindowGroup
@@ -241,7 +241,7 @@ let g:vim_markdown_new_list_item_indent = 0
 "----------------------------------------------------
 let g:go_template_autocreate = 0
 " TODO aleからできるかチェックする
-autocmd FileType go nmap ge <Plug>(go-def-tab)
+autocmd FileType go nnoremap ge <Plug>(go-def-tab)
 " autocmd FileType go nmap gr <Plug>(go-run-vertical)
 " fnとかのスニペットでこれをしないとconflictが起きてしまう
 let g:go_snippet_engine = ""
@@ -255,7 +255,7 @@ let g:vim_json_syntax_conceal = 0
 " flutter settings
 "----------------------------------------------------
 let g:loaded_syntastic_dart_dartanalyzer_checker = 0
-autocmd FileType dart nmap ff :!flutter format %:p<CR>
+autocmd FileType dart nnoremap ff :!flutter format %:p<CR>
 "----------------------------------------------------
 " search settings
 "----------------------------------------------------
@@ -382,9 +382,9 @@ augroup END
 " nvim clipboard key mappings
 "----------------------------------------------------
 " noremapはユーザーが定義した他のマップの影響を受けない
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
-nmap <silent><Space>cp :let @+=expand("%:p")<CR>
+noremap p <Plug>(miniyank-autoput)
+noremap P <Plug>(miniyank-autoPut)
+nnoremap <silent><Space>cp :let @+=expand("%:p")<CR>
 
 "----------------------------------------------------
 " fzf key mappings
@@ -392,10 +392,8 @@ nmap <silent><Space>cp :let @+=expand("%:p")<CR>
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 let g:fzf_layout = { 'window': '-tabnew' }
 " fzfではTabでいくつかの候補を取っておける
-nnoremap [fzf] <Nop>
-nmap     <Space>f [fzf]
-nnoremap <silent> [fzf]h :<C-u>:History<CR>
-nnoremap <silent> [fzf]r :Rg <C-R><C-W><CR>
+nnoremap <silent> <Space>fh :<C-u>:History<CR>
+nnoremap <silent> <Space>fr :Rg <C-R><C-W><CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
@@ -429,16 +427,16 @@ highlight CocErrorSign ctermfg=15 ctermbg=196
 highlight CocWarningSign ctermfg=0 ctermbg=172
 set updatetime=300
 set signcolumn=yes
-nmap <silent> <space><space> :<C-u>CocList<cr>
-nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
-nmap <silent> <space>df :call CocAction('jumpDefinition', 'tabe')<cr>
-nmap <silent> <space>rn <Plug>(coc-rename)
+nnoremap <silent> <space><space> :<C-u>CocList<cr>
+nnoremap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
+nnoremap <silent> <space>df :call CocAction('jumpDefinition', 'tabe')<cr>
+nnoremap <silent> <space>rn <Plug>(coc-rename)
 inoremap <silent><expr> <Down> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <silent><expr> <Up> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 inoremap <silent><expr> <C-l> coc#refresh()
-imap <C-s> <Plug>(coc-snippets-expand)
+inoremap <C-s> <Plug>(coc-snippets-expand)
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -453,7 +451,7 @@ inoremap <silent><expr> <TAB>
   \ coc#pum#visible() ? coc#pum#next(1):
   \ CheckBackspace() ? "\<Tab>" :
   \ coc#refresh()
-inoremap <expr><S-TAB> coc#coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -463,9 +461,9 @@ function! CheckBackspace() abort
   return !col || getline('.')[col-1] =~# '\s'
 endfunction
 
-nmap <silent><Space>jj <Plug>(coc-diagnostic-prev)
-nmap <silent><Space>kk <Plug>(coc-diagnostic-next)
-nmap <silent><Space>ll :<C-u>CocDiagnostics<cr>
+nnoremap <silent><Space>jj <Plug>(coc-diagnostic-prev)
+nnoremap <silent><Space>kk <Plug>(coc-diagnostic-next)
+nnoremap <silent><Space>ll :<C-u>CocDiagnostics<cr>
 
 "----------------------------------------------------
 " tabs and window key mappings
@@ -508,8 +506,8 @@ nnoremap sL <C-w>L
 nnoremap sr <C-w>r
 nnoremap fl gt
 nnoremap fh gT
-nmap gt <Nop>
-nmap gT <Nop>
+nnoremap gt <Nop>
+nnoremap gT <Nop>
 nnoremap fH :call TabMove(-1)<CR>
 nnoremap fL :call TabMove(1)<CR>
 
@@ -546,10 +544,10 @@ nnoremap Q <nop>
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " for :term
 tnoremap <Esc><Esc> <C-\><C-n>
-nmap <silent><Space>tt :tabe\|:term<CR>
-nmap <silent><Space>ts :vs\|:term<CR>
+nnoremap <silent><Space>tt :tabe\|:term<CR>
+nnoremap <silent><Space>ts :vs\|:term<CR>
 
 nnoremap ; :
 nnoremap <C-z> <nop>
-nmap tm :Tem main %<CR>
+nnoremap tm :Tem main %<CR>
 set wildignore+=*/dist/*,*/node_modules/*

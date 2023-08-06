@@ -99,7 +99,10 @@ function cdf() {
   fi
 }
 
-eval "$(anyenv init -)"
+if type "$anyenv" > /dev/null; then
+  eval "$(anyenv init -)"
+fi
+
 
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zsh/.zshrc'
