@@ -53,7 +53,7 @@ Plug 'phaazon/hop.nvim'
 " file or folder search by tree
 Plug 'preservim/nerdtree'
 " file or folder search
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " window resizer
 Plug 'simeji/winresizer'
 " emmet
@@ -118,6 +118,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'rust-lang/rust.vim'
 
 Plug 'lervag/vimtex'
+Plug 'tpope/vim-obsession'
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
@@ -133,7 +134,7 @@ call plug#end()
 " hop設定
 "----------------------------------------------------
 lua require'hop'.setup()
-nnoremap <Space>e :HopLine<CR>
+nnoremap <Space>e :HopWord<CR>
 "----------------------------------------------------
 " ###################################################
 "----------------------------------------------------
@@ -203,6 +204,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 1
 let g:ale_fix_on_save = 1
+let g:ale_use_neovim_diagnostics_api = 1
 
 let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx,*.php'
 let g:cargo_shell_command_runner = 'noautocmd vnew | terminal'
@@ -271,6 +273,7 @@ set hlsearch
 set rtp+=/usr/local/opt/fzf
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_cmd='CtrlPMixed'
 
 "----------------------------------------------------
 " cursor settings
@@ -551,3 +554,14 @@ nnoremap ; :
 nnoremap <C-z> <nop>
 nnoremap tm :Tem main %<CR>
 set wildignore+=*/dist/*,*/node_modules/*
+
+"----------------------------------------------------
+" pcごとの設定を読み込む
+"----------------------------------------------------
+let pcname = trim(system('scutil --get ComputerName'))
+let filepath = $HOME . '/dotfiles/.vim/custom.' . pcname . '.vim'
+if filereadable(filepath)
+    execute 'source ' . filepath
+else
+  echo 'failed to load: ' . filepath
+endif

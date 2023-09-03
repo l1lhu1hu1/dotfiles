@@ -47,6 +47,10 @@ function gpusocf(){
   git push -f origin $(git symbolic-ref --short HEAD)
 }
 
+function gpuloc(){
+  git pull origin $(git symbolic-ref --short HEAD)
+}
+
 function gd(){
   current_dir=$PWD
   gtop

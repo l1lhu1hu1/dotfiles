@@ -46,8 +46,10 @@ function select-history() {
   CURSOR=$#BUFFER
 }
 
+set -o vi
+
 zle -N select-history
-bindkey '^r' select-history
+bindkey '^e' select-history
 ####################################################suggestion####################################################
 # word区切り
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
