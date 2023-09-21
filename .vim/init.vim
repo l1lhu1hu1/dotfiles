@@ -124,6 +124,7 @@ Plug 'heavenshell/vim-jsdoc', {
   \ 'do': 'make install'
 \}
 Plug 'preservim/tagbar'
+Plug 'github/copilot.vim'
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
