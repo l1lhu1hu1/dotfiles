@@ -119,6 +119,11 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-obsession'
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
+Plug 'preservim/tagbar'
 "----------------------------------------------------
 " process management plugins
 "----------------------------------------------------
@@ -273,7 +278,6 @@ set hlsearch
 set rtp+=/usr/local/opt/fzf
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_cmd='CtrlPMixed'
 
 "----------------------------------------------------
 " cursor settings
@@ -305,10 +309,52 @@ set laststatus=2
 " 現在のモードを表示
 set showmode
 set ruler
+"----------------------------------------------------
+" tagbar settings
+"----------------------------------------------------
+nnoremap <silent> <Space>tb :TagbarToggle<CR>
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
+let g:tagbar_foldlevel = 0
+let g:tagbar_show_tag_linenumbers = 2
+" tagbar windowが開いているときにsを無効化(space+shとの衝突を避けるため)
+let g:tagbar_map_togglesort = ''
+let g:tagbar_type_typescript = {
+    \ 'ctagstype' : 'typescript',
+    \ 'kinds'     : [
+        \ 'f:functions',
+        \ 'c:classes',
+        \ 'm:methods',
+        \ 'p:properties',
+        \ 'g:generator functions',
+        \ 'a:async functions',
+        \ 'I:interfaces',
+        \ 'E:exported variables/constants/functions/classes',
+        \ 'i:imports'
+    \ ]
+\ }
 
+let g:tagbar_type_javascript = {
+    \ 'ctagstype' : 'javascript',
+    \ 'kinds'     : [
+        \ 'f:functions',
+        \ 'c:classes',
+        \ 'm:methods',
+        \ 'p:properties',
+        \ 'g:generator functions',
+        \ 'a:async functions',
+        \ 'E:exported variables/constants/functions/classes',
+        \ 'i:imports'
+    \ ]
+\ }
 "----------------------------------------------------
 " statusLine settings
 "----------------------------------------------------
+" vim-airline のステータスラインに現在のタグを表示するための関数
+function! CurrentTagInfo()
+    return tagbar#currenttag('%s', '', 'f')
+endfunction
+
 " ステータスラインの右側にカーソルの位置を表示する
 " ステータスラインに表示する情報の指定
 let g:airline_theme = 'laederon'
@@ -326,7 +372,7 @@ let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
 let g:airline_skip_empty_sections = 1
-
+let g:airline_section_c = '%{CurrentTagInfo()}'
 "----------------------------------------------------
 " indent settings
 "----------------------------------------------------
@@ -447,7 +493,7 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
 inoremap <silent><expr> <TAB>
@@ -554,6 +600,12 @@ nnoremap ; :
 nnoremap <C-z> <nop>
 nnoremap tm :Tem main %<CR>
 set wildignore+=*/dist/*,*/node_modules/*
+"----------------------------------------------------
+" jsdoc
+"----------------------------------------------------
+let g:javascript_plugin_jsdoc = 1
+let g:jsdoc_default_mapping = 0
+nnoremap <silent> <Space>j :JsDoc<CR>
 
 "----------------------------------------------------
 " pcごとの設定を読み込む

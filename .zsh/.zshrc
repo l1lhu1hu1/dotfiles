@@ -113,7 +113,9 @@ source ~/dotfiles/.zsh/.aliases.zsh
 eval "$(direnv hook zsh)"
 
 local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
-[ -e $local_alias ] && source $local_alias
+if [ -e $local_alias ]; then
+  source $local_alias
+fi
 
 #####################################################path######################################################
 # 重複パスを登録しない
@@ -122,6 +124,8 @@ typeset -U path cdpath fpath manpath
 
 # PC名と同じ名前ののaliasとかpath fileがない場合怒られる
 local_path=~/dotfiles/.zsh/.$(scutil --get ComputerName)_path.zsh
-[ -e $local_path ] && source $local_path
+if [ -e $local_path ]; then
+  source $local_path
+fi
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #####################################################gcloud######################################################
