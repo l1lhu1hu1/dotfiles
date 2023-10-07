@@ -61,9 +61,7 @@ Plug 'mattn/emmet-vim'
 " fzf
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'pseewald/vim-anyfold'
-" Plug 'terryma/vim-multiple-cursors'
-" 現状使用していない
+Plug 'pseewald/vim-anyfold'
 
 "----------------------------------------------------
 " syntax check
@@ -409,25 +407,25 @@ set fileformats=unix,dos,mac " 改行コードの自動判別. 左側が優先�
 "----------------------------------------------------
 " ヤンクをクリップボードへ
 set clipboard=unnamed
-
 "----------------------------------------------------
 " git
 "----------------------------------------------------
 nnoremap <space>gd :Gvdiffsplit<CR>
 "----------------------------------------------------
-" other settings
+" anyfold settings
 "----------------------------------------------------
-" set hidden
-set nobackup
-set noswapfile
-let g:tex_conceal = ''
-
-augroup MyXML
+autocmd Filetype * AnyFoldActivate
+set foldlevel=0
+hi Folded term=NONE cterm=NONE
+augroup anyfoldSettings
   autocmd!
-  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+  autocmd User anyfoldLoaded nmap fj [[
+  autocmd User anyfoldLoaded nmap fk ]]
+  autocmd User anyfoldLoaded nnoremap fo zo
+  autocmd User anyfoldLoaded nnoremap zo zR
+  autocmd User anyfoldLoaded nnoremap fc zc
+  autocmd User anyfoldLoaded nnoremap zc zM
 augroup END
-
 "----------------------------------------------------
 " nvim clipboard key mappings
 "----------------------------------------------------
@@ -601,6 +599,16 @@ nnoremap ; :
 nnoremap <C-z> <nop>
 nnoremap tm :Tem main %<CR>
 set wildignore+=*/dist/*,*/node_modules/*
+
+set nobackup
+set noswapfile
+let g:tex_conceal = ''
+
+augroup MyXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+augroup END
 "----------------------------------------------------
 " jsdoc
 "----------------------------------------------------
