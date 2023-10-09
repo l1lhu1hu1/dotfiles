@@ -43,8 +43,7 @@ Plug 'rhysd/accelerated-jk'
 " yank setting for nvim
 Plug 'bfredl/nvim-miniyank'
 " replace and search plugin
-" TODO 使い方(現状使えてない)
-" Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 " open terminal in vim
 Plug 'vimlab/split-term.vim'
 " make vim moves like vimium
