@@ -578,6 +578,17 @@ nnoremap <C-j> *
 nnoremap <C-k> #
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 
+function! ReplaceWithClipboardWord()
+  normal! viw"*y
+  let @/ = escape(@*, '/\')
+  let cmd = ':%s/'.@/.'/'
+  let replaceWith = input('Replace with: ')
+  let replaceWithEscaped = escape(replaceWith, '/')
+  execute cmd . replaceWithEscaped . '/g'
+endfunction
+
+nnoremap <Space>r :call ReplaceWithClipboardWord()<CR>
+
 "----------------------------------------------------
 " other key mappings
 "----------------------------------------------------
