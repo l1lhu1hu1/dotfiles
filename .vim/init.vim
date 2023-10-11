@@ -578,7 +578,7 @@ nnoremap <C-j> *
 nnoremap <C-k> #
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 
-function! ReplaceWithClipboardWord()
+function! ReplaceWordUnderCursor()
   normal! viw"*y
   let @/ = escape(@*, '/\')
   let cmd = ':%s/'.@/.'/'
@@ -587,7 +587,7 @@ function! ReplaceWithClipboardWord()
   execute cmd . replaceWithEscaped . '/g'
 endfunction
 
-nnoremap <Space>r :call ReplaceWithClipboardWord()<CR>
+nnoremap <Space>r :call ReplaceWordUnderCursor()<CR>
 
 "----------------------------------------------------
 " other key mappings
