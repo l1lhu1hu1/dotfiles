@@ -414,7 +414,7 @@ nnoremap <space>gd :Gvdiffsplit<CR>
 " anyfold settings
 "----------------------------------------------------
 autocmd Filetype * AnyFoldActivate
-set foldlevel=0
+set foldlevel=99
 hi Folded term=NONE cterm=NONE
 augroup anyfoldSettings
   autocmd!
