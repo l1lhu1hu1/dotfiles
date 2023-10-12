@@ -4,7 +4,6 @@ alias res="cd ~/projects/research-project"
 alias gpp="g++ -std=c++11"
 alias minc="g /Applications/Minecraft.app/Contents/MacOS/launcher"
 
-alias ps=procs
 alias cat=bat
 alias trash-rm='echo "This is not the command you are looking for."; false'
 alias tra-p='trash-put'
