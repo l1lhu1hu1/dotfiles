@@ -1,0 +1,23 @@
+{
+  "Debug Variable": {
+    "prefix": "dbv",
+    "body": [
+      "console.log(\"${1}\", ${1});${2}"
+    ],
+    "description": "デバッグ用の変数出力"
+  },
+  "Debug Separator": {
+    "prefix": "dbs",
+    "body": [
+      "console.log(\"###############${1}#################\");${2}"
+    ],
+    "description": "デバッグ用のセパレーター"
+  },
+  "Console Log": {
+    "prefix": "con",
+    "body": [
+      "console.log(\"${1}\");${2}"
+    ],
+    "description": "console.log() の挿入"
+  },
+}

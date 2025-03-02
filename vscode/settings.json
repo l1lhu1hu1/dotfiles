@@ -1,0 +1,103 @@
+{
+  "window.zoomLevel": 3,
+  "vim.useSystemClipboard": true,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "vim.normalModeKeyBindings": [
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "0"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "$"
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "after": [
+        "*"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "after": [
+        "#"
+      ]
+    },
+    {
+      "before": [
+        "j"
+      ],
+      "after": [
+        "j",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "k"
+      ],
+      "after": [
+        "k",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "<C-d>"
+      ],
+      "after": [
+        "<C-d>",
+        "z",
+        "z"
+      ]
+    },
+    {
+      "before": [
+        "<C-u>"
+      ],
+      "after": [
+        "<C-u>",
+        "z",
+        "z"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [
+        "H"
+      ],
+      "after": [
+        "0"
+      ]
+    },
+    {
+      "before": [
+        "L"
+      ],
+      "after": [
+        "$"
+      ]
+    }
+  ],
+  "vim.surround": true,
+  "editor.formatOnSave": true,
+  "terminal.integrated.defaultLocation": "editor"
+}
