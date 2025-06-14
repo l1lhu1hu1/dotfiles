@@ -196,6 +196,12 @@ set hlsearch
 " Window behavior
 set splitright
 
+" File explorer behavior
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 25
+let g:netrw_altv = 1
+
 " Clipboard
 set clipboard=unnamed
 
@@ -290,6 +296,9 @@ nnoremap <C-p> :<C-u>Files<CR>
 nnoremap <silent> <Space>fh :<C-u>:History<CR>
 nnoremap <silent> <Space>fr :Rg <C-R><C-W><CR>
 nnoremap <silent> <Space>fb :<C-u>Buffers<CR>
+
+" File explorer mappings
+nnoremap <C-e> :Lexplore<CR>
 
 " Utility mappings
 nnoremap <silent><Space>cp :let @+=expand("%:p")<CR>
