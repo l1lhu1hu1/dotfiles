@@ -68,9 +68,37 @@ Plug 'prisma/vim-prisma'
 Plug 'tpope/vim-obsession'
 " github copilot ai assistant
 Plug 'github/copilot.vim'
+" lsp configuration
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 " ###################################################
+"----------------------------------------------------
+" LSP Configuration
+"----------------------------------------------------
+lua << EOF
+local lspconfig = require('lspconfig')
+
+-- Show errors inline (virtual text)
+vim.diagnostic.config({
+  virtual_text = true,
+})
+
+-- TypeScript/JavaScript Language Server
+lspconfig.ts_ls.setup{}
+
+-- LSP key mappings
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', '<space>df', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+  end,
+})
+EOF
 "----------------------------------------------------
 " Standard indent visualization (replaces vim-indent-guides)
 set list
