@@ -38,7 +38,6 @@ Plug 'mattn/emmet-vim'
 " fzf (both plugins required: fzf provides vim integration functions, fzf.vim provides commands)
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
 "----------------------------------------------------
 " syntax check
 "----------------------------------------------------
@@ -117,11 +116,10 @@ autocmd CompleteDone * silent! pclose!
 " c++, c, python and etc settings
 "----------------------------------------------------
 augroup autoformat_settings
-  autocmd FileType c,cpp AutoFormatBuffer clang-format
+  autocmd!
   autocmd Filetype php set filetype=html
 augroup END
 autocmd FileType python set shiftwidth=4 tabstop=4 expandtab
-
 "----------------------------------------------------
 " js, rust settings
 "----------------------------------------------------
@@ -203,7 +201,6 @@ set backspace=indent,eol,start " バックスペースキーの有効化
 " visual settings
 "----------------------------------------------------
 syntax enable
-" syntax on
 colorscheme dracula
 
 hi Visual guifg=#000000 guibg=#FFFFFF gui=none
@@ -284,7 +281,6 @@ nnoremap <silent> <Space>fh :<C-u>:History<CR>
 nnoremap <silent> <Space>fr :Rg <C-R><C-W><CR>
 " CtrlP replacement with fzf
 nnoremap <C-p> :<C-u>Files<CR>
-nnoremap <silent> <Space>fb :<C-u>Buffers<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
@@ -306,20 +302,9 @@ noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
 
-inoremap <expr> <C-n> pumvisible() ? "" : "\<C-n>"
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-p> pumvisible() ? "" : "\<C-p>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col-1] =~# '\s'
-endfunction
-
 "----------------------------------------------------
 " tabs and window key mappings
 "----------------------------------------------------
-
 nnoremap s <Nop>
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
@@ -371,8 +356,6 @@ set wildignore+=*/dist/*,*/node_modules/*
 
 set nobackup
 set noswapfile
-
-
 "----------------------------------------------------
 " pcごとの設定を読み込む
 "----------------------------------------------------
