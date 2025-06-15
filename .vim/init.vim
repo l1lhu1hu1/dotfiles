@@ -93,14 +93,18 @@ EOF
 " =====================================================
 " Fixers configuration
 let g:ale_fixers = {
-    \ 'javascript': ['eslint'],
-    \ 'typescript': ['eslint'],
+    \ 'javascript': ['prettier', 'eslint'],
+    \ 'typescript': ['prettier', 'eslint'],
+    \ 'javascriptreact': ['prettier', 'eslint'],
+    \ 'typescriptreact': ['prettier', 'eslint'],
+    \ 'json': ['prettier'],
     \ 'python': ['autopep8'],
-    \ 'css': ['stylelint'],
-    \ 'scss': ['stylelint'],
+    \ 'css': ['prettier'],
+    \ 'scss': ['prettier'],
     \ 'html': ['prettier'],
+    \ 'markdown': ['prettier'],
     \ 'rust': ['rustfmt'],
-    \ 'go': ['gobuild'],
+    \ 'go': ['gofmt'],
 \ }
 
 " Linters configuration
