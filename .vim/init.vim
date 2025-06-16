@@ -247,6 +247,24 @@ autocmd CompleteDone * silent! pclose!
 " Leader key
 let mapleader = "\<Space>"
 
+" Tab movement function
+function! TabMove(direction)
+  let s:current_tab=tabpagenr()
+  let s:total_tabs = tabpagenr("$")
+
+  " Wrap to end
+  if s:current_tab == 1 && a:direction == -1
+    tabmove
+    " Wrap to start
+  elseif s:current_tab == s:total_tabs && a:direction == 1
+    tabmove 0
+    " Normal move
+  else
+    execute (a:direction > 0 ? "+" : "-") . "tabmove"
+  endif
+  echo "Moved to tab " . tabpagenr() . " (previously " . s:current_tab . ")"
+endfunction
+
 " File operations
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
@@ -288,6 +306,8 @@ nnoremap fl gt
 nnoremap fh gT
 nnoremap gt <Nop>
 nnoremap gT <Nop>
+nnoremap fH :call TabMove(-1)<CR>
+nnoremap fL :call TabMove(1)<CR>
 
 " Search mappings
 nnoremap <C-j> *
