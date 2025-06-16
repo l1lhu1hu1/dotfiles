@@ -69,7 +69,20 @@ local lspconfig = require('lspconfig')
 
 -- Show errors inline (virtual text)
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
+  float = {
+    source = "always",
+    border = "rounded",
+    header = "",
+    prefix = "",
+    format = function(diagnostic)
+      return string.format("%s [%s]", diagnostic.message, diagnostic.source or diagnostic.code or "")
+    end,
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
 })
 
 -- TypeScript/JavaScript Language Server
@@ -84,6 +97,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
   end,
 })
 EOF
