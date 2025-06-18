@@ -59,6 +59,10 @@ Plug 'prisma/vim-prisma'                " Prisma schema syntax
 Plug 'tpope/vim-obsession'              " Session management
 Plug 'mattn/vim-sonictemplate'          " Code templates
 
+" Snippets
+Plug 'Shougo/neosnippet.vim'            " Snippet engine
+Plug 'Shougo/neosnippet-snippets'       " Default snippets
+
 call plug#end()
 
 " =====================================================
@@ -234,6 +238,11 @@ let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx,*.php'
 
 " Sonic template
 let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
+
+" Neosnippet
+let g:neosnippet#snippets_directory = '~/.vim/vim-snippets'
+let g:neosnippet#enable_snipmate_compatibility = 1
+imap <C-s> <Plug>(neosnippet_expand_or_jump)
 
 " =====================================================
 " FILE TYPE SPECIFIC SETTINGS
