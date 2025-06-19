@@ -54,6 +54,9 @@ Plug 'editorconfig/editorconfig-vim'    " EditorConfig support
 
 " Language Support
 Plug 'prisma/vim-prisma'                " Prisma schema syntax
+Plug 'leafgarland/typescript-vim'       " TypeScript syntax highlighting
+Plug 'maxmellon/vim-jsx-pretty'         " JSX/React syntax highlighting
+Plug 'pangloss/vim-javascript'          " JavaScript syntax highlighting
 
 " Snippets
 Plug 'SirVer/ultisnips'                 " Snippet engine
@@ -131,6 +134,7 @@ let g:ale_linters = {
 " ALE behavior settings
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '__'
+let g:ale_virtualtext_cursor = 0
 let g:ale_linters_explicit = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
@@ -324,6 +328,10 @@ nnoremap <C-e> :Lexplore<CR>
 nnoremap <silent><Space>cp :let @+=expand("%:p")<CR>
 nnoremap x "_x
 nnoremap ; :
+
+" Error navigation (LSP diagnostics)
+nnoremap <silent><Space>jj <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <silent><Space>kk <cmd>lua vim.diagnostic.goto_prev()<CR>
 
 " Disabled keys
 nnoremap ZZ <nop>
