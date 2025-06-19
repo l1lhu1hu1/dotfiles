@@ -55,13 +55,8 @@ Plug 'editorconfig/editorconfig-vim'    " EditorConfig support
 " Language Support
 Plug 'prisma/vim-prisma'                " Prisma schema syntax
 
-" Session & Templates
-Plug 'tpope/vim-obsession'              " Session management
-Plug 'mattn/vim-sonictemplate'          " Code templates
-
 " Snippets
-Plug 'Shougo/neosnippet.vim'            " Snippet engine
-Plug 'Shougo/neosnippet-snippets'       " Default snippets
+Plug 'SirVer/ultisnips'                 " Snippet engine
 
 call plug#end()
 
@@ -121,8 +116,6 @@ let g:ale_fixers = {
     \ 'scss': ['prettier'],
     \ 'html': ['prettier'],
     \ 'markdown': ['prettier'],
-    \ 'rust': ['rustfmt'],
-    \ 'go': ['gofmt'],
 \ }
 
 " Linters configuration
@@ -133,8 +126,6 @@ let g:ale_linters = {
     \ 'css': ['stylelint'],
     \ 'scss': ['stylelint'],
     \ 'html': ['prettier'],
-    \ 'rust': ['rust-analyzer'],
-    \ 'go': ['gobuild'],
 \ }
 
 " ALE behavior settings
@@ -148,13 +139,6 @@ let g:ale_fix_on_save = 1
 let g:ale_use_neovim_diagnostics_api = 1
 let g:ale_javascript_eslint_suppress_missing_config = 1
 
-" Rust analyzer configuration
-let g:ale_rust_rust_analyzer_executable = 'rust-analyzer'
-let g:ale_rust_analyzer_config = {
-      \   'rust': {
-      \     'clippy_preference': 'on'
-      \   }
-      \ }
 
 " =====================================================
 " UI & APPEARANCE
@@ -234,32 +218,21 @@ set clipboard=unnamed
 let g:fzf_layout = { 'window': '-tabnew' }
 
 " Closetag
-let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx,*.php'
+let g:closetag_filenames = '*.html,*.js,*.jsx,*.tsx'
 
-" Sonic template
-let g:sonictemplate_vim_template_dir = ['~/.config/nvim/templates']
-
-" Neosnippet
-let g:neosnippet#snippets_directory = '~/.vim/vim-snippets'
-let g:neosnippet#enable_snipmate_compatibility = 1
-imap <C-s> <Plug>(neosnippet_expand_or_jump)
-
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<C-s>"
+let g:UltiSnipsEditSplit="vertical"
 " =====================================================
 " FILE TYPE SPECIFIC SETTINGS
 " =====================================================
 " Language-specific indentation and settings
 autocmd FileType python set shiftwidth=4 tabstop=4 expandtab
-autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
 
 " File type associations
 au BufRead,BufNewFile *.md set filetype=markdown
-let g:markdown_fenced_languages = ['javascript', 'ruby', 'go', 'cpp']
+let g:markdown_fenced_languages = ['javascript']
 
-" PHP files treated as HTML for some contexts
-augroup autoformat_settings
-  autocmd!
-  autocmd Filetype php set filetype=html
-augroup END
 
 " Completion behavior
 autocmd CompleteDone * silent! pclose!
