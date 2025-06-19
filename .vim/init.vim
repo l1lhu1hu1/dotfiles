@@ -162,7 +162,6 @@ hi Visual guifg=#000000 guibg=#FFFFFF gui=none
 
 " Status line (vim-airline)
 let g:airline_theme = 'laederon'
-let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 0
 let g:airline#extensions#tabline#show_buffers = 0
