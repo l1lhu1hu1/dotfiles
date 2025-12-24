@@ -67,8 +67,6 @@ call plug#end()
 " LSP CONFIGURATION
 " =====================================================
 lua << EOF
-local lspconfig = require('lspconfig')
-
 -- Show errors inline (virtual text)
 vim.diagnostic.config({
   virtual_text = false,
@@ -88,7 +86,12 @@ vim.diagnostic.config({
 })
 
 -- TypeScript/JavaScript Language Server
-lspconfig.ts_ls.setup{}
+vim.lsp.config.ts_ls = {
+  cmd = { 'typescript-language-server', '--stdio' },
+  filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
+  root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json' },
+}
+vim.lsp.enable('ts_ls')
 
 -- LSP key mappings
 vim.api.nvim_create_autocmd('LspAttach', {
