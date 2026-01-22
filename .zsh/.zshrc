@@ -82,10 +82,8 @@ setopt correct
 setopt no_beep
 # ビープ音の停止(補完時)
 setopt nolistbeep
-alias ls=exa
-# after cd do exa
 setopt auto_cd
-function chpwd() { exa }
+function chpwd() { ls }
 
 function unset_all() {
   unalias -a
@@ -108,9 +106,8 @@ fi
 
 ####################################################alias######################################################
 alias sss='source ~/dotfiles/.zsh/.zshrc'
+alias ls='ls -G'
 source ~/dotfiles/.zsh/.aliases.zsh
-
-eval "$(direnv hook zsh)"
 
 local_alias=~/dotfiles/.zsh/.$(scutil --get ComputerName)_aliases.zsh
 if [ -e $local_alias ]; then
