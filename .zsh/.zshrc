@@ -83,7 +83,7 @@ setopt no_beep
 # ビープ音の停止(補完時)
 setopt nolistbeep
 setopt auto_cd
-function chpwd() { ls }
+function chpwd() { ls -G }
 
 function unset_all() {
   unalias -a
