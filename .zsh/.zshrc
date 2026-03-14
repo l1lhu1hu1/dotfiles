@@ -46,7 +46,9 @@ function select-history() {
   CURSOR=$#BUFFER
 }
 
-set -o vi
+bindkey -v
+bindkey "^?" backward-delete-char
+bindkey "^H" backward-delete-char
 
 zle -N select-history
 bindkey '^e' select-history
