@@ -12,6 +12,8 @@ font-thicken = true
 background-opacity = 1
 
 # カーソル
+cursor-style = bar
+adjust-cursor-thickness = 30
 cursor-opacity = 0.8
 cursor-color = ffffff
 
