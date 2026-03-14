@@ -1,0 +1,48 @@
+# テーマ
+theme = Adventure
+
+# 設定言語
+language = ja
+
+# フォント
+font-size = 24
+font-thicken = true
+
+# 背景透過
+background-opacity = 1
+
+# カーソル
+cursor-opacity = 0.8
+cursor-color = ffffff
+
+
+# macOS 設定
+macos-option-as-alt = true
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+# フォーカス
+keybind = global:alt+k=toggle_visibility
+
+# タブ移動
+keybind = cmd+left=previous_tab
+keybind = cmd+right=next_tab
+keybind = cmd+shift+left=move_tab:-1
+keybind = cmd+shift+right=move_tab:1
+
+# 起動時に前の作業フォルダを引き継ぐ
+window-save-state = always
+
+# shift+enterを改行扱いする
+keybind = shift+enter=text:\x1b\r
+
+# スクロール速度
+mouse-scroll-multiplier = precision:10
+
+# パディング
+window-padding-balance = true
+window-padding-color = extend
+window-padding-x = 0
+window-padding-y = 0
