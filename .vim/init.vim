@@ -103,6 +103,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, { autotrigger = true })
   end,
 })
 EOF
@@ -216,6 +217,7 @@ let g:netrw_altv = 1
 
 " Clipboard
 set clipboard=unnamed
+set completeopt=menu,menuone,noselect
 
 " =====================================================
 " PLUGIN CONFIGURATIONS
@@ -334,6 +336,10 @@ nnoremap ; :
 " Error navigation (LSP diagnostics)
 nnoremap <silent><Space>jj <cmd>lua vim.diagnostic.goto_next()<CR>
 nnoremap <silent><Space>kk <cmd>lua vim.diagnostic.goto_prev()<CR>
+
+" Completion navigation
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Disabled keys
 nnoremap ZZ <nop>
