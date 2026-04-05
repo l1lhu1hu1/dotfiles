@@ -7,6 +7,8 @@ language = ja
 # フォント
 font-size = 24
 font-thicken = true
+font-feature = -calt
+font-feature = -liga
 
 # 背景透過
 background-opacity = 1
