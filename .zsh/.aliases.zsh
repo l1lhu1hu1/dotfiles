@@ -91,3 +91,14 @@ alias dok="docker"
 alias cp="cp -i"
 alias mv="mv -i"
 alias cpf="yes | cp"
+
+function gwt() {
+  if [[ $# -eq 0 ]]; then
+    git wt
+  elif git show-ref --verify --quiet "refs/heads/$1"; then
+    git wt "$1"
+  else
+    git wt -b "$1" "$1/$(basename "$(git rev-parse --show-toplevel)")"
+  fi
+}
+alias gwtd='git wt -d'

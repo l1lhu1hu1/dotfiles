@@ -14,6 +14,9 @@ set nobackup
 set noswapfile
 set wildignore+=*/dist/*,*/node_modules/*
 
+" Python provider (UltiSnips requires pynvim)
+let g:python3_host_prog = expand('~/.config/nvim/venv/bin/python3')
+
 " =====================================================
 " PLUGIN MANAGEMENT
 " =====================================================

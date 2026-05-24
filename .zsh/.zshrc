@@ -52,6 +52,18 @@ bindkey "^H" backward-delete-char
 
 zle -N select-history
 bindkey '^e' select-history
+
+####################################################ghq######################################################
+function ghq-cd-widget() {
+  local dir=$(ghq list --full-path | fzf --prompt="ghq > ")
+  if [ -n "$dir" ]; then
+    BUFFER="cd \"$dir\""
+    zle accept-line
+  fi
+  zle reset-prompt
+}
+zle -N ghq-cd-widget
+bindkey '^]' ghq-cd-widget
 ####################################################suggestion####################################################
 # word区切り
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
@@ -128,3 +140,6 @@ if [ -e $local_path ]; then
 fi
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 #####################################################gcloud######################################################
+
+####################################################git-wt######################################################
+eval "$(git-wt --init zsh)"

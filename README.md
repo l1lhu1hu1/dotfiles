@@ -71,6 +71,19 @@ volta install node
 
 ### Claude Code installation
 
+### ghq
+```sh
+brew install ghq
+```
+
+### git-wt
+```sh
+brew install git-wt
+git config --global wt.basedir .worktrees
+```
+
+worktreeのbase directoryをrepo root直下の `.worktrees` に統一する。
+
 ### Neovimで出ているエラー
 ```
 The `require('lspconfig')` "framework" is deprecated, use vim.lsp.config (see :help lspconfig-nvim-0.11)

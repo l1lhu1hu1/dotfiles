@@ -5,7 +5,7 @@ theme = Adventure
 language = ja
 
 # フォント
-font-size = 24
+font-size = 32
 font-thicken = true
 font-feature = -calt
 font-feature = -liga
